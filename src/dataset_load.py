@@ -82,7 +82,7 @@ def read_dataset(name, data_dir):
 
 
         #dropping non-numerical features and normalizing data
-        cont_types = np.where(df.dtypes=='int')[0]   # =[0,2,4,9,10,11]
+        cont_types = np.where(df.dtypes=='int64')[0]   # =[0,2,4,9,10,11]
         df = df.iloc[:,cont_types]
         data = np.array(df.values, dtype=float)
         
