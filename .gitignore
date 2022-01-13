@@ -1,6 +1,7 @@
 # Specific files
 data/CensusII/USCensus1990raw.data.txt
 data/
+Data/
 FACT_Data_ZIP.zip
 
 # Byte-compiled / optimized / DLL files
