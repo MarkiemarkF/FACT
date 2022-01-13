@@ -1,5 +1,5 @@
 # Specific files
-data/CensusII/USCensus1990raw.data.txt
+data/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

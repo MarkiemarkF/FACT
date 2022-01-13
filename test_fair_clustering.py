@@ -22,9 +22,11 @@ def  main(args):
     dataset = args.dataset
     cluster_option = args.cluster_option
     data_dir = osp.join(args.data_dir, dataset)
-    output_path = data_dir
+    output_path = osp.join(args.output_path, dataset)
     if not osp.exists(data_dir):
         os.makedirs(data_dir)
+    if not osp.exists(output_path):
+        os.makedirs(output_path)        
 
     ## plotting options
     plot_option_clusters_vs_lambda = args.plot_option_clusters_vs_lambda
@@ -47,7 +49,7 @@ def  main(args):
         demograph = datas['demograph']
         K = datas['K'].item()
 
-    log_path = osp.join(data_dir,cluster_option+'_log.txt')
+    log_path = osp.join(output_path,cluster_option+'_log.txt')
     sys.stdout = Logger(log_path)
     # Scale and Normalize Features
     X_org = scale(X_org, axis = 0)

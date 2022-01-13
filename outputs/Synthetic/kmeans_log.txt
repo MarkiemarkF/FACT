@@ -1,0 +1,42 @@
+Cluster number for dataset Synthetic is 2
+Balance of the dataset 1.0
+Number of points in the dataset 400
+Demographic-probabilites: [0.5, 0.5]
+Demographic-numbers per group: [200, 200]
+Inside Lambda  10.0
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.8%Converged
+
+ Elapsed Time in bound_update 0.4307898
+fairness_error = 3.5730
+compute energy
+fair clustering energy = 438.579722270764
+clustering energy = 391.21220358160906
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%Converged
+
+ Elapsed Time in bound_update 0.03668439999999995
+fairness_error = 3.3727
+compute energy
+fair clustering energy = 247.53619072732195
+clustering energy = 201.8734057896639
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.8%[>           ] 0.8%Converged
+
+ Elapsed Time in bound_update 0.03360950000000029
+fairness_error = 3.3727
+compute energy
+fair clustering energy = 247.54575382006487
+clustering energy = 201.85848330458316
+......Job  done......
+4.0809055999999995
+lambda = 10.0, 
+ fairness_error  3.37 and 
+ avg_balance =  0.01 
+ min_balance =  0.01
+Best fairness_error 3.3727 |Error lambda =  10.0
+Best  Avg balance 0.0101 | Avg Balance lambda =  10.0
+Best  Min balance 0.0051 | Min Balance lambda =  10.0
+avg elapsed  4.0809055999999995
