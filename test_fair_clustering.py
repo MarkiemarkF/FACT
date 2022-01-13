@@ -42,6 +42,7 @@ def main(args):
     savepath_compare = osp.join(data_dir, dataset + '.npz')
     if not os.path.exists(savepath_compare):
         X_org, demograph, K = read_dataset(dataset, data_dir)
+        print(f'\nWORKING ON DATASET: {dataset}\n')
         if X_org.shape[0] > 200000:
             np.savez_compressed(savepath_compare, X_org=X_org, demograph=demograph, K=K)
         else:
