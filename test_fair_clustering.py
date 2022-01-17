@@ -108,9 +108,9 @@ def main(args):
         affinity_path = osp.join(data_dir, dataset + '_affinity_ncut.npz')
         knn = 20
         if not osp.exists(affinity_path):
-            A = utils.create_affinity(X, knn, savepath=affinity_path, alg=alg_option)
+            A = utils.create_affinity(X, knn, savepath=affinity_path, alg=alg_option, data=dataset)
         else:
-            A = utils.create_affinity(X, knn, W_path=affinity_path)
+            A = utils.create_affinity(X, knn, W_path=affinity_path, data=dataset)
 
     init_C_path = osp.join(data_dir, '{}_init_{}_{}.npz'.format(dataset, cluster_option, K))
     if not osp.exists(init_C_path):
