@@ -13,10 +13,13 @@ import random
 import warnings
 warnings.filterwarnings('ignore')
 
-def  main(args):
+def main(args, logging=True):
     if args.seed is not None:
         np.random.seed(args.seed)
         random.seed(args.seed)
+
+        print(f"Seed: {args.seed}")
+        print(f"random number: {random.random()}")
 
     ## Options
     dataset = args.dataset
@@ -50,7 +53,9 @@ def  main(args):
         K = datas['K'].item()
 
     log_path = osp.join(output_path,cluster_option+'_log.txt')
-    sys.stdout = Logger(log_path)
+    stdout = sys.stdout
+    if logging:
+        sys.stdout = Logger(log_path)
     # Scale and Normalize Features
     X_org = scale(X_org, axis = 0)
     X = normalizefea(X_org)
@@ -62,7 +67,7 @@ def  main(args):
     print('Balance of the dataset {}'.format(min(V_sum)/max(V_sum)))
 
     print('Number of points in the dataset {}'.format(N))
-#    J = len(V_sum)
+    J = len(V_list)
 
 
     # demographic probability for each V_j
@@ -195,6 +200,17 @@ def  main(args):
 
         plot_balance_vs_clusterE(cluster_option, savefile, filename, lmbdas, fairness_error_set, min_balance_set, avg_balance_set, E_cluster_discrete_set)
 
+    sys.stdout = stdout
+    return {
+        "clustering energy (Objective)": round(E_cluster_discrete_set[-1], 2),
+        "fairness error": round(bestacc, 3),
+        "balance": round(best_min_balance, 2),
+        "time": round(avgelapsed, 1),
+        "N": N,
+        "J": J,
+        "K": K,
+    }
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Clustering with Fairness Constraints")
@@ -227,11 +243,4 @@ if __name__ == '__main__':
     parser.add_argument('--output_path', type=str, metavar='PATH',
                         default=osp.join(working_dir, 'outputs'))
 
-    # Suppress deprecation warnings -----------------------------------------------------
-    # credit: https://stackoverflow.com/questions/14463277/how-to-disable-python-warnings
-    import warnings
-
-    with warnings.catch_warnings():
-        warnings.filterwarnings("ignore", category=FutureWarning)
-        main(parser.parse_args())
-    # -----------------------------------------------------------------------------------                        
+    main(parser.parse_args())
