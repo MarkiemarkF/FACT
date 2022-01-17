@@ -1,4 +1,5 @@
 import numpy as np
+import pandas
 import os
 import sys
 import errno
@@ -122,7 +123,7 @@ def get_fair_accuracy_proportional(u_V,V_list,l,N,K):
     return fairness_error.sum()
 
 
-def create_affinity(X, knn, scale = None, alg = "annoy", savepath = None, W_path = None):
+def create_affinity(X, knn, scale = None, alg = "annoy", savepath = None, W_path = None, data=None):
     N,D = X.shape
     if W_path is not None:
         if W_path.endswith('.mat'):
@@ -130,39 +131,66 @@ def create_affinity(X, knn, scale = None, alg = "annoy", savepath = None, W_path
         elif W_path.endswith('.npz'):
             W = sparse.load_npz(W_path)
     else:
-        
-        print('Compute Affinity ')
-        start_time = timeit.default_timer()
-        if alg == "flann":
-            print('with Flann')
-            flann = FLANN()
-            knnind,dist = flann.nn(X,X,knn, algorithm = "kdtree",target_precision = 0.9,cores = 5);
-            # knnind = knnind[:,1:]
+        if data == 'Drugnet':
+            head, _ = os.path.split(savepath)
+            net_path = os.path.join(head, 'DRUGNET.csv')
+
+            if not os.path.exists(net_path):
+                print('Net data not found for adjacency')
+                quit()
+
+            print('Lading adjacency matrix from file')
+
+            # Remove all rows and columns of unknown gender
+            remove_ids = [191, 201, 204, 265, 266, 273, 288]
+            remove_labels = ['191', '201', '204', '265', '266', '273', '288']
+
+            df_net = pandas.read_csv(net_path, index_col=0)
+            df_net.drop(remove_ids, axis=0, inplace=True)
+            df_net.drop(remove_labels, axis=1, inplace=True)
+
+            N = len(df_net)
+
+            W = sparse.csc_matrix(df_net.values, shape=(N, N), dtype=np.float)
+
+            if isinstance(savepath,str):
+                if savepath.endswith('.npz'):
+                    sparse.save_npz(savepath,W)
+                elif savepath.endswith('.mat'):
+                    sio.savemat(savepath,{'W':W})
         else:
-            nbrs = NearestNeighbors(n_neighbors=knn).fit(X)
-            dist, knnind = nbrs.kneighbors(X)
+            print('Compute Affinity ')
+            start_time = timeit.default_timer()
+            if alg == "flann":
+                print('with Flann')
+                flann = FLANN()
+                knnind,dist = flann.nn(X,X,knn, algorithm = "kdtree",target_precision = 0.9,cores = 5);
+                # knnind = knnind[:,1:]
+            else:
+                nbrs = NearestNeighbors(n_neighbors=knn).fit(X)
+                dist, knnind = nbrs.kneighbors(X)
 
-        row = np.repeat(range(N),knn-1)
-        col = knnind[:,1:].flatten()
-        if scale is None:
-            data = np.ones(X.shape[0]*(knn-1))
-        elif scale is True:
-            scale = np.median(dist[:,1:])
-            data = np.exp((-dist[:,1:]**2)/(2 * scale ** 2)).flatten() 
-        else:
-            data = np.exp((-dist[:,1:]**2)/(2 * scale ** 2)).flatten()
+            row = np.repeat(range(N),knn-1)
+            col = knnind[:,1:].flatten()
+            if scale is None:
+                data = np.ones(X.shape[0]*(knn-1))
+            elif scale is True:
+                scale = np.median(dist[:,1:])
+                data = np.exp((-dist[:,1:]**2)/(2 * scale ** 2)).flatten()
+            else:
+                data = np.exp((-dist[:,1:]**2)/(2 * scale ** 2)).flatten()
 
-        W = sparse.csc_matrix((data, (row, col)), shape=(N,N),dtype=np.float)
-        W = (W + W.transpose(copy=True)) /2
-        elapsed = timeit.default_timer() - start_time
-        print(elapsed)         
+            W = sparse.csc_matrix((data, (row, col)), shape=(N,N),dtype=np.float)
+            W = (W + W.transpose(copy=True)) /2
+            elapsed = timeit.default_timer() - start_time
+            print(elapsed)
 
-        if isinstance(savepath,str):
-            if savepath.endswith('.npz'):
-                sparse.save_npz(savepath,W)
-            elif savepath.endswith('.mat'):
-                sio.savemat(savepath,{'W':W})
-            
+            if isinstance(savepath,str):
+                if savepath.endswith('.npz'):
+                    sparse.save_npz(savepath,W)
+                elif savepath.endswith('.mat'):
+                    sio.savemat(savepath,{'W':W})
+
     return W
 
 

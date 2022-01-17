@@ -8,7 +8,7 @@ import pandas
 __datasets = ['Adult', 'Bank', 'Synthetic', 'Synthetic-unequal', 'CensusII']
 
 # Own datasets
-__datasets += ['Student']
+__datasets += ['Student', 'Drugnet']
 
 def dataset_names():
 
@@ -190,9 +190,9 @@ def read_dataset(name, data_dir):
         n = df.shape[0]
 
         # Sensitive attribute is sex here for testing
-        sex = df['age']
+        sex = df['sex']
         sens_attributes = list(set(sex.astype(str).values))  # ['M', 'F']
-        df = df.drop(columns=['age'])
+        df = df.drop(columns=['sex'])
         sex_num = np.zeros(n, dtype=int)
         sex_num[sex.astype(str).values == sens_attributes[1]] = 1
 
@@ -203,6 +203,38 @@ def read_dataset(name, data_dir):
 
         # TODO: Ook maar random K=10 gedaan lol
         K = 10
+
+    elif name == 'Drugnet':
+        _path = 'DRUGATTR.csv'
+        data_path = os.path.join(data_dir, _path)
+
+        if not os.path.exists(data_path):
+            print(data_path)
+            print('Data does not exist. Quitting.')
+            sys.exit()
+
+        df = pandas.read_csv(data_path, index_col=0)
+
+        # Remove all rows of unknown gender
+        remove_ids = [191, 201, 204, 265, 266, 273, 288]
+        df.drop(remove_ids, inplace=True)
+        n = df.shape[0]
+
+        # Sensitive attribute is Gender here for testing
+        sex = df['Gender']
+        sens_attributes = list(set(sex.astype(str).values))  # [0, 1, 2]
+        df = df.drop(columns=['Gender'])
+        sex_num = np.zeros(n, dtype=int)
+        sex_num[sex.astype(str).values == sens_attributes[1]] = 1
+
+        # dropping non-numerical features and normalizing data
+        cont_types = np.where(df.dtypes == 'int64')[0]
+        df = df.iloc[:, cont_types]
+        data = np.array(df.values, dtype=float)
+
+        # TODO: Ook maar random K=10 gedaan lol
+        K = 10
+
     else:
         pass
 
