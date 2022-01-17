@@ -16,13 +16,12 @@ from data_visualization import plot_clusters_vs_lambda, plot_fairness_vs_cluster
     plot_balance_vs_clusterE
 import random
 
-def main(args, logging=True):
+def main(args, logging=True, seedable=False):
     if args.seed is not None:
         np.random.seed(args.seed)
         random.seed(args.seed)
 
         print(f"Seed: {args.seed}")
-        print(f"random number: {random.random()}")
 
     ## Options
     dataset = args.dataset
@@ -118,10 +117,11 @@ def main(args, logging=True):
             A = utils.create_affinity(X, knn, W_path=affinity_path)
 
     init_C_path = osp.join(data_dir, '{}_init_{}_{}.npz'.format(dataset, cluster_option, K))
-    if not osp.exists(init_C_path):
+    if seedable:
         print('Generating initial seeds')
         C_init, l_init = km_init(X, K, 'kmeans_plus')
-        np.savez(init_C_path, C_init=C_init, l_init=l_init)
+        if not osp.exists(init_C_path):
+            np.savez(init_C_path, C_init=C_init, l_init=l_init)
 
     else:
         temp = np.load(init_C_path)

@@ -169,7 +169,6 @@ def km_init(X, K, C_init, l_init= None):
     """
     Initial seeds
     """
-    print(f"RANDOM NUMBER: {random()}\n{np.random.random(1)}")
     if isinstance(C_init,str):
 
         if C_init == 'kmeans_plus':

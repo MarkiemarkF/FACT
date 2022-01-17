@@ -1,13 +1,2 @@
 dataset,N,J,lmbda,Objective,fairness error,balance,cluster_option,time,seed,lmbda_tune,K
-Synthetic,400,2,10,288.14,0.123,0.48,kmedian,7.5,42,False,2
-Synthetic,400,2,10,288.14,0.123,0.48,kmedian,7.7,43,False,2
-Synthetic,400,2,10,288.14,0.123,0.48,kmedian,8.3,44,False,2
-Synthetic,400,2,10,201.86,3.373,0.01,kmeans,2.2,42,False,2
-Synthetic,400,2,10,201.86,3.373,0.01,kmeans,2.2,43,False,2
-Synthetic,400,2,10,201.86,3.373,0.01,kmeans,2.2,44,False,2
-Synthetic,400,2,10,0.29,0.0,1.0,ncut,11.1,42,False,2
-Synthetic,400,2,10,0.29,0.0,1.0,ncut,10.9,43,False,2
-Synthetic,400,2,10,0.29,0.0,1.0,ncut,11.7,44,False,2
-Synthetic-unequal,400,2,10,174.82,0.0,0.33,kmedian,2.7,42,False,2
-Synthetic-unequal,400,2,10,174.82,0.0,0.33,kmedian,2.6,43,False,2
-Synthetic-unequal,400,2,10,174.82,0.0,0.33,kmedian,2.6,44,False,2
+
