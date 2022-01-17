@@ -7,6 +7,9 @@ import pandas
 
 __datasets = ['Adult', 'Bank', 'Synthetic', 'Synthetic-unequal', 'CensusII']
 
+# Own datasets
+__datasets += ['Student']
+
 def dataset_names():
 
     return __datasets
@@ -19,47 +22,47 @@ def read_dataset(name, data_dir):
     K = []
     if name not in __datasets:
         raise KeyError("Dataset not implemented:",name)
-        
+
     elif name == 'Synthetic':
-        
+
         n_samples = 400
 
         centers = [(1, 1), (2.1, 1), (1, 5), (2.1, 5)]
         data, sex_num = make_blobs(n_samples=n_samples, n_features=2, cluster_std=0.1,
                   centers=centers, shuffle=False, random_state=1)
-        
+
         index = n_samples//2
         sex_num[0:index] = 0
         sex_num[index:n_samples] = 1
         K = 2
-        
+
     elif name == 'Synthetic-unequal':
-        
+
         n_samples = 400
 
         sample_list = [150,150,50,50]
         centers = [(1, 1), (2.1, 1), (1, 3.5), (2.1, 3.5)]
         data, sex_num = make_blobs(n_samples=sample_list, n_features=2, cluster_std=0.13,
                   centers=centers, shuffle=False, random_state=1)
-        
+
         index = sample_list[0]+sample_list[1]
         sex_num[0:index] = 0
         sex_num[index:] = 1
         K = 2
-        
+
     elif name == 'Adult':
-        
+
         _path = 'adult.data'
         data_path = os.path.join(data_dir,_path)
         race_is_sensitive_attribute = 0
-        
+
         if race_is_sensitive_attribute==1:
             m = 5
         else:
             m = 2
         # n = 25000
         K = 10
-        if (not os.path.exists(data_path)): 
+        if (not os.path.exists(data_path)):
             print('Adult data set does not exist in current folder --- Have to download it')
             r = requests.get('https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data', allow_redirects=True)
             if r.status_code == requests.codes.ok:
@@ -68,11 +71,11 @@ def read_dataset(name, data_dir):
                 print('Could not download Adult data set - please download it manually')
                 sys.exit()
             open(data_path, 'wb').write(r.content)
-        
+
         df = pandas.read_csv(data_path, sep=',',header=None)
         # df = df[:n]
         n = df.shape[0]
-        
+
         sens_attr = 9
         sex = df[sens_attr]
         sens_attributes = list(set(sex.astype(str).values))   # =[' Male', ' Female']
@@ -85,9 +88,9 @@ def read_dataset(name, data_dir):
         cont_types = np.where(df.dtypes=='int64')[0]   # =[0,2,4,9,10,11]
         df = df.iloc[:,cont_types]
         data = np.array(df.values, dtype=float)
-        
+
         data = data[:,[0,1,2,3,5]]
-        
+
         #Scale data
         # data = scale(data, axis = 0)
 
@@ -98,7 +101,7 @@ def read_dataset(name, data_dir):
         _path = 'bank-additional-full.csv' # Big dataset with 41108 samples
         # _path = 'bank.csv' # most approaches use this small version with 4521 samples
         data_path = os.path.join(data_dir,_path)
-        if (not os.path.exists(data_path)): 
+        if (not os.path.exists(data_path)):
 
             print('Bank dataset does not exist in current folder --- Have to download it')
             r = requests.get('https://archive.ics.uci.edu/ml/machine-learning-databases/00222/bank-additional.zip', allow_redirects=True)
@@ -117,7 +120,7 @@ def read_dataset(name, data_dir):
         df = pandas.read_csv(data_path,sep=';')
         print(df.columns)
 #        shape = df.shape
-        
+
 #        df = df.loc[np.random.choice(df.index, n, replace=False)]
         sex = df['marital'].astype(str).values
         sens_attributes = list(set(sex))
@@ -128,12 +131,12 @@ def read_dataset(name, data_dir):
         df1 = df.loc[df['marital'] == sens_attributes[0]]
         df2 = df.loc[df['marital'] == sens_attributes[1]]
         df3 = df.loc[df['marital'] == sens_attributes[2]]
-        
+
         df = [df1, df2, df3]
         df = pandas.concat(df)
-        
+
         sex = df['marital'].astype(str).values
-        
+
         df = df[['age','duration','euribor3m', 'nr.employed', 'cons.price.idx', 'campaign']].values
         # df = df[['age','duration','balance']].values
 
@@ -173,12 +176,39 @@ def read_dataset(name, data_dir):
         # data = scale(data, axis = 0)
         K = 20
 
+    # TODO: Now based on Adult code. May have to improve :)
+    elif name == 'Student':
+        _path = 'student_mat_Cortez.csv'
+        data_path = os.path.join(data_dir, _path)
+
+        if not os.path.exists(data_path):
+            print(data_path)
+            print('Data does not exist. Quitting.')
+            sys.exit()
+
+        df = pandas.read_csv(data_path)
+        n = df.shape[0]
+
+        # Sensitive attribute is sex here for testing
+        sex = df['age']
+        sens_attributes = list(set(sex.astype(str).values))  # ['M', 'F']
+        df = df.drop(columns=['age'])
+        sex_num = np.zeros(n, dtype=int)
+        sex_num[sex.astype(str).values == sens_attributes[1]] = 1
+
+        # dropping non-numerical features and normalizing data
+        cont_types = np.where(df.dtypes == 'int64')[0]  # =[0,2,4,9,10,11]
+        df = df.iloc[:, cont_types]
+        data = np.array(df.values, dtype=float)
+
+        # TODO: Ook maar random K=10 gedaan lol
+        K = 10
     else:
         pass
 
     return data, sex_num, K
-    
-    
+
+
 if __name__=='__main__':
 
 
@@ -192,9 +222,8 @@ if __name__=='__main__':
     print('Balance of the dataset {}'.format(min(V_sum)/max(V_sum)))
     u_V = [x/X_org.shape[0] for x in V_sum]
 
-    
-    
-    
-    
-    
-    
+
+
+
+
+
