@@ -1,0 +1,46 @@
+Cluster number for dataset CensusII is 20
+Balance of the dataset 0.9407247585033047
+Number of points in the dataset 2458285
+Demographic-probabilites: [0.48472858110430644, 0.5152714188956935]
+Demographic-numbers per group: [1191601, 1266684]
+Compute Affinity 
+with Flann
+41.716248799999995
+Generating initial seeds
+Inside Lambda  100.0
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%Converged
+
+ Elapsed Time in bound_update 12.056597100000005
+fairness_error = 28.8474
+compute energy
+fair clustering energy = 1404.361351087618
+clustering energy = 2.0715116295788043
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%Converged
+
+ Elapsed Time in bound_update 12.00769680000002
+fairness_error = 29.0387
+compute energy
+fair clustering energy = 1404.361351087426
+clustering energy = 1.8705096917754354
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%Converged
+
+ Elapsed Time in bound_update 12.215207399999997
+fairness_error = 29.1698
+compute energy
+fair clustering energy = 1404.3613510870466
+clustering energy = 1.7683406682153233
+......Job  done......
+148.7580886
+lambda = 100.0, 
+ fairness_error  29.17 and 
+ avg_balance =  0.36 
+ min_balance =  0.00
+Best fairness_error 29.1698 |Error lambda =  100.0
+Best  Avg balance 0.3591 | Avg Balance lambda =  100.0
+Best  Min balance 0.0000 | Min Balance lambda =  100.0
+avg elapsed  148.7580886

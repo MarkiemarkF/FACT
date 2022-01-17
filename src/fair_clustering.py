@@ -1,3 +1,4 @@
+from random import random
 import numpy as np
 from scipy import sparse
 import math
@@ -19,7 +20,6 @@ def kmeans_update(tmp, X):
     """
     """
     # print("ID of process running worker: {}".format(os.getpid()))
-    # X = utils.SHARED_VARS['X_s']
     X_tmp = X[tmp, :]
     c1 = X_tmp.mean(axis = 0)
 
@@ -36,7 +36,6 @@ def kmedian_update(tmp, X):
 
     """
     # print("ID of process running worker: {}".format(os.getpid()))
-    # X = utils.SHARED_VARS['X_s']
     X_tmp = X[tmp,:]
     D = pdist_chunk(X_tmp,reduce_func=reduce_func)
     J = next(D)
@@ -57,7 +56,6 @@ def NormalizedCutEnergy(A, S, clustering):
     num_cluster = 0;
     for k in range(maxclusterid+1):
         S_k = S[:,k]
-        #print S_k
         if 0 == np.sum(clustering==k):
              continue # skip empty cluster
         num_cluster = num_cluster + 1
@@ -83,7 +81,6 @@ def NormalizedCutEnergy_discrete(A, clustering):
     num_cluster = 0;
     for k in range(maxclusterid+1):
         S_k = np.array(clustering == k,dtype=np.float)
-        #print S_k
         if 0 == np.sum(clustering==k):
              continue # skip empty cluster
         num_cluster = num_cluster + 1
@@ -98,7 +95,6 @@ def NormalizedCutEnergy_discrete(A, clustering):
 
 # @jit
 def KernelBound_k(A, d, S_k, N):
-    # S_k = S[:,k]
     volume_s_k = np.dot(np.transpose(d), S_k)
     volume_s_k = volume_s_k[0,0]
     temp = np.dot(np.transpose(S_k), A.dot(S_k)) / (volume_s_k * volume_s_k)
@@ -173,12 +169,11 @@ def km_init(X, K, C_init, l_init= None):
     """
     Initial seeds
     """
+    print(f"RANDOM NUMBER: {random()}\n{np.random.random(1)}")
     if isinstance(C_init,str):
 
         if C_init == 'kmeans_plus':
-            # CHANGED THIS FROM _init_centroids to KMeans(n_clusters=K)._init_centroids
             M =_init_centroids(X,K,init='k-means++')
-            # M =KMeans(n_clusters=K)._init_centroids(X,K,init='k-means++')
             l = km_le(X,M)
             
         elif C_init =='kmeans':
