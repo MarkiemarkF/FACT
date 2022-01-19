@@ -16,6 +16,8 @@ from data_visualization import plot_clusters_vs_lambda, plot_fairness_vs_cluster
     plot_balance_vs_clusterE
 import random
 
+import json
+
 def main(args, logging=True, seedable=False):
     if args.seed is not None:
         np.random.seed(args.seed)
@@ -97,11 +99,17 @@ def main(args, logging=True, seedable=False):
     best_avg_balance = -1
     best_min_balance = -1
 
-    if args.lmbda_tune:
+    if not args.lmbda_tune or args.reprod:
+        lmbdas = [args.lmbda]
+    else:
         print('Lambda tune is true')
         lmbdas = np.arange(0, 10000, 100).tolist()
-    else:
-        lmbdas = [args.lmbda]
+
+    # if args.lmbda_tune:
+    #     print('Lambda tune is true')
+    #     lmbdas = np.arange(0, 10000, 100).tolist()
+    # else:
+    #     lmbdas = [args.lmbda]
 
     length_lmbdas = len(lmbdas)
 
@@ -134,11 +142,21 @@ def main(args, logging=True, seedable=False):
 
         print('Inside Lambda ', lmbda)
 
-        if cluster_option == 'ncut':
+        if args.reprod:
+            with open('bera_res/student.json', 'r') as f:
+                res = json.load(f)
 
+            l = res['l']
+
+            l = np.array(l).astype(int)
+
+            E = {}
+            E['cluster_E_discrete'] = [res['E']]
+            elapsed = 0
+
+        elif cluster_option == 'ncut':
             C, l, elapsed, S, E = fair_clustering(X, K, u_V, V_list, lmbda, fairness, cluster_option, C_init=C_init,
                                                   l_init=l_init, A=A)
-
         else:
 
             C, l, elapsed, S, E = fair_clustering(X, K, u_V, V_list, lmbda, fairness, cluster_option, C_init=C_init,
@@ -188,7 +206,10 @@ def main(args, logging=True, seedable=False):
         avg_balance_set.append(avg_balance)
         min_balance_set.append(min_balance)
         fairness_error_set.append(fairness_error)
-        E_cluster_set.append(E['cluster_E'][-1])
+
+        if not args.reprod:
+            E_cluster_set.append(E['cluster_E'][-1])
+
         E_cluster_discrete_set.append(E['cluster_E_discrete'][-1])
 
     avgelapsed = sum(elapsetimes) / len(elapsetimes)
@@ -248,5 +269,7 @@ if __name__ == '__main__':
                         default=osp.join(working_dir, 'data'))
     parser.add_argument('--output_path', type=str, metavar='PATH',
                         default=osp.join(working_dir, 'outputs'))
+
+    parser.add_argument('--reprod', type=str2bool, default=True)
 
     main(parser.parse_args())

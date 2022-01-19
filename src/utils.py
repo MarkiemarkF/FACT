@@ -152,12 +152,6 @@ def create_affinity(X, knn, scale = None, alg = "annoy", savepath = None, W_path
             N = len(df_net)
 
             W = sparse.csc_matrix(df_net.values, shape=(N, N), dtype=np.float)
-
-            if isinstance(savepath,str):
-                if savepath.endswith('.npz'):
-                    sparse.save_npz(savepath,W)
-                elif savepath.endswith('.mat'):
-                    sio.savemat(savepath,{'W':W})
         else:
             print('Compute Affinity ')
             start_time = timeit.default_timer()
@@ -185,11 +179,11 @@ def create_affinity(X, knn, scale = None, alg = "annoy", savepath = None, W_path
             elapsed = timeit.default_timer() - start_time
             print(elapsed)
 
-            if isinstance(savepath,str):
-                if savepath.endswith('.npz'):
-                    sparse.save_npz(savepath,W)
-                elif savepath.endswith('.mat'):
-                    sio.savemat(savepath,{'W':W})
+        if isinstance(savepath,str):
+            if savepath.endswith('.npz'):
+                sparse.save_npz(savepath,W)
+            elif savepath.endswith('.mat'):
+                sio.savemat(savepath,{'W':W})
 
     return W
 
