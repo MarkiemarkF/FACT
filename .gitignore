@@ -2,9 +2,8 @@
 data/
 Data/
 FACT_Data_ZIP.zip
-Bera/
-bera/
-bera_res/
+Bera/data
+bera/data
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
