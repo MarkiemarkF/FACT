@@ -23,7 +23,7 @@ def get_res(path="output/2022-01-19-11:01:40"):
 
 
 for dataset in ['student']:
-    path = f'../FACT-main/bera_res/{dataset}.json'
+    path = f'../bera_res/{dataset}.json'
 
     if not os.path.exists(path):
         E, l = get_res(f"output/{dataset}")
