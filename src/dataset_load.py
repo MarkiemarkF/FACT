@@ -178,7 +178,7 @@ def read_dataset(name, data_dir):
 
     # TODO: Now based on Adult code. May have to improve :)
     elif name == 'Student':
-        _path = 'student_mat_Cortez.csv'
+        _path = 'student_mat_Cortez_sexmod.csv'
         data_path = os.path.join(data_dir, _path)
 
         if not os.path.exists(data_path):
@@ -202,7 +202,7 @@ def read_dataset(name, data_dir):
         data = np.array(df.values, dtype=float)
 
         # TODO: Ook maar random K=10 gedaan lol
-        K = 10
+        K = 2
 
     elif name == 'Drugnet':
         _path = 'DRUGATTR.csv'
