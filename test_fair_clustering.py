@@ -120,8 +120,10 @@ def main(args, logging=True, seedable=False):
     if seedable:
         print('Generating initial seeds')
         C_init, l_init = km_init(X, K, 'kmeans_plus')
-        if not osp.exists(init_C_path):
-            np.savez(init_C_path, C_init=C_init, l_init=l_init)
+    elif not osp.exists(init_C_path):
+        print('Generating initial seeds')
+        C_init, l_init = km_init(X, K, 'kmeans_plus')        
+        np.savez(init_C_path, C_init=C_init, l_init=l_init)
 
     else:
         temp = np.load(init_C_path)

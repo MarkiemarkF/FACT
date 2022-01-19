@@ -228,8 +228,9 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
     E_cluster_discrete = []
     fairness_error = 0.0
     oldE = 1e100
+    bestE = 0
 
-    maxiter = 100
+    maxiter = 20
     utils.init(X_s =X)
     pool = multiprocessing.Pool(processes=20)
     if A is not None:
@@ -294,8 +295,8 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
                 
             bound_iterations = 5000
 
-            l,S,bound_E = bound_update(a_p, u_V, V_list, lmbda, bound_iterations)
-            fairness_error = get_fair_accuracy_proportional(u_V,V_list,l,N,K)
+            l,S,fairness_error = bound_update(a_p, u_V, V_list, lmbda, bound_iterations)
+            # fairness_error = get_fair_accuracy_proportional(u_V,V_list,l,N,K) # Now doing this in bound_update
             print('fairness_error = {:0.4f}'.format(fairness_error))
 
         else:
@@ -322,12 +323,13 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
                 break
 
 
-        if (i>1 and (abs(currentE-oldE)<= 1e-4*abs(oldE))):
+        if (i>1 and (abs(currentE-oldE)<= 1e-4*abs(oldE)) or (abs(currentE-bestE)<= 1e-8*abs(bestE))):
             print('......Job  done......')
             break
 
-        else:       
+        else:
             oldE = currentE.copy()
+            bestE = max(bestE, currentE)
 
     pool.close()
     pool.join()

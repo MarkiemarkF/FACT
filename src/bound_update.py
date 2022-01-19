@@ -6,6 +6,8 @@ from src.progressBar import printProgressBar
 from numba import  jit
 import numexpr as ne
 
+from .utils import get_fair_accuracy_proportional
+
 def normalize(S_in):
 
     maxcol = S_in.max(1)[:,np.newaxis]
@@ -63,10 +65,12 @@ def bound_update(a_p, u_V, V_list, bound_lambda, bound_iteration = 200, debug=Fa
     print("Inside Bound Update . . .")
     N,K = a_p.shape
     oldE = float('inf')
+    oldF = float('inf')
     J = len(u_V)
+    bestE = 0
     
 
-# Initialize the S
+    # Initialize the S
     S = np.exp((-a_p))
     S = normalize_2(S)
     L = 2.0
@@ -98,18 +102,24 @@ def bound_update(a_p, u_V, V_list, bound_lambda, bound_iteration = 200, debug=Fa
 
         E = bound_energy(S, S_in, a_p, b_term, L, bound_lambda)
         # print('Bound Energy {} at iteration {} '.format(E,i))
-        report_E = E
-        
-        if (i>1 and (abs(E-oldE)<= 1e-5*abs(oldE))):
+        l = np.argmax(S,axis=1)
+        F = get_fair_accuracy_proportional(u_V,V_list,l,N,K)
+
+        if (i>1 and (abs(E-oldE)<= 1e-5*abs(oldE)) or E == bestE):
+        # if (i>1 and (abs(F-oldF)<= 1e-200*abs(oldF))):
             print('Converged')
             break
 
         else:
-            oldE = E; report_E = E
+            oldE = E
+            oldF = F
+            bestE = max(bestE, E)
+            # print(E)
+            # print('fairness_error = {}'.format(F))
 
     elapsed = timeit.default_timer() - start_time
     print('\n Elapsed Time in bound_update', elapsed)
     l = np.argmax(S,axis=1)
     
-    return l,S,report_E
+    return l,S,F
 
