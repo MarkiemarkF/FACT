@@ -1,5 +1,5 @@
+import pandas as pd
 import numpy as np
 
 data = np.load('data/Synthetic/Synthetic.npz')
-for key, value in data.items():
-    np.savetxt("." + key + ".csv", value)
+pd.DataFrame(data).to_csv("data/Synthetic/synthetic.csv")
