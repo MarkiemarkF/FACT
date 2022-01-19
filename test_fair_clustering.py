@@ -125,18 +125,15 @@ def main(args, logging=True, seedable=False):
             A = utils.create_affinity(X, knn, W_path=affinity_path, data=dataset)
 
     init_C_path = osp.join(data_dir, '{}_init_{}_{}.npz'.format(dataset, cluster_option, K))
-    if seedable:
-        print('Generating initial seeds')
-        C_init, l_init = km_init(X, K, 'kmeans_plus')
-    elif not osp.exists(init_C_path):
-        print('Generating initial seeds')
-        C_init, l_init = km_init(X, K, 'kmeans_plus')        
-        np.savez(init_C_path, C_init=C_init, l_init=l_init)
-
-    else:
+    if not seedable and osp.exists(init_C_path):
         temp = np.load(init_C_path)
         C_init = temp['C_init']  # Load initial seeds
         l_init = temp['l_init']
+    else:
+        print('Generating initial seeds')
+        C_init, l_init = km_init(X, K, 'kmeans_plus')
+    if not osp.exists(init_C_path):       
+        np.savez(init_C_path, C_init=C_init, l_init=l_init)
 
     for count, lmbda in enumerate(lmbdas):
 
