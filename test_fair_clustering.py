@@ -44,6 +44,7 @@ def main(args, logging=True, seedable=False):
     # ###  Data load
     savepath_compare = osp.join(data_dir, dataset + '.npz')
     if not os.path.exists(savepath_compare):
+        print('f')
         X_org, demograph, K = read_dataset(dataset, data_dir)
         print(f'\nWORKING ON DATASET: {dataset}\n')
         if X_org.shape[0] > 200000:
@@ -57,6 +58,7 @@ def main(args, logging=True, seedable=False):
         demograph = datas['demograph']
         K = datas['K'].item()
 
+    
     log_path = osp.join(output_path,cluster_option+'_log.txt')
     stdout = sys.stdout
     if logging:

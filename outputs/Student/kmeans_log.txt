@@ -1,0 +1,14 @@
+Cluster number for dataset Student is 2
+Balance of the dataset 0.8990384615384616
+Number of points in the dataset 395
+Demographic-probabilites: [0.47341772151898737, 0.5265822784810127]
+Demographic-numbers per group: [187, 208]
+Inside Lambda  10.0
+lambda = 10.0, 
+ fairness_error  0.01 and 
+ avg_balance =  0.83 
+ min_balance =  0.73
+Best fairness_error 0.0056 |Error lambda =  10.0
+Best  Avg balance 0.8327 | Avg Balance lambda =  10.0
+Best  Min balance 0.7297 | Min Balance lambda =  10.0
+avg elapsed  0.0
