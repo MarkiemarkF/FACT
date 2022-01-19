@@ -17,6 +17,7 @@ from data_visualization import plot_clusters_vs_lambda, plot_fairness_vs_cluster
 import random
 
 import json
+import pandas
 
 def main(args, logging=True, seedable=False):
     if args.seed is not None:
@@ -44,7 +45,6 @@ def main(args, logging=True, seedable=False):
     # ###  Data load
     savepath_compare = osp.join(data_dir, dataset + '.npz')
     if not os.path.exists(savepath_compare):
-        print('f')
         X_org, demograph, K = read_dataset(dataset, data_dir)
         print(f'\nWORKING ON DATASET: {dataset}\n')
         if X_org.shape[0] > 200000:
