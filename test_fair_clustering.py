@@ -58,7 +58,7 @@ def main(args, logging=True, seedable=False):
         demograph = datas['demograph']
         K = datas['K'].item()
 
-    
+
     log_path = osp.join(output_path,cluster_option+'_log.txt')
     stdout = sys.stdout
     if logging:
@@ -134,7 +134,7 @@ def main(args, logging=True, seedable=False):
     else:
         print('Generating initial seeds')
         C_init, l_init = km_init(X, K, 'kmeans_plus')
-    if not osp.exists(init_C_path):       
+    if not osp.exists(init_C_path):
         np.savez(init_C_path, C_init=C_init, l_init=l_init)
 
     for count, lmbda in enumerate(lmbdas):

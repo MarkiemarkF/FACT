@@ -13,8 +13,13 @@ import src.utils as utils
 import multiprocessing
 from numba import  jit
 import numexpr as ne
-
 from functools import partial
+
+# ----------------------------------------------
+# Additional loading for Kernel based Clustering
+ from kernel import polynomial_kernel, radial_kernel, tanh_kernel, a
+# ----------------------------------------------
+
 # import pdb
 def kmeans_update(tmp, X):
     """
@@ -48,7 +53,7 @@ def NormalizedCutEnergy(A, S, clustering):
         d = np.sum(A, axis=1)
 
     elif isinstance(A, sparse.csc_matrix):
-        
+
         d = A.sum(axis=1)
 
     maxclusterid = np.max(clustering)
@@ -105,14 +110,14 @@ def KernelBound_k(A, d, S_k, N):
 
 @jit
 def km_le(X,M):
-    
+
     """
     Discretize the assignments based on center
-    
+
     """
-    e_dist = ecdist(X,M)          
+    e_dist = ecdist(X,M)
     l = e_dist.argmin(axis=1)
-        
+
     return l
 
 # Fairness term calculation
@@ -130,7 +135,7 @@ def km_discrete_energy(e_dist,l,k):
 def compute_energy_fair_clustering(X, C, l, S, u_V, V_list, bound_lambda, A = None, method_cl='kmeans'):
     """
     compute fair clustering energy
-    
+
     """
     print('compute energy')
     J = len(u_V)
@@ -143,7 +148,7 @@ def compute_energy_fair_clustering(X, C, l, S, u_V, V_list, bound_lambda, A = No
         clustering_E_discrete = sum(clustering_E_discrete)
 
     elif method_cl =='ncut':
-        
+
         clustering_E = NormalizedCutEnergy(A,S,l)
         clustering_E_discrete = NormalizedCutEnergy_discrete(A,l)
 
@@ -152,20 +157,20 @@ def compute_energy_fair_clustering(X, C, l, S, u_V, V_list, bound_lambda, A = No
         clustering_E = ne.evaluate('S*e_dist').sum()
         clustering_E_discrete = [km_discrete_energy(e_dist,l,k) for k in range(K)]
         clustering_E_discrete = sum(clustering_E_discrete)
-    
-    # Fairness term 
+
+    # Fairness term
     fairness_E = [fairness_term_V_j(u_V[j],S,V_list[j]) for j in range(J)]
     fairness_E = (bound_lambda*sum(fairness_E)).sum()
-    
+
     E = clustering_E + fairness_E
 
     print('fair clustering energy = {}'.format(E))
     print('clustering energy = {}'.format(clustering_E_discrete))
 
     return E, clustering_E, fairness_E, clustering_E_discrete
-    
+
 def km_init(X, K, C_init, l_init= None):
-    
+
     """
     Initial seeds
     """
@@ -174,7 +179,7 @@ def km_init(X, K, C_init, l_init= None):
         if C_init == 'kmeans_plus':
             M =_init_centroids(X,K,init='k-means++')
             l = km_le(X,M)
-            
+
         elif C_init =='kmeans':
             kmeans = KMeans(n_clusters=K).fit(X)
             l =kmeans.labels_
@@ -200,21 +205,21 @@ def restore_nonempty_cluster (X,K,oldl,oldC,oldS,ts):
 
         else:
             print('try with new seeds')
-            
+
             C,l =  km_init(X,K,C_init)
             sqdist = ecdist(X,C,squared=True)
             S = normalize_2(np.exp((-sqdist)))
             trivial_status = False
-        
+
         return l,C,S,trivial_status
 
 def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans', C_init = "kmeans_plus",
                     l_init = None, A = None):
-    
-    """ 
-    
+
+    """
+
     Proposed fairness clustering method
-    
+
     """
     N,D = X.shape
     start_time = timeit.default_timer()
@@ -240,7 +245,7 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
         oldC = C.copy()
         oldl = l.copy()
         oldS = S.copy()
-        
+
         if i == 0:
             if method == 'kmeans':
                 sqdist = ecdist(X,C,squared=True)
@@ -255,10 +260,14 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
                 sqdist_list = [KernelBound_k(A, d, S[:,k], N) for k in range(K)]
                 sqdist = np.asarray(np.vstack(sqdist_list).T)
                 a_p = sqdist.copy()
+            if method == 'kernel':
+                """
+                Reproducibility
+                """
+                # a_p = a(X, p, k, tanh_kernel, S)
 
-            
         elif method == 'kmeans':
-            
+
             print ('Inside k-means update')
             tmp_list = [np.where(l==k)[0] for k in range(K)]
             C_list = pool.map(partial(kmeans_update, X=X),tmp_list)
@@ -282,17 +291,21 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
             sqdist = np.asarray(np.vstack(sqdist_list).T)
             a_p = sqdist.copy()
 
+        elif method == "kernel":
+            print('Inside kernel update')
+
+
         if fairness ==True and lmbda!=0.0:
 
             l_check = a_p.argmin(axis=1)
-            
+
             # Check for empty cluster
             if (len(np.unique(l_check))!=K):
                 l,C,S,trivial_status = restore_nonempty_cluster(X,K,oldl,oldC,oldS,ts)
                 ts = ts+1
                 if trivial_status:
                     break
-                
+
             bound_iterations = 5000
 
             l,S,fairness_error = bound_update(a_p, u_V, V_list, lmbda, bound_iterations)
@@ -300,22 +313,22 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
             print('fairness_error = {:0.4f}'.format(fairness_error))
 
         else:
-                
+
             if method == 'ncut':
                 l = a_p.argmin(axis=1)
                 S = get_S_discrete(l,N,K)
-            
+
             else:
                 S = get_S_discrete(l,N,K)
                 l = km_le(X,C)
-            
+
         currentE, clusterE, fairE, clusterE_discrete = compute_energy_fair_clustering(X, C, l, S, u_V, V_list,lmbda, A = A, method_cl=method)
         E_org.append(currentE)
         E_cluster.append(clusterE)
         E_fair.append(fairE)
         E_cluster_discrete.append(clusterE_discrete)
-        
-        
+
+
         if (len(np.unique(l))!=K) or math.isnan(fairness_error):
             l,C,S,trivial_status = restore_nonempty_cluster(X,K,oldl,oldC,oldS,ts)
             ts = ts+1
@@ -341,6 +354,3 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
 
 #if __name__ == '__main__':
 #    main()
-
-    
-    
