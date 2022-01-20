@@ -8,7 +8,7 @@ import pandas
 __datasets = ['Adult', 'Bank', 'Synthetic', 'Synthetic-unequal', 'CensusII']
 
 # Own datasets
-__datasets += ['Student', 'Drugnet']
+__datasets += ['Student', 'Drugnet', 'German_Credit', 'Bank_Red']
 
 def dataset_names():
 
@@ -97,7 +97,7 @@ def read_dataset(name, data_dir):
     elif name == 'Bank':
         # n= 6000
         # K = 4
-        K = 10
+        K = 2
         _path = 'bank-additional-full.csv' # Big dataset with 41108 samples
         # _path = 'bank.csv' # most approaches use this small version with 4521 samples
         data_path = os.path.join(data_dir,_path)
@@ -204,6 +204,33 @@ def read_dataset(name, data_dir):
         # TODO: Ook maar random K=10 gedaan lol
         K = 2
 
+    elif name == 'German_Credit':
+        _path = 'german_credit.csv'
+        data_path = os.path.join(data_dir, _path)
+
+        if not os.path.exists(data_path):
+            print(data_path)
+            print('Data does not exist. Quitting.')
+            sys.exit()
+
+        df = pandas.read_csv(data_path)
+        n = df.shape[0]
+
+        # Sensitive attribute is sex here for testing
+        sex = df['Sex']
+        sens_attributes = list(set(sex.astype(str).values))  # ['M', 'F']
+        df = df.drop(columns=['Sex'])
+        sex_num = np.zeros(n, dtype=int)
+        sex_num[sex.astype(str).values == sens_attributes[1]] = 1
+
+        # dropping non-numerical features and normalizing data
+        cont_types = np.where(df.dtypes == 'int64')[0]  # =[0,2,4,9,10,11]
+        df = df.iloc[:, cont_types]
+        data = np.array(df.values, dtype=float)
+
+        # TODO: Ook maar random K=10 gedaan lol
+        K = 2
+
     elif name == 'Drugnet':
         _path = 'DRUGATTR.csv'
         data_path = os.path.join(data_dir, _path)
@@ -234,6 +261,58 @@ def read_dataset(name, data_dir):
 
         # TODO: Ook maar random K=10 gedaan lol
         K = 10
+
+    elif name == 'Bank_Red':
+        # n= 6000
+        # K = 4
+        K = 2
+        _path = 'bank_red.csv'
+        data_path = os.path.join(data_dir,_path)
+        if (not os.path.exists(data_path)):
+
+            print('Bank dataset does not exist in current folder --- Have to download it')
+            r = requests.get('https://archive.ics.uci.edu/ml/machine-learning-databases/00222/bank-additional.zip', allow_redirects=True)
+            # r = requests.get('https://archive.ics.uci.edu/ml/machine-learning-databases/00222/bank.zip', allow_redirects=True)
+            if r.status_code == requests.codes.ok:
+                print('Download successful')
+            else:
+                print('Could not download - please download')
+                sys.exit()
+
+            z = zipfile.ZipFile(io.BytesIO(r.content))
+            # z.extract('bank-additional/bank-additional-full.csv','./data')
+            open(data_path, 'wb').write(z.read('bank-additional/bank-additional-full.csv'))
+            # open(data_path, 'wb').write(z.read('bank.csv'))
+
+        df = pandas.read_csv(data_path,sep=';', header=0)
+        print(df.columns)
+#        shape = df.shape
+
+#        df = df.loc[np.random.choice(df.index, n, replace=False)]
+        sex = df['marital'].astype(str).values
+        sens_attributes = list(set(sex))
+
+        if 'unknown' in sens_attributes:
+            sens_attributes.remove('unknown')
+
+        df1 = df.loc[df['marital'] == sens_attributes[0]]
+        df2 = df.loc[df['marital'] == sens_attributes[1]]
+        df3 = df.loc[df['marital'] == sens_attributes[2]]
+
+        df = [df1, df2, df3]
+        df = pandas.concat(df)
+
+        sex = df['marital'].astype(str).values
+
+        df = df[['age','duration','euribor3m', 'nr.employed', 'cons.price.idx', 'campaign']].values
+        # df = df[['age','duration','balance']].values
+
+        sens_attributes = list(set(sex))
+        sex_num = np.zeros(df.shape[0], dtype=int)
+        sex_num[sex == sens_attributes[1]] = 1
+        sex_num[sex == sens_attributes[2]] = 2
+
+        data = np.array(df, dtype=float)
 
     else:
         pass

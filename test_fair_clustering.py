@@ -142,7 +142,7 @@ def main(args, logging=True, seedable=False):
         print('Inside Lambda ', lmbda)
 
         if args.reprod:
-            with open('bera_res/adult.json', 'r') as f:
+            with open('bera_res/bank_red.json', 'r') as f:
                 res = json.load(f)
 
             l = res['l']
