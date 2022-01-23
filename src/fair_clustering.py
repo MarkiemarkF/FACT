@@ -18,6 +18,7 @@ from functools import partial
 # ----------------------------------------------
 # Additional loading for Kernel based Clustering
 from kernel import polynomial_kernel, radial_kernel, tanh_kernel, a
+# from kernel import a
 # ----------------------------------------------
 
 # import pdb
@@ -214,7 +215,7 @@ def restore_nonempty_cluster (X,K,oldl,oldC,oldS,ts):
         return l,C,S,trivial_status
 
 def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans', C_init = "kmeans_plus",
-                    l_init = None, A = None):
+                    l_init = None, A = None, kernel_type = polynomial_kernel, kernel_args = []):
 
     """
 
@@ -260,11 +261,20 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
                 sqdist_list = [KernelBound_k(A, d, S[:,k], N) for k in range(K)]
                 sqdist = np.asarray(np.vstack(sqdist_list).T)
                 a_p = sqdist.copy()
+
             if method == 'kernel':
                 """
                 Reproducibility
                 """
-                # a_p = a(X, p, k, tanh_kernel, S)
+                S = get_S_discrete(l, N, K)
+                p  = 1
+                a_p = []
+                for k in range(K):
+                    # TODO
+                    a_p_k = a(X, p, k+1, kernel_type, kernel_args, S)
+                    print(a_p_k.shape)
+                    print(a_p_k)
+                    break
 
         elif method == 'kmeans':
 
@@ -293,7 +303,16 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
 
         elif method == "kernel":
             print('Inside kernel update')
+            # S = get_S_discrete(l, N, K)
+            # p  = 1
+            # a_p = []
+            # for k in range(K):
+            #     a_p_k = a(X, p, k+1, kernel, S)
+            #     print(a_p_k)
+            #     break
 
+        print("TYPE OF a_p", print(type(a_p)))
+        print("SHAPE of a_p", a_p.shape)
 
         if fairness ==True and lmbda!=0.0:
 

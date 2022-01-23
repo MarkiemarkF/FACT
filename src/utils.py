@@ -91,7 +91,7 @@ def get_V_jl(x,l,N,K):
 def get_fair_accuracy(u_V,V_list,l,N,K):
     # pdb.set_trace()
     V_j_list  = np.array([get_V_jl(x,l,N,K) for x in V_list])
-    
+
     balance = np.zeros(K)
     J = len(V_list)
     for k in range(K):
@@ -101,12 +101,12 @@ def get_fair_accuracy(u_V,V_list,l,N,K):
         mask = np.ones(balance_temp.shape, dtype=bool)
         np.fill_diagonal(mask,0)
         balance[k] = balance_temp[mask].min()
-        
+
 #    approx_j_per_K = N/(K*V_j_list.shape[0])
 #    error = np.abs(V_j_list - approx_j_per_K)
 #    error = error.sum()/N
-    
-    
+
+
     return balance.min(), balance.mean()
 
 def get_fair_accuracy_proportional(u_V,V_list,l,N,K):
@@ -116,10 +116,10 @@ def get_fair_accuracy_proportional(u_V,V_list,l,N,K):
 #    balance = V_j_list/sum(V_j_list)
     fairness_error = np.zeros(K)
     u_V =np.array(u_V)
-    
+
     for k in range(K):
         fairness_error[k] = (-u_V*np.log(np.maximum(clustered_uV[:,k],1e-20))+u_V*np.log(u_V)).sum()
-    
+
     return fairness_error.sum()
 
 
@@ -190,7 +190,7 @@ def create_affinity(X, knn, scale = None, alg = "annoy", savepath = None, W_path
 
 
 ### supporting functions to make parallel updates of clusters
-    
+
 def n2m(a):
    """
    Return a multiprocessing.Array COPY of a numpy.array, together

@@ -1,0 +1,7 @@
+Cluster number for dataset Synthetic-unequal is 2
+Balance of the dataset 0.3333333333333333
+Number of points in the dataset 400
+Demographic-probabilites: [0.75, 0.25]
+Demographic-numbers per group: [300, 100]
+Generating initial seeds
+Inside Lambda  10.0

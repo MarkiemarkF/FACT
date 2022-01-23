@@ -19,6 +19,8 @@ import random
 import json
 import pandas
 
+from kernel import polynomial_kernel, radial_kernel, tanh_kernel
+
 def main(args, logging=True, seedable=False):
     if args.seed is not None:
         np.random.seed(args.seed)
@@ -29,6 +31,13 @@ def main(args, logging=True, seedable=False):
     ## Options
     dataset = args.dataset
     cluster_option = args.cluster_option
+
+    # _______________________________
+    # KERNEL REPLICATION PART
+    kernel_type = args.kernel_type
+    kernel_args = args.kernel_args
+    # _______________________________
+
     data_dir = osp.join(args.data_dir, dataset)
     output_path = osp.join(args.output_path, dataset)
     if not osp.exists(data_dir):
@@ -57,7 +66,6 @@ def main(args, logging=True, seedable=False):
         X_org = datas['X_org']
         demograph = datas['demograph']
         K = datas['K'].item()
-
 
     log_path = osp.join(output_path,cluster_option+'_log.txt')
     stdout = sys.stdout
@@ -134,6 +142,7 @@ def main(args, logging=True, seedable=False):
     else:
         print('Generating initial seeds')
         C_init, l_init = km_init(X, K, 'kmeans_plus')
+
     if not osp.exists(init_C_path):
         np.savez(init_C_path, C_init=C_init, l_init=l_init)
 
@@ -156,8 +165,11 @@ def main(args, logging=True, seedable=False):
         elif cluster_option == 'ncut':
             C, l, elapsed, S, E = fair_clustering(X, K, u_V, V_list, lmbda, fairness, cluster_option, C_init=C_init,
                                                   l_init=l_init, A=A)
-        else:
 
+        elif cluster_option == 'kernel':
+            C, l, elapsed, S, E = fair_clustering(X, K, u_V, V_list, lmbda, fairness, cluster_option, C_init=C_init,
+                                                  l_init=l_init, kernel_type = kernel_type, kernel_args = kernel_args)
+        else:
             C, l, elapsed, S, E = fair_clustering(X, K, u_V, V_list, lmbda, fairness, cluster_option, C_init=C_init,
                                                   l_init=l_init)
 
@@ -247,6 +259,9 @@ if __name__ == '__main__':
                         choices=dataset_names())
     # clustering method
     parser.add_argument('--cluster_option', type=str, default='ncut')
+    # Kernel specific
+    parser.add_argument('--kernel_type', default = polynomial_kernel)
+    parser.add_argument('--kernel_args', nargs ="+", type = int, default = [1, 2])
 
     # Plot options
     parser.add_argument('--plot_option_clusters_vs_lambda', default=False, type=str2bool,

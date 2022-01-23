@@ -9,17 +9,17 @@ def radial_kernel(x, y, var):
 def tanh_kernel(x, y, a, b):
     return np.tanh(a * np.dot(x, y) + b)
 
-def a(X, p, k, kernel, S):
+def a(X, p, k, kernel_type, kernel_args, S):
     """Returns auxiliary function for Kernel-based VFC."""
 
-    N, _ = S.shape()
+    N, _ = S.shape
 
-    term_1 = kernel(X[p], X[p])
+    term_1 = kernel_type(X[p], X[p], *kernel_args)
     num_2 = 0
     den_2 = 0
 
     for l in range(N):
-        num_2 += S[l, k] * kernel(X[l], X[p])
+        num_2 += S[l, k] * kernel_type(X[l], X[p], *kernel_args)
         den_2 += S[l, k]
 
     term_2 = num_2/den_2
@@ -28,7 +28,7 @@ def a(X, p, k, kernel, S):
 
     for q in range(N):
         for l in range(N):
-            num_3 += S[q, k] * S[l, k] * kernel(X[q], X[l])
+            num_3 += S[q, k] * S[l, k] * kernel_type(X[q], X[l], *kernel_args)
 
         den_3 += S[q, k]
 
