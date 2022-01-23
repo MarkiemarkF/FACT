@@ -17,7 +17,7 @@ from functools import partial
 
 # ----------------------------------------------
 # Additional loading for Kernel based Clustering
- from kernel import polynomial_kernel, radial_kernel, tanh_kernel, a
+from kernel import polynomial_kernel, radial_kernel, tanh_kernel, a
 # ----------------------------------------------
 
 # import pdb
