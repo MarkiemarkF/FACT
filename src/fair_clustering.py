@@ -272,8 +272,7 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
                 for k in range(K):
                     # TODO
                     a_p_k = a(X, p, k+1, kernel_type, kernel_args, S)
-                    print(a_p_k.shape)
-                    print(a_p_k)
+                    print(a_p_k) # is a value? maybe expected value of 2?
                     break
 
         elif method == 'kmeans':
