@@ -4,6 +4,7 @@ Data/
 FACT_Data_ZIP.zip
 Bera/data
 bera/data
+cluster_output/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

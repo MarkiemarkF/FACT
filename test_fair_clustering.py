@@ -55,6 +55,7 @@ def main(args, logging=True, seedable=False):
     plot_option_fairness_vs_clusterE = args.plot_option_fairness_vs_clusterE
     plot_option_balance_vs_clusterE = args.plot_option_balance_vs_clusterE
     plot_option_convergence = args.plot_option_convergence
+    plot_bound_update = args.plot_bound_update
 
     # ###  Data load
     savepath_compare = osp.join(data_dir, dataset + '.npz')
@@ -95,6 +96,7 @@ def main(args, logging=True, seedable=False):
     u_V = [x / N for x in V_sum]  # proportional
     print('Demographic-probabilites: {}'.format(u_V))
     print('Demographic-numbers per group: {}'.format(V_sum))
+    print(f"Lipschitz constant: {args.L}")
 
     #############################################################################
 
@@ -118,7 +120,10 @@ def main(args, logging=True, seedable=False):
         lmbdas = [args.lmbda]
     else:
         print('Lambda tune is true')
-        lmbdas = np.arange(0, 10000, 100).tolist()
+        if args.cluster_option == "ncut":
+            lmbdas = np.arange(0, 10.5, 1).tolist()
+        else:
+            lmbdas = np.arange(0, 10001, 500).tolist()
 
     # if args.lmbda_tune:
     #     print('Lambda tune is true')
@@ -151,6 +156,16 @@ def main(args, logging=True, seedable=False):
     if not osp.exists(init_C_path):
         np.savez(init_C_path, C_init=C_init, l_init=l_init)
 
+    if plot_bound_update: # For testing Lipschitz
+        if cluster_option == "ncut":
+            bound_energy_list, elapsed = fair_clustering(X, K, u_V, V_list, lmbdas[-1], args.L, fairness, cluster_option, C_init=C_init,
+                                                l_init=l_init, A=A, plot_bound_update=plot_bound_update)
+        else:
+            bound_energy_list, elapsed = fair_clustering(X, K, u_V, V_list, lmbdas[-1], args.L, fairness, cluster_option, C_init=C_init,
+                                                l_init=l_init, plot_bound_update=plot_bound_update)
+        sys.stdout = stdout
+        return bound_energy_list, elapsed
+
     for count, lmbda in enumerate(lmbdas):
 
         print('Inside Lambda ', lmbda)
@@ -168,14 +183,14 @@ def main(args, logging=True, seedable=False):
             elapsed = 0
 
         elif cluster_option == 'ncut':
-            C, l, elapsed, S, E = fair_clustering(X, K, u_V, V_list, lmbda, fairness, cluster_option, C_init=C_init,
+            C, l, elapsed, S, E = fair_clustering(X, K, u_V, V_list, lmbda, args.L, fairness, cluster_option, C_init=C_init,
                                                   l_init=l_init, A=A)
 
         elif cluster_option == 'kernel':
-            C, l, elapsed, S, E = fair_clustering(X, K, u_V, V_list, lmbda, fairness, cluster_option, C_init=C_init,
+            C, l, elapsed, S, E = fair_clustering(X, K, u_V, V_list, lmbda, args.L, fairness, cluster_option, C_init=C_init,
                                                   l_init=l_init, kernel_type = kernel_type, kernel_args = kernel_args)
         else:
-            C, l, elapsed, S, E = fair_clustering(X, K, u_V, V_list, lmbda, fairness, cluster_option, C_init=C_init,
+            C, l, elapsed, S, E = fair_clustering(X, K, u_V, V_list, lmbda, args.L, fairness, cluster_option, C_init=C_init,
                                                   l_init=l_init)
 
         min_balance, avg_balance = get_fair_accuracy(u_V, V_list, l, N, K)
@@ -277,11 +292,14 @@ if __name__ == '__main__':
                         help="plot clustering original energy w.r.t balance")
     parser.add_argument('--plot_option_convergence', default=False, type=str2bool,
                         help="plot convergence of the fair clustering energy")
+    parser.add_argument('--plot_bound_update', default=False, type=str2bool,
+                        help="plot (only one) bound update")                        
 
     # Lambda
     parser.add_argument('--lmbda', type=float, default=50)  # specified lambda
     parser.add_argument('--lmbda-tune', type=str2bool, default=True)  # run in a range of different lambdas
-
+    parser.add_argument('--L', type=float, default= 2.0)  # Lipschitz value in bound update
+    
     # misc
     working_dir = osp.dirname(osp.abspath(__file__))
     parser.add_argument('--data_dir', type=str, metavar='PATH',
@@ -289,6 +307,6 @@ if __name__ == '__main__':
     parser.add_argument('--output_path', type=str, metavar='PATH',
                         default=osp.join(working_dir, 'outputs'))
 
-    parser.add_argument('--reprod', type=str2bool, default=True)
+    parser.add_argument('--reprod', type=str2bool, default=False)
 
     main(parser.parse_args())
