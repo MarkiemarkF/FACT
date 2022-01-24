@@ -208,8 +208,8 @@ def restore_nonempty_cluster (X,K,oldl,oldC,oldS,ts):
         
         return l,C,S,trivial_status
 
-def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans', C_init = "kmeans_plus",
-                    l_init = None, A = None):
+def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness = False, method = 'kmeans', C_init = "kmeans_plus",
+                    l_init = None, A = None, plot_bound_update=False):
     
     """ 
     
@@ -228,9 +228,9 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
     E_cluster_discrete = []
     fairness_error = 0.0
     oldE = 1e100
-    bestE = 0
 
-    maxiter = 20
+    maxiter = 100
+    maxtime = 7200
     utils.init(X_s =X)
     pool = multiprocessing.Pool(processes=20)
     if A is not None:
@@ -292,12 +292,15 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
                 ts = ts+1
                 if trivial_status:
                     break
-                
-            bound_iterations = 5000
+            
+            bound_iterations = 10000
 
-            l,S,fairness_error = bound_update(a_p, u_V, V_list, lmbda, bound_iterations)
-            # fairness_error = get_fair_accuracy_proportional(u_V,V_list,l,N,K) # Now doing this in bound_update
+            l,S,bound_energy_list = bound_update(a_p, u_V, V_list, lmbda, L, bound_iterations)
+            fairness_error = get_fair_accuracy_proportional(u_V,V_list,l,N,K)
             print('fairness_error = {:0.4f}'.format(fairness_error))
+
+            if plot_bound_update:
+                return bound_energy_list, timeit.default_timer() - start_time
 
         else:
                 
@@ -323,13 +326,18 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
                 break
 
 
-        if (i>1 and (abs(currentE-oldE)<= 1e-4*abs(oldE)) or (abs(currentE-bestE)<= 1e-8*abs(bestE))):
+        if (i>1 and (abs(currentE-oldE)<= 1e-4*abs(oldE))):
             print('......Job  done......')
             break
 
         else:
             oldE = currentE.copy()
-            bestE = max(bestE, currentE)
+
+        elapsed = timeit.default_timer() - start_time
+        print(f"Elapsed so far: {elapsed}")
+        if elapsed > maxtime:
+            print("Timeout")
+            break
 
     pool.close()
     pool.join()
