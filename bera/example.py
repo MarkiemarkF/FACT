@@ -10,7 +10,7 @@ config.read(config_file)
 
 # Create your own entry in `example_config.ini` and change this str to run
 # your own trial
-config_str = "student" if len(sys.argv) == 1 else sys.argv[1]
+config_str = "bank_red" if len(sys.argv) == 1 else sys.argv[1]
 
 print("Using config_str = {}".format(config_str))
 

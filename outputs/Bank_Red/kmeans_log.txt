@@ -1,0 +1,7 @@
+Cluster number for dataset Bank_Red is 2
+Balance of the dataset 0.17535545023696683
+Number of points in the dataset 301
+Demographic-probabilites: [0.7009966777408638, 0.1760797342192691, 0.12292358803986711]
+Demographic-numbers per group: [211, 53, 37]
+Generating initial seeds
+Inside Lambda  5.0

@@ -3,4 +3,133 @@ Balance of the dataset 0.3333333333333333
 Number of points in the dataset 400
 Demographic-probabilites: [0.75, 0.25]
 Demographic-numbers per group: [300, 100]
-Inside Lambda  1.0
+Inside Lambda  10.0
+<class 'numpy.ndarray'>
+TYPE OF a_p None
+SHAPE of a_p (400, 2)
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.9%[>           ] 0.9%[>           ] 0.9%[>           ] 0.9%[>           ] 0.9%[>           ] 1.0%[>           ] 1.0%[>           ] 1.0%Converged
+
+ Elapsed Time in bound_update 0.21072322300096857
+fairness_error = 1.2462
+compute energy
+fair clustering energy = 541.8647962214651
+clustering energy = 517.7985720435391
+Inside k-means update
+<class 'numpy.ndarray'>
+TYPE OF a_p None
+SHAPE of a_p (400, 2)
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.9%[>           ] 0.9%[>           ] 0.9%[>           ] 0.9%[>           ] 0.9%[>           ] 1.0%[>           ] 1.0%[>           ] 1.0%[>           ] 1.0%[>           ] 1.0%[>           ] 1.1%[>           ] 1.1%Converged
+
+ Elapsed Time in bound_update 0.0214926970002125
+fairness_error = 1.5592
+compute energy
+fair clustering energy = 296.2892517775446
+clustering energy = 269.19974887322627
+Inside k-means update
+<class 'numpy.ndarray'>
+TYPE OF a_p None
+SHAPE of a_p (400, 2)
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.9%[>           ] 0.9%[>           ] 0.9%Converged
+
+ Elapsed Time in bound_update 0.01827094999680412
+fairness_error = 2.0059
+compute energy
+fair clustering energy = 292.0427836076255
+clustering energy = 260.4918688918865
+Inside k-means update
+<class 'numpy.ndarray'>
+TYPE OF a_p None
+SHAPE of a_p (400, 2)
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.8%Converged
+
+ Elapsed Time in bound_update 0.01458788300078595
+fairness_error = 2.5704
+compute energy
+fair clustering energy = 290.3516771020205
+clustering energy = 254.2025479658727
+Inside k-means update
+<class 'numpy.ndarray'>
+TYPE OF a_p None
+SHAPE of a_p (400, 2)
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%Converged
+
+ Elapsed Time in bound_update 0.010701802999392385
+fairness_error = 13.0477
+compute energy
+fair clustering energy = 290.4824463968822
+clustering energy = 249.55790451544652
+Inside k-means update
+<class 'numpy.ndarray'>
+TYPE OF a_p None
+SHAPE of a_p (400, 2)
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.9%Converged
+
+ Elapsed Time in bound_update 0.016292723001242848
+fairness_error = 2.5890
+compute energy
+fair clustering energy = 290.05564743884406
+clustering energy = 253.05329423639978
+Inside k-means update
+<class 'numpy.ndarray'>
+TYPE OF a_p None
+SHAPE of a_p (400, 2)
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.9%[>           ] 0.9%[>           ] 0.9%[>           ] 0.9%[>           ] 0.9%Converged
+
+ Elapsed Time in bound_update 0.018807032000040635
+fairness_error = 2.7475
+compute energy
+fair clustering energy = 289.7722416131915
+clustering energy = 251.7013028193176
+Inside k-means update
+<class 'numpy.ndarray'>
+TYPE OF a_p None
+SHAPE of a_p (400, 2)
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%[>           ] 0.9%[>           ] 0.9%[>           ] 0.9%[>           ] 0.9%[>           ] 0.9%Converged
+
+ Elapsed Time in bound_update 0.019286414000816876
+fairness_error = 2.4610
+compute energy
+fair clustering energy = 289.56147387285995
+clustering energy = 253.81543898005455
+Inside k-means update
+<class 'numpy.ndarray'>
+TYPE OF a_p None
+SHAPE of a_p (400, 2)
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%Converged
+
+ Elapsed Time in bound_update 0.01574586200149497
+fairness_error = 2.4610
+compute energy
+fair clustering energy = 289.48759684341917
+clustering energy = 253.7220143331301
+Inside k-means update
+<class 'numpy.ndarray'>
+TYPE OF a_p None
+SHAPE of a_p (400, 2)
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.7%[>           ] 0.8%[>           ] 0.8%[>           ] 0.8%Converged
+
+ Elapsed Time in bound_update 0.016263309000351
+fairness_error = 2.4610
+compute energy
+fair clustering energy = 289.48759684341917
+clustering energy = 253.7220143331301
+......Job  done......
+0.5476357319967065
+lambda = 10.0, 
+ fairness_error  2.46 and 
+ avg_balance =  0.03 
+ min_balance =  0.00
+Best fairness_error 2.4610 |Error lambda =  10.0
+Best  Avg balance 0.0320 | Avg Balance lambda =  10.0
+Best  Min balance 0.0034 | Min Balance lambda =  10.0
+avg elapsed  0.5476357319967065

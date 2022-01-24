@@ -1,0 +1,58 @@
+Cluster number for dataset Synthetic is 2
+Balance of the dataset 1.0
+Number of points in the dataset 400
+Demographic-probabilites: [0.5, 0.5]
+Demographic-numbers per group: [200, 200]
+Lambda tune is true
+Inside Lambda  0
+X_temp
+D
+J
+j
+c1
+X_temp
+D
+J
+j
+c1
+X_temp
+D
+J
+j
+c1
+X_temp
+D
+J
+j
+c1
+compute energy
+fair clustering energy = 291.3586717928249
+clustering energy = 291.3586717928249
+Inside k-median update
+temp
+C_list
+C
+sqdist
+a_p copy
+compute energy
+fair clustering energy = 286.25287833776383
+clustering energy = 286.25287833776383
+Inside k-median update
+temp
+C_list
+C
+sqdist
+a_p copy
+compute energy
+fair clustering energy = 286.25287833776383
+clustering energy = 286.25287833776383
+......Job  done......
+0.811446337000234
+lambda = 0, 
+ fairness_error  44.67 and 
+ avg_balance =  0.00 
+ min_balance =  0.00
+Best fairness_error 44.6654 |Error lambda =  0
+Best  Avg balance 0.0000 | Avg Balance lambda =  0
+Best  Min balance 0.0000 | Min Balance lambda =  0
+Inside Lambda  100
