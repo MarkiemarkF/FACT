@@ -14,11 +14,11 @@ import multiprocessing
 from numba import  jit
 import numexpr as ne
 from functools import partial
-from tqdm import tqdm
+
 
 # ----------------------------------------------
 # Additional loading for Kernel based Clustering
-from kernel import polynomial_kernel, radial_kernel, tanh_kernel, a
+from kernel import polynomial_kernel, radial_kernel, tanh_kernel, a, kernel_dist_calc
 # from kernel import a
 # ----------------------------------------------
 
@@ -134,7 +134,7 @@ def km_discrete_energy(e_dist,l,k):
     tmp = np.asarray(np.where(l== k)).squeeze()
     return np.sum(e_dist[tmp,k])
 
-def compute_energy_fair_clustering(X, C, l, S, u_V, V_list, bound_lambda, A = None, method_cl='kmeans'):
+def compute_energy_fair_clustering(X, C, l, S, u_V, V_list, bound_lambda, A = None, method_cl='kmeans', kernel_dist = []):
     """
     compute fair clustering energy
 
@@ -161,8 +161,10 @@ def compute_energy_fair_clustering(X, C, l, S, u_V, V_list, bound_lambda, A = No
         clustering_E_discrete = sum(clustering_E_discrete)
 
     elif method_cl == 'kernel':
-        clustering_E = None
-        clustering_E_discrete = None
+        kernel_dist = kernel_dist
+        clustering_E = ne.evaluate('S*kernel_dist').sum()
+        clustering_E_discrete = [km_discrete_energy(kernel_dist,l,k) for k in range(K)]
+        clustering_E_discrete = sum(clustering_E_discrete)
 
 
     # Fairness term
@@ -253,6 +255,7 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
         oldl = l.copy()
         oldS = S.copy()
 
+        kernel_dist = []
         if i == 0:
             if method == 'kmeans':
                 sqdist = ecdist(X,C,squared=True)
@@ -273,19 +276,13 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
                 Reproducibility
                 """
                 S = get_S_discrete(l, N, K)
-                # a_p = []
-                sqdist = []
-                for p in tqdm(range(S.shape[0])):
-                    sqdist_list = [a(X, p, k, kernel_type, kernel_args, S) for k in range(K)]
-                    # a_pp = []
-                    # for k in range(K):
-                    #     a_p_k = a(X, p, k, kernel_type, kernel_args, S)
-                    #     a_pp.append([a_p_k])
-                    # a_p.append(a_pp)
-                    sqdist.append(sqdist_list)
-                sqdist = np.squeeze(np.array(sqdist))
-                a_p = sqdist.copy()
-                # a_p = np.squeeze(np.array(a_p))
+                # kernel_dist = []
+                # for p in tqdm(range(S.shape[0])):
+                #     kernel_dist_list = [a(X, p, k, kernel_type, kernel_args, S) for k in range(K)]
+                #     kernel_dist.append(kernel_dist_list)
+                # kernel_dist = np.squeeze(np.array(kernel_dist))
+                kernel_dist = kernel_dist_calc(X, S, K, kernel_type, kernel_args)
+                a_p = kernel_dist.copy()
 
         elif method == 'kmeans':
 
@@ -314,13 +311,9 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
 
         elif method == "kernel":
             print('Inside kernel update')
-            # S = get_S_discrete(l, N, K)
-            # p  = 1
-            # a_p = []
-            # for k in range(K):
-            #     a_p_k = a(X, p, k+1, kernel, S)
-            #     print(a_p_k)
-            #     break
+            S = get_S_discrete(l, N, K)
+            kernel_dist = kernel_dist_calc(X, S, K, kernel_type, kernel_args)
+            a_p = kernel_dist.copy()
 
         if fairness ==True and lmbda!=0.0:
 
@@ -349,7 +342,7 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
                 S = get_S_discrete(l,N,K)
                 l = km_le(X,C)
 
-        currentE, clusterE, fairE, clusterE_discrete = compute_energy_fair_clustering(X, C, l, S, u_V, V_list,lmbda, A = A, method_cl=method)
+        currentE, clusterE, fairE, clusterE_discrete = compute_energy_fair_clustering(X, C, l, S, u_V, V_list,lmbda, A = A, method_cl=method, kernel_dist = kernel_dist)
         E_org.append(currentE)
         E_cluster.append(clusterE)
         E_fair.append(fairE)

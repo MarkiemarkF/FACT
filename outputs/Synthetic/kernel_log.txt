@@ -7,6 +7,36 @@ Inside Lambda  10.0
 Inside Bound Update . . .
 [>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
 
- Elapsed Time in bound_update 0.13907902199935052
+ Elapsed Time in bound_update 0.16484605699952226
 fairness_error = 3.9170
 compute energy
+fair clustering energy = 650.1522818771339
+clustering energy = 597.4946505832406
+Inside kernel update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%Converged
+
+ Elapsed Time in bound_update 0.01175786000021617
+fairness_error = 3.9170
+compute energy
+fair clustering energy = 649.7167680790658
+clustering energy = 597.4570167555469
+Inside kernel update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%Converged
+
+ Elapsed Time in bound_update 0.014006029003212461
+fairness_error = 3.9170
+compute energy
+fair clustering energy = 649.7167680790658
+clustering energy = 597.4570167555469
+......Job  done......
+1052.9559322979985
+lambda = 10.0, 
+ fairness_error  3.92 and 
+ avg_balance =  0.01 
+ min_balance =  0.01
+Best fairness_error 3.9170 |Error lambda =  10.0
+Best  Avg balance 0.0050 | Avg Balance lambda =  10.0
+Best  Min balance 0.0050 | Min Balance lambda =  10.0
+avg elapsed  1052.9559322979985

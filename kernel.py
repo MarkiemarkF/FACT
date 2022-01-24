@@ -34,3 +34,10 @@ def a(X, p, k, kernel_type, kernel_args, S):
     term_3 = num_3 / (den_3**2)
 
     return term_1 - 2 * term_2 + term_3
+
+def kernel_dist_calc(X, S, K, kernel_type, kernel_args):
+    kernel_dist = []
+    for p in range(S.shape[0]):
+        kernel_dist_list = [a(X, p, k, kernel_type, kernel_args, S) for k in range(K)]
+        kernel_dist.append(kernel_dist_list)
+    return np.squeeze(np.array(kernel_dist))
