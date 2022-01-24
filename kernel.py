@@ -13,7 +13,6 @@ def a(X, p, k, kernel_type, kernel_args, S):
     """Returns auxiliary function for Kernel-based VFC."""
 
     N, _ = S.shape
-
     term_1 = kernel_type(X[p], X[p], *kernel_args)
     num_2 = 0
     den_2 = 0

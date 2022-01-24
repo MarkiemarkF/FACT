@@ -14,6 +14,7 @@ import multiprocessing
 from numba import  jit
 import numexpr as ne
 from functools import partial
+from tqdm import tqdm
 
 # ----------------------------------------------
 # Additional loading for Kernel based Clustering
@@ -159,6 +160,11 @@ def compute_energy_fair_clustering(X, C, l, S, u_V, V_list, bound_lambda, A = No
         clustering_E_discrete = [km_discrete_energy(e_dist,l,k) for k in range(K)]
         clustering_E_discrete = sum(clustering_E_discrete)
 
+    elif method_cl == 'kernel':
+        clustering_E = None
+        clustering_E_discrete = None
+
+
     # Fairness term
     fairness_E = [fairness_term_V_j(u_V[j],S,V_list[j]) for j in range(J)]
     fairness_E = (bound_lambda*sum(fairness_E)).sum()
@@ -267,13 +273,19 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
                 Reproducibility
                 """
                 S = get_S_discrete(l, N, K)
-                p  = 1
-                a_p = []
-                for k in range(K):
-                    # TODO
-                    a_p_k = a(X, p, k+1, kernel_type, kernel_args, S)
-                    print(a_p_k) # is a value? maybe expected value of 2?
-                    break
+                # a_p = []
+                sqdist = []
+                for p in tqdm(range(S.shape[0])):
+                    sqdist_list = [a(X, p, k, kernel_type, kernel_args, S) for k in range(K)]
+                    # a_pp = []
+                    # for k in range(K):
+                    #     a_p_k = a(X, p, k, kernel_type, kernel_args, S)
+                    #     a_pp.append([a_p_k])
+                    # a_p.append(a_pp)
+                    sqdist.append(sqdist_list)
+                sqdist = np.squeeze(np.array(sqdist))
+                a_p = sqdist.copy()
+                # a_p = np.squeeze(np.array(a_p))
 
         elif method == 'kmeans':
 
@@ -309,9 +321,6 @@ def fair_clustering(X, K, u_V, V_list, lmbda, fairness = False, method = 'kmeans
             #     a_p_k = a(X, p, k+1, kernel, S)
             #     print(a_p_k)
             #     break
-
-        print("TYPE OF a_p", print(type(a_p)))
-        print("SHAPE of a_p", a_p.shape)
 
         if fairness ==True and lmbda!=0.0:
 

@@ -1,0 +1,12 @@
+Cluster number for dataset Synthetic is 2
+Balance of the dataset 1.0
+Number of points in the dataset 400
+Demographic-probabilites: [0.5, 0.5]
+Demographic-numbers per group: [200, 200]
+Inside Lambda  10.0
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.13907902199935052
+fairness_error = 3.9170
+compute energy
