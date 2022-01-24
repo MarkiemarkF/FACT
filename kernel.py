@@ -4,7 +4,7 @@ def polynomial_kernel(x, y, b, d):
     return (np.dot(x, y) + b)**d
 
 def radial_kernel(x, y, var):
-    return np.exp(-(-np.linalg.norm(x, y)**2)/(2 * var**2))
+    return np.exp(-(np.linalg.norm(x - y)**2)/(2 * var**2))
 
 def tanh_kernel(x, y, a, b):
     return np.tanh(a * np.dot(x, y) + b)
