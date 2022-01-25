@@ -34,7 +34,12 @@ def main(args, logging=True, seedable=False):
 
     # _______________________________
     # KERNEL REPLICATION PART
-    kernel_type = args.kernel_type
+    if args.kernel_type == "polynomial_kernel":
+        kernel_type = polynomial_kernel
+    elif args.kernel_type == "radial_kernel":
+        kernel_type = radial_kernel
+    elif args.kernel_type == "tanh_kernel":
+        kernel_type = tanh_kernel
     kernel_args = args.kernel_args
     # _______________________________
 
@@ -276,7 +281,7 @@ if __name__ == '__main__':
     parser.add_argument('--cluster_option', type=str, default='ncut')
     # Kernel specific
     parser.add_argument('--kernel_type', default = polynomial_kernel)
-    parser.add_argument('--kernel_args', nargs ="+", type = int, default = [1, 2])
+    parser.add_argument('--kernel_args', nargs ="+", type = float, default = [1, 2])
 
     # Plot options
     parser.add_argument('--plot_option_clusters_vs_lambda', default=False, type=str2bool,
