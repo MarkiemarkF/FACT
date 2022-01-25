@@ -150,7 +150,6 @@ def compute_energy_fair_clustering(X, C, l, S, u_V, V_list, bound_lambda, A = No
         clustering_E_discrete = sum(clustering_E_discrete)
 
     elif method_cl =='ncut':
-
         clustering_E = NormalizedCutEnergy(A,S,l)
         clustering_E_discrete = NormalizedCutEnergy_discrete(A,l)
 
@@ -325,7 +324,7 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness = False, method = 'kme
                 ts = ts+1
                 if trivial_status:
                     break
-            
+
             bound_iterations = 10000
 
             l,S,bound_energy_list = bound_update(a_p, u_V, V_list, lmbda, L, bound_iterations)
