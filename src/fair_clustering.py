@@ -244,7 +244,7 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness = False, method = 'kme
     oldE = 1e100
 
     maxiter = 100
-    maxtime = 7200
+    maxtime = 3600*100 # Number of hours
     utils.init(X_s =X)
     pool = multiprocessing.Pool(processes=20)
     if A is not None:
