@@ -26,8 +26,6 @@ def kernel_d(p, k, kernel_matrix, S, indep_terms):
 
     return term_1 - 2 * term_2 + indep_terms[k]
 
-
-
 def kernel_dist_calc(X, S, K, kernel_type, kernel_args):
 
     """
@@ -53,7 +51,6 @@ def kernel_dist_calc(X, S, K, kernel_type, kernel_args):
     print("Calculating kernel matrix ...")
     kernel_matrix = np.fromfunction(np.vectorize(f), (N, N), dtype=int)
  
-
     indep_terms = []
     for k in range(K):
         num_3, den_3 = 0, 0
