@@ -7,35 +7,35 @@ Lipschitz constant: 2.0
 Inside Lambda  50.0
 Calculating kernel matrix ...
 Inside Bound Update . . .
-[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%Converged
 
- Elapsed Time in bound_update 0.15477914099756163
+ Elapsed Time in bound_update 0.12779536800007918
 fairness_error = 0.0000
 compute energy
-fair clustering energy = 199.07212682896244
-clustering energy = 129.75498427227024
-Elapsed so far: 2.4176172480001696
+fair clustering energy = 1100.3572201136662
+clustering energy = 1031.0423704924424
+Elapsed so far: 1.1533018119998815
 Inside kernel update
 Inside Bound Update . . .
-[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%Converged
 
- Elapsed Time in bound_update 0.020800047997909132
+ Elapsed Time in bound_update 0.0021768249998785905
 fairness_error = 0.0000
 compute energy
-fair clustering energy = 199.07212682896244
-clustering energy = 129.75498427227024
-Elapsed so far: 2.4390278550054063
+fair clustering energy = 1100.3572201136662
+clustering energy = 1031.0423704924424
+Elapsed so far: 1.1561928199998874
 Inside kernel update
 Inside Bound Update . . .
-[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%Converged
 
- Elapsed Time in bound_update 0.019034341996302828
+ Elapsed Time in bound_update 0.0020693609999398177
 fairness_error = 0.0000
 compute energy
-fair clustering energy = 199.07212682896244
-clustering energy = 129.75498427227024
+fair clustering energy = 1100.3572201136662
+clustering energy = 1031.0423704924424
 ......Job  done......
-2.490779151004972
+1.2379367970002022
 lambda = 50.0, 
  fairness_error  0.00 and 
  avg_balance =  1.00 
@@ -43,4 +43,4 @@ lambda = 50.0,
 Best fairness_error 0.0000 |Error lambda =  50.0
 Best  Avg balance 1.0000 | Avg Balance lambda =  50.0
 Best  Min balance 1.0000 | Min Balance lambda =  50.0
-avg elapsed  2.490779151004972
+avg elapsed  1.2379367970002022
