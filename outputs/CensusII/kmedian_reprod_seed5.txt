@@ -1,0 +1,67 @@
+Seed: 5
+Cluster number for dataset CensusII is 20
+Balance of the dataset 0.9407247585033047
+Number of points in the dataset 2458285
+Demographic-probabilites: [0.48472858110430644, 0.5152714188956935]
+Demographic-numbers per group: [1191601, 1266684]
+Lipschitz constant: 2.0
+Generating initial seeds
+Inside Lambda  500000
+Inside Bound Update . . .
+[>           ] 1.8%Converged
+
+ Elapsed Time in bound_update 1504.3639259
+fairness_error = 0.0199
+compute energy
+fair clustering energy = 8859323.681477204
+clustering energy = 1921293.9148561968
+Elapsed so far: 1509.6866135
+Inside k-median update
+Inside Bound Update . . .
+[>           ] 1.7%Converged
+
+ Elapsed Time in bound_update 1408.3780675000003
+fairness_error = 0.0213
+compute energy
+fair clustering energy = 8703073.576883923
+clustering energy = 1764408.5407995179
+Elapsed so far: 2959.6076888000002
+Inside k-median update
+Inside Bound Update . . .
+[>           ] 1.7%Converged
+
+ Elapsed Time in bound_update 1343.4906967000002
+fairness_error = 0.0215
+compute energy
+fair clustering energy = 8687579.986941863
+clustering energy = 1748770.0425882414
+Elapsed so far: 4338.0044881
+Inside k-median update
+Inside Bound Update . . .
+[>           ] 1.7%Converged
+
+ Elapsed Time in bound_update 1229.3393869000001
+fairness_error = 0.0212
+compute energy
+fair clustering energy = 8685734.008938126
+clustering energy = 1747094.1116890465
+Elapsed so far: 5600.64461
+Inside k-median update
+Inside Bound Update . . .
+[>           ] 1.7%Converged
+
+ Elapsed Time in bound_update 1125.9201545000005
+fairness_error = 0.0212
+compute energy
+fair clustering energy = 8685734.008938126
+clustering energy = 1747094.1116890465
+......Job  done......
+6758.358753500001
+lambda = 500000, 
+ fairness_error  0.02 and 
+ avg_balance =  0.93 
+ min_balance =  0.74
+Best fairness_error 0.0212 |Error lambda =  500000
+Best  Avg balance 0.9251 | Avg Balance lambda =  500000
+Best  Min balance 0.7418 | Min Balance lambda =  500000
+avg elapsed  6758.358753500001
