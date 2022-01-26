@@ -17,7 +17,7 @@ from functools import partial
 
 # ----------------------------------------------
 # Additional loading for Kernel based Clustering
-from kernel import kernel_dist_calc
+from kernel import kernel_clustering_update, kernel_d, kernel_dist_calc
 # from kernel import a
 # ----------------------------------------------
 
@@ -258,6 +258,8 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness = False, method = 'kme
                 sqdist = ecdist(X,C,squared=True)
                 a_p = sqdist.copy()
 
+                
+
             if method == 'kmedian':
                 sqdist = ecdist(X,C)
                 a_p = sqdist.copy()
@@ -274,7 +276,6 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness = False, method = 'kme
                 """
                 S = get_S_discrete(l,N,K)
                 kernel_dist = kernel_dist_calc(X, S, K, kernel_type, kernel_args)
-
                 a_p = kernel_dist.copy()
 
         elif method == 'kmeans':
@@ -305,9 +306,7 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness = False, method = 'kme
         elif method == "kernel":
             print('Inside kernel update')
             S = get_S_discrete(l,N,K)
-            kernel_dist = kernel_dist_calc(X, S, K, kernel_type, kernel_args)
-
-            # Find Cs
+            C = kernel_clustering_update(X, l, K, C)
 
             a_p = kernel_dist.copy()
 

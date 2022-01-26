@@ -4,55 +4,43 @@ Number of points in the dataset 400
 Demographic-probabilites: [0.5, 0.5]
 Demographic-numbers per group: [200, 200]
 Lipschitz constant: 2.0
-Inside Lambda  5.0
+Inside Lambda  50.0
+Calculating kernel matrix ...
 Inside Bound Update . . .
-[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%Converged
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
 
- Elapsed Time in bound_update 0.15176885700202547
-fairness_error = nan
+ Elapsed Time in bound_update 0.15477914099756163
+fairness_error = 0.0000
 compute energy
-fair clustering energy = nan
-clustering energy = 1.7042477377385254e+17
-try with new seeds
-Elapsed so far: 1.009081973999855
+fair clustering energy = 199.07212682896244
+clustering energy = 129.75498427227024
+Elapsed so far: 2.4176172480001696
 Inside kernel update
 Inside Bound Update . . .
-[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%Converged
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
 
- Elapsed Time in bound_update 0.0016314280001097359
-fairness_error = nan
+ Elapsed Time in bound_update 0.020800047997909132
+fairness_error = 0.0000
 compute energy
-fair clustering energy = nan
-clustering energy = 2.0483207786844448e+17
-try with new seeds
-Elapsed so far: 1.5454326750041218
+fair clustering energy = 199.07212682896244
+clustering energy = 129.75498427227024
+Elapsed so far: 2.4390278550054063
 Inside kernel update
 Inside Bound Update . . .
-[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%Converged
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
 
- Elapsed Time in bound_update 0.002364050000323914
-fairness_error = nan
+ Elapsed Time in bound_update 0.019034341996302828
+fairness_error = 0.0000
 compute energy
-fair clustering energy = nan
-clustering energy = 2.0479274621147325e+17
-try with new seeds
-Elapsed so far: 2.0874701570064644
-Inside kernel update
-Inside Bound Update . . .
-[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%Converged
-
- Elapsed Time in bound_update 0.0020552249989123084
-fairness_error = nan
-compute energy
-fair clustering energy = nan
-clustering energy = 2.0479274621147325e+17
-not having some labels
-2.713029741003993
-lambda = 5.0, 
- fairness_error  44.67 and 
- avg_balance =  0.00 
- min_balance =  0.00
-Best fairness_error 44.6654 |Error lambda =  5.0
-Best  Avg balance 0.0000 | Avg Balance lambda =  5.0
-Best  Min balance 0.0000 | Min Balance lambda =  5.0
-avg elapsed  2.713029741003993
+fair clustering energy = 199.07212682896244
+clustering energy = 129.75498427227024
+......Job  done......
+2.490779151004972
+lambda = 50.0, 
+ fairness_error  0.00 and 
+ avg_balance =  1.00 
+ min_balance =  1.00
+Best fairness_error 0.0000 |Error lambda =  50.0
+Best  Avg balance 1.0000 | Avg Balance lambda =  50.0
+Best  Min balance 1.0000 | Min Balance lambda =  50.0
+avg elapsed  2.490779151004972

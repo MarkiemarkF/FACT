@@ -34,7 +34,8 @@ def main(args, logging=True, seedable=False):
     # _______________________________
     # KERNEL REPLICATION PART
     kernel_type = args.kernel_type
-    kernel_args = args.kernel_args
+    kernel_args = [float(arg) for arg in args.kernel_args[0].split('_')]
+    
     # _______________________________
 
     data_dir = osp.join(args.data_dir, dataset)
@@ -275,7 +276,7 @@ if __name__ == '__main__':
     parser.add_argument('--cluster_option', type=str, default='ncut')
     # Kernel specific
     parser.add_argument('--kernel_type', type=str, default = 'poly')
-    parser.add_argument('--kernel_args', nargs ="+", type = float, default = [1, 2])
+    parser.add_argument('--kernel_args', nargs ="+", type = str, default = '1_2')
 
     # Plot options
     parser.add_argument('--plot_option_clusters_vs_lambda', default=False, type=str2bool,
