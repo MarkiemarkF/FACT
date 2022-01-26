@@ -112,7 +112,6 @@ def KernelBound_k(A, d, S_k, N):
 
 @jit
 def km_le(X,M):
-
     """
     Discretize the assignments based on center
 
