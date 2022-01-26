@@ -19,7 +19,6 @@ import random
 import json
 import pandas
 
-from kernel import polynomial_kernel, radial_kernel, tanh_kernel
 
 def main(args, logging=True, seedable=False):
     if args.seed is not None:
@@ -34,12 +33,7 @@ def main(args, logging=True, seedable=False):
 
     # _______________________________
     # KERNEL REPLICATION PART
-    if args.kernel_type == "polynomial_kernel":
-        kernel_type = polynomial_kernel
-    elif args.kernel_type == "radial_kernel":
-        kernel_type = radial_kernel
-    elif args.kernel_type == "tanh_kernel":
-        kernel_type = tanh_kernel
+    kernel_type = args.kernel_type
     kernel_args = args.kernel_args
     # _______________________________
 
@@ -280,7 +274,7 @@ if __name__ == '__main__':
     # clustering method
     parser.add_argument('--cluster_option', type=str, default='ncut')
     # Kernel specific
-    parser.add_argument('--kernel_type', default = polynomial_kernel)
+    parser.add_argument('--kernel_type', type=str, default = 'poly')
     parser.add_argument('--kernel_args', nargs ="+", type = float, default = [1, 2])
 
     # Plot options
