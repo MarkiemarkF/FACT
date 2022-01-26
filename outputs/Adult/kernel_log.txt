@@ -1,0 +1,27 @@
+Cluster number for dataset Adult is 10
+Balance of the dataset 0.4943093162000918
+Number of points in the dataset 32561
+Demographic-probabilites: [0.6692054912318418, 0.33079450876815825]
+Demographic-numbers per group: [21790, 10771]
+Lipschitz constant: 2.0
+Inside Lambda  50.0
+0
+3200
+6400
+9600
+12800
+16000
+19200
+22400
+25600
+28800
+32000
+0
+3200
+6400
+9600
+12800
+16000
+19200
+22400
+25600
