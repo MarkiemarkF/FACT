@@ -15,9 +15,11 @@ from src.utils import get_fair_accuracy, get_fair_accuracy_proportional, normali
 from data_visualization import plot_clusters_vs_lambda, plot_fairness_vs_clusterE, plot_convergence, \
     plot_balance_vs_clusterE
 import random
-
 import json
 import pandas
+from sklearn import metrics
+
+
 
 
 def main(args, logging=True, seedable=False):
@@ -34,7 +36,7 @@ def main(args, logging=True, seedable=False):
     # _______________________________
     # KERNEL REPLICATION PART
     kernel_type = args.kernel_type
-    kernel_args = [float(arg) for arg in args.kernel_args[0].split('_')]
+    kernel_args = [float(arg) for arg in args.kernel_args.split('_')]
     
     # _______________________________
 
@@ -110,6 +112,7 @@ def main(args, logging=True, seedable=False):
     bestacc = 1e10
     best_avg_balance = -1
     best_min_balance = -1
+    best_coef = -2 #-1 is worst, 1 best
 
     if not args.lmbda_tune or args.reprod:
         lmbdas = [args.lmbda]
@@ -118,7 +121,7 @@ def main(args, logging=True, seedable=False):
         if args.cluster_option == "ncut":
             lmbdas = np.arange(0, 10.5, 1).tolist()
         else:
-            lmbdas = np.arange(0, 10001, 500).tolist()
+            lmbdas = np.arange(100, 251, 50).tolist()
 
     # if args.lmbda_tune:
     #     print('Lambda tune is true')
@@ -161,6 +164,8 @@ def main(args, logging=True, seedable=False):
         sys.stdout = stdout
         return bound_energy_list, elapsed
 
+
+    coefs = [] 
     for count, lmbda in enumerate(lmbdas):
 
         print('Inside Lambda ', lmbda)
@@ -190,6 +195,9 @@ def main(args, logging=True, seedable=False):
 
         min_balance, avg_balance = get_fair_accuracy(u_V, V_list, l, N, K)
         fairness_error = get_fair_accuracy_proportional(u_V, V_list, l, N, K)
+        silcoef = metrics.silhouette_score(X, l, metric='cosine')
+
+        coefs.append(silcoef)
 
         print(
             'lambda = {}, \n fairness_error {: .2f} and \n avg_balance = {: .2f} \n min_balance = {: .2f}'.format(lmbda,
@@ -220,6 +228,10 @@ def main(args, logging=True, seedable=False):
             bestacc = fairness_error
             best_lambda_acc = lmbda
 
+        if silcoef > best_coef:
+            best_coef = silcoef
+            best_lambda_coef = lmbda
+
         if plot_option_convergence == True and count == 0:
             filename = osp.join(output_path, 'Fair_{}_convergence_{}.png'.format(cluster_option, dataset))
             E_fair = E['fair_cluster_E']
@@ -228,6 +240,7 @@ def main(args, logging=True, seedable=False):
         print('Best fairness_error %0.4f' % bestacc, '|Error lambda = ', best_lambda_acc)
         print('Best  Avg balance %0.4f' % best_avg_balance, '| Avg Balance lambda = ', best_lambda_avg_balance)
         print('Best  Min balance %0.4f' % best_min_balance, '| Min Balance lambda = ', best_lambda_min_balance)
+        print('Best  Coef %0.4f' % best_coef, '| Min Coef lambda = ', best_lambda_coef)
         elapsetimes.append(elapsed)
         avg_balance_set.append(avg_balance)
         min_balance_set.append(min_balance)
@@ -240,7 +253,9 @@ def main(args, logging=True, seedable=False):
 
     avgelapsed = sum(elapsetimes) / len(elapsetimes)
     print('avg elapsed ', avgelapsed)
+    print(coefs)
 
+    
     if plot_option_fairness_vs_clusterE == True and length_lmbdas > 1:
         savefile = osp.join(data_dir, 'Fair_{}_fairness_vs_clusterEdiscrete_{}.npz'.format(cluster_option, dataset))
         filename = osp.join(output_path, 'Fair_{}_fairness_vs_clusterEdiscrete_{}.png'.format(cluster_option, dataset))
@@ -276,7 +291,7 @@ if __name__ == '__main__':
     parser.add_argument('--cluster_option', type=str, default='ncut')
     # Kernel specific
     parser.add_argument('--kernel_type', type=str, default = 'poly')
-    parser.add_argument('--kernel_args', nargs ="+", type = str, default = '1_2')
+    parser.add_argument('--kernel_args', type = str, default = '1_2')
 
     # Plot options
     parser.add_argument('--plot_option_clusters_vs_lambda', default=False, type=str2bool,

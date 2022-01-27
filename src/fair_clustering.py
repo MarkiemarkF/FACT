@@ -14,10 +14,9 @@ import multiprocessing
 from numba import  jit
 import numexpr as ne
 from functools import partial
-
 # ----------------------------------------------
 # Additional loading for Kernel based Clustering
-from kernel import kernel_clustering_update, kernel_d, kernel_dist_calc
+from kernel import kernel_clustering_update, kernel_dist_calc
 # from kernel import a
 # ----------------------------------------------
 
@@ -257,8 +256,6 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
                 sqdist = ecdist(X,C,squared=True)
                 a_p = sqdist.copy()
 
-                
-
             if method == 'kmedian':
                 sqdist = ecdist(X,C)
                 a_p = sqdist.copy()
@@ -270,12 +267,9 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
                 a_p = sqdist.copy()
 
             if method == 'kernel':
-                """
-                Reproducibility
-                """
                 S = get_S_discrete(l,N,K)
-                kernel_dist = kernel_dist_calc(X, S, K, kernel_type, kernel_args)
-                a_p = kernel_dist.copy()
+                sqdist = kernel_dist_calc(X, S, K, kernel_type, kernel_args)
+                a_p = sqdist.copy()
 
         elif method == 'kmeans':
 
@@ -306,8 +300,8 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
             print('Inside kernel update')
             S = get_S_discrete(l,N,K)
             C = kernel_clustering_update(X, l, K, C)
-
-            a_p = kernel_dist.copy()
+            sqdist = kernel_dist_calc(X, S, K, kernel_type, kernel_args) 
+            a_p = sqdist.copy()
 
         if fairness ==True and lmbda!=0.0:
 
@@ -324,6 +318,7 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
 
             l,S,bound_energy_list = bound_update(a_p, u_V, V_list, lmbda, L, bound_iterations)
             fairness_error = get_fair_accuracy_proportional(u_V,V_list,l,N,K)
+
             print('fairness_error = {:0.4f}'.format(fairness_error))
 
             if plot_bound_update:
@@ -337,15 +332,15 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
 
             elif method == 'kernel':
                 S = get_S_discrete(l,N,K)
-                kernel_dist = kernel_dist_calc(X, S, K, kernel_type, kernel_args)
-                l = kernel_dist.argmin(axis=1)
+                sqdist = kernel_dist_calc(X, S, K, kernel_type, kernel_args)
+                l = sqdist.argmin(axis=1)
 
             else:
                 S = get_S_discrete(l,N,K)
                 l = km_le(X,C)
 
         if method == "kernel":
-            currentE, clusterE, fairE, clusterE_discrete = compute_energy_fair_clustering(X, C, l, S, u_V, V_list,lmbda, A=A, method_cl=method, kernel_dist=kernel_dist)
+            currentE, clusterE, fairE, clusterE_discrete = compute_energy_fair_clustering(X, C, l, S, u_V, V_list,lmbda, A=A, method_cl=method, kernel_dist=sqdist)
         else:
             currentE, clusterE, fairE, clusterE_discrete = compute_energy_fair_clustering(X, C, l, S, u_V, V_list,lmbda, A=A, method_cl=method)
         E_org.append(currentE)
