@@ -304,9 +304,9 @@ def read_dataset(name, data_dir):
 
         data = np.array(df, dtype=float)
 
-    elif data == 'bank_2500' or data == 'bank_5000' or data == 'bank_10000':
-        _path = data + '.csv'
-        data_path = os.path.join(data_dir, _path)
+    elif name == 'bank_2500' or name == 'bank_5000' or name == 'bank_10000':
+        _path = name + '.csv'
+        data_path = os.path.join(os.getcwd(), 'data', 'Bank', _path)
 
         if not os.path.exists(data_path):
             print(data_path)
