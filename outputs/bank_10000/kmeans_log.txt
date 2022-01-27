@@ -1,0 +1,481 @@
+Cluster number for dataset bank_10000 is 2
+Balance of the dataset 0.17480006528480496
+Number of points in the dataset 9980
+Demographic-probabilites: [0.27875751503006013, 0.6139278557114228, 0.10731462925851704]
+Demographic-numbers per group: [2782, 6127, 1071]
+Lipschitz constant: 2.0
+Lambda tune is true
+Generating initial seeds
+Inside Lambda  100
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%Converged
+
+ Elapsed Time in bound_update 1.1154787
+fairness_error = 0.0168
+compute energy
+fair clustering energy = 9370.652507700363
+clustering energy = 9188.186664309582
+Elapsed so far: 1.2306861999999998
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%Converged
+
+ Elapsed Time in bound_update 0.6435303000000001
+fairness_error = 0.0171
+compute energy
+fair clustering energy = 6007.534702799424
+clustering energy = 5824.885371860204
+Elapsed so far: 7.393583899999999
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.14734369999999952
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 5863.185190258479
+clustering energy = 5682.2975910182495
+Elapsed so far: 7.5489543
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.13872250000000008
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 5861.878085922755
+clustering energy = 5680.976956130349
+Elapsed so far: 7.695271699999999
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.14001649999999977
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 5861.878085922755
+clustering energy = 5680.976956130349
+......Job  done......
+8.995020700000001
+lambda = 100, 
+ fairness_error  0.02 and 
+ avg_balance =  0.18 
+ min_balance =  0.17
+Best fairness_error 0.0164 |Error lambda =  100
+Best  Avg balance 0.1772 | Avg Balance lambda =  100
+Best  Min balance 0.1716 | Min Balance lambda =  100
+Best  Coef 0.5892 | Min Coef lambda =  100
+Inside Lambda  350
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%Converged
+
+ Elapsed Time in bound_update 0.7940867000000011
+fairness_error = 0.0165
+compute energy
+fair clustering energy = 9822.383919785112
+clustering energy = 9188.256127672801
+Elapsed so far: 0.9316461
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%Converged
+
+ Elapsed Time in bound_update 0.6815397000000019
+fairness_error = 0.0160
+compute energy
+fair clustering energy = 6459.104367440083
+clustering energy = 5825.0237634847745
+Elapsed so far: 8.021804500000002
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.22037710000000033
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 6314.767289057202
+clustering energy = 5682.210448010786
+Elapsed so far: 8.251296100000001
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.19081049999999777
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 6313.553894983264
+clustering energy = 5680.976956130349
+Elapsed so far: 8.451179199999999
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.20391460000000095
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 6313.553894983264
+clustering energy = 5680.976956130349
+......Job  done......
+9.897640599999999
+lambda = 350, 
+ fairness_error  0.02 and 
+ avg_balance =  0.18 
+ min_balance =  0.17
+Best fairness_error 0.0164 |Error lambda =  100
+Best  Avg balance 0.1772 | Avg Balance lambda =  100
+Best  Min balance 0.1716 | Min Balance lambda =  100
+Best  Coef 0.5892 | Min Coef lambda =  100
+Inside Lambda  600
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%Converged
+
+ Elapsed Time in bound_update 0.7868220999999984
+fairness_error = 0.0159
+compute energy
+fair clustering energy = 10274.031620082667
+clustering energy = 9188.511145842385
+Elapsed so far: 0.9190694999999991
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%Converged
+
+ Elapsed Time in bound_update 0.5435865999999976
+fairness_error = 0.0151
+compute energy
+fair clustering energy = 6910.152073839754
+clustering energy = 5825.077481818243
+Elapsed so far: 7.937482499999998
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.15142230000000012
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 6766.358036993795
+clustering energy = 5682.121084023558
+Elapsed so far: 8.0973781
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.1765118000000001
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 6765.192455704746
+clustering energy = 5680.976956130349
+Elapsed so far: 8.282659899999999
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.14347950000000154
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 6765.192455704746
+clustering energy = 5680.976956130349
+......Job  done......
+9.712605400000001
+lambda = 600, 
+ fairness_error  0.02 and 
+ avg_balance =  0.18 
+ min_balance =  0.17
+Best fairness_error 0.0164 |Error lambda =  100
+Best  Avg balance 0.1772 | Avg Balance lambda =  100
+Best  Min balance 0.1716 | Min Balance lambda =  100
+Best  Coef 0.5892 | Min Coef lambda =  100
+Inside Lambda  850
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%Converged
+
+ Elapsed Time in bound_update 0.8418739000000031
+fairness_error = 0.0156
+compute energy
+fair clustering energy = 10725.594360868952
+clustering energy = 9188.705633508938
+Elapsed so far: 0.9666604999999961
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%Converged
+
+ Elapsed Time in bound_update 0.4905719999999931
+fairness_error = 0.0143
+compute energy
+fair clustering energy = 7361.562725217509
+clustering energy = 5825.843171850813
+Elapsed so far: 7.6535571999999945
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.17060860000000133
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 7218.272561543205
+clustering energy = 5682.338342625697
+Elapsed so far: 7.8326496999999975
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.14004489999999947
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 7216.877157541101
+clustering energy = 5680.976956130349
+Elapsed so far: 7.980718400000001
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.13688729999999794
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 7216.877157541101
+clustering energy = 5680.976956130349
+......Job  done......
+9.217641399999998
+lambda = 850, 
+ fairness_error  0.02 and 
+ avg_balance =  0.18 
+ min_balance =  0.17
+Best fairness_error 0.0164 |Error lambda =  100
+Best  Avg balance 0.1772 | Avg Balance lambda =  100
+Best  Min balance 0.1716 | Min Balance lambda =  100
+Best  Coef 0.5892 | Min Coef lambda =  100
+Inside Lambda  1100
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%Converged
+
+ Elapsed Time in bound_update 0.7293643000000003
+fairness_error = 0.0154
+compute energy
+fair clustering energy = 11177.071819600898
+clustering energy = 9188.906022970425
+Elapsed so far: 0.8400755000000046
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%Converged
+
+ Elapsed Time in bound_update 0.6767184999999998
+fairness_error = 0.0139
+compute energy
+fair clustering energy = 7813.779077427608
+clustering energy = 5827.3720847285
+Elapsed so far: 7.3214961000000045
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.18267800000000278
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 7670.595218940456
+clustering energy = 5682.994066082198
+Elapsed so far: 7.513291300000006
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.1631932999999961
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 7668.566040059284
+clustering energy = 5680.976956130349
+Elapsed so far: 7.684494000000001
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.13742189999999965
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 7668.566040059284
+clustering energy = 5680.976956130349
+......Job  done......
+9.016814100000005
+lambda = 1100, 
+ fairness_error  0.02 and 
+ avg_balance =  0.18 
+ min_balance =  0.17
+Best fairness_error 0.0164 |Error lambda =  100
+Best  Avg balance 0.1772 | Avg Balance lambda =  100
+Best  Min balance 0.1716 | Min Balance lambda =  100
+Best  Coef 0.5892 | Min Coef lambda =  100
+Inside Lambda  1350
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%Converged
+
+ Elapsed Time in bound_update 0.7223917000000029
+fairness_error = 0.0151
+compute energy
+fair clustering energy = 11628.382426645112
+clustering energy = 9189.227384222584
+Elapsed so far: 0.8411186000000015
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.7%Converged
+
+ Elapsed Time in bound_update 0.7680280999999951
+fairness_error = 0.0135
+compute energy
+fair clustering energy = 8264.870824571815
+clustering energy = 5828.041865422799
+Elapsed so far: 7.664233700000004
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.2603712000000087
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 8122.907243395681
+clustering energy = 5683.632486027125
+Elapsed so far: 7.9473343999999955
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.1970977000000005
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 8120.218265623846
+clustering energy = 5680.976956130349
+Elapsed so far: 8.156717300000004
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.15504800000000785
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 8120.218265623846
+clustering energy = 5680.976956130349
+......Job  done......
+9.438385599999997
+lambda = 1350, 
+ fairness_error  0.02 and 
+ avg_balance =  0.18 
+ min_balance =  0.17
+Best fairness_error 0.0164 |Error lambda =  100
+Best  Avg balance 0.1772 | Avg Balance lambda =  100
+Best  Min balance 0.1716 | Min Balance lambda =  100
+Best  Coef 0.5892 | Min Coef lambda =  100
+Inside Lambda  1600
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%Converged
+
+ Elapsed Time in bound_update 0.7828839999999957
+fairness_error = 0.0149
+compute energy
+fair clustering energy = 12079.68511185058
+clustering energy = 9189.568061713015
+Elapsed so far: 0.8976874000000095
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.7%Converged
+
+ Elapsed Time in bound_update 0.7064117000000039
+fairness_error = 0.0132
+compute energy
+fair clustering energy = 8714.763101777698
+clustering energy = 5827.4019970190575
+Elapsed so far: 7.411444500000002
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.2397988999999967
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 8574.976404453437
+clustering energy = 5684.030757976554
+Elapsed so far: 7.666088400000007
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.1554768000000024
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 8571.911608966337
+clustering energy = 5680.976956130349
+Elapsed so far: 7.8311893000000055
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.14657660000000305
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 8571.911608966337
+clustering energy = 5680.976956130349
+......Job  done......
+9.160949000000002
+lambda = 1600, 
+ fairness_error  0.02 and 
+ avg_balance =  0.18 
+ min_balance =  0.17
+Best fairness_error 0.0164 |Error lambda =  100
+Best  Avg balance 0.1772 | Avg Balance lambda =  100
+Best  Min balance 0.1716 | Min Balance lambda =  100
+Best  Coef 0.5892 | Min Coef lambda =  100
+Inside Lambda  1850
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%Converged
+
+ Elapsed Time in bound_update 0.7965243999999956
+fairness_error = 0.0146
+compute energy
+fair clustering energy = 12530.896455666414
+clustering energy = 9190.067268589723
+Elapsed so far: 0.9146639000000079
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.4%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.5%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.6%[>           ] 0.7%[>           ] 0.7%Converged
+
+ Elapsed Time in bound_update 0.5812561000000045
+fairness_error = 0.0128
+compute energy
+fair clustering energy = 9165.032069961597
+clustering energy = 5827.60552552968
+Elapsed so far: 7.355823700000002
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.4%Converged
+
+ Elapsed Time in bound_update 0.25232959999999593
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 9027.530796102958
+clustering energy = 5684.900006984742
+Elapsed so far: 7.626012099999997
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.2651050000000055
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 9023.569279936199
+clustering energy = 5680.976956130349
+Elapsed so far: 7.913426999999999
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.0%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.1%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.2%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%[>           ] 0.3%Converged
+
+ Elapsed Time in bound_update 0.2096631000000002
+fairness_error = 0.0164
+compute energy
+fair clustering energy = 9023.569279936199
+clustering energy = 5680.976956130349
+......Job  done......
+9.480249999999998
+lambda = 1850, 
+ fairness_error  0.02 and 
+ avg_balance =  0.18 
+ min_balance =  0.17
+Best fairness_error 0.0164 |Error lambda =  100
+Best  Avg balance 0.1772 | Avg Balance lambda =  100
+Best  Min balance 0.1716 | Min Balance lambda =  100
+Best  Coef 0.5892 | Min Coef lambda =  100
+avg elapsed  9.36491335
