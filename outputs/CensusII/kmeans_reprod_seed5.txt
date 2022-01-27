@@ -1,0 +1,179 @@
+Seed: 5
+Cluster number for dataset CensusII is 20
+Balance of the dataset 0.9407247585033047
+Number of points in the dataset 2458285
+Demographic-probabilites: [0.48472858110430644, 0.5152714188956935]
+Demographic-numbers per group: [1191601, 1266684]
+Lipschitz constant: 2.0
+Generating initial seeds
+Inside Lambda  500000
+Inside Bound Update . . .
+[>           ] 1.5%Converged
+
+ Elapsed Time in bound_update 1253.4138982
+fairness_error = 0.0594
+compute energy
+fair clustering energy = 8576021.163930837
+clustering energy = 1618557.9275952557
+Elapsed so far: 1257.863065
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.1%Converged
+
+ Elapsed Time in bound_update 120.52626539999983
+fairness_error = nan
+compute energy
+fair clustering energy = nan
+clustering energy = 4169071.869780749
+try with new seeds
+Elapsed so far: 1993.4496076
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 0.1%Converged
+
+ Elapsed Time in bound_update 88.56518610000012
+fairness_error = nan
+compute energy
+fair clustering energy = nan
+clustering energy = 4126498.318875501
+try with new seeds
+Elapsed so far: 2588.0158186999997
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 1.9%Converged
+
+ Elapsed Time in bound_update 1617.0623212
+fairness_error = 0.0653
+compute energy
+fair clustering energy = 8098171.104219432
+clustering energy = 1138199.3604319962
+Elapsed so far: 4232.4606156
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 1.8%Converged
+
+ Elapsed Time in bound_update 1384.7552882
+fairness_error = 0.0407
+compute energy
+fair clustering energy = 7999400.831769191
+clustering energy = 1051460.4563228153
+Elapsed so far: 5643.508251300001
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 1.7%Converged
+
+ Elapsed Time in bound_update 1168.9398884999991
+fairness_error = 0.0361
+compute energy
+fair clustering energy = 7987361.900528228
+clustering energy = 1041616.1464275988
+Elapsed so far: 6835.2228608000005
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 1.6%Converged
+
+ Elapsed Time in bound_update 1031.3052340999993
+fairness_error = 0.0346
+compute energy
+fair clustering energy = 7983522.827365929
+clustering energy = 1038521.935127896
+Elapsed so far: 7889.0589343
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 1.6%Converged
+
+ Elapsed Time in bound_update 993.8428886000011
+fairness_error = 0.0335
+compute energy
+fair clustering energy = 7979728.83532677
+clustering energy = 1035311.7859494325
+Elapsed so far: 8903.1141954
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 1.6%Converged
+
+ Elapsed Time in bound_update 977.2346698000001
+fairness_error = 0.0330
+compute energy
+fair clustering energy = 7975057.735943135
+clustering energy = 1030883.9824941076
+Elapsed so far: 9900.4685911
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 1.5%Converged
+
+ Elapsed Time in bound_update 954.7878325000001
+fairness_error = 0.0336
+compute energy
+fair clustering energy = 7971331.574666135
+clustering energy = 1026880.8905517622
+Elapsed so far: 10875.3328896
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 1.5%Converged
+
+ Elapsed Time in bound_update 940.3364938999985
+fairness_error = 0.0338
+compute energy
+fair clustering energy = 7969393.930462649
+clustering energy = 1024835.0027083312
+Elapsed so far: 11835.6536958
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 1.5%Converged
+
+ Elapsed Time in bound_update 932.4715944
+fairness_error = 0.0336
+compute energy
+fair clustering energy = 7968335.294520215
+clustering energy = 1023878.9502144665
+Elapsed so far: 12788.2597648
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 1.5%Converged
+
+ Elapsed Time in bound_update 932.8770213000007
+fairness_error = 0.0334
+compute energy
+fair clustering energy = 7967472.877514435
+clustering energy = 1023145.7367697586
+Elapsed so far: 13741.3267937
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 1.5%Converged
+
+ Elapsed Time in bound_update 947.6524676999998
+fairness_error = 0.0332
+compute energy
+fair clustering energy = 7966617.577119869
+clustering energy = 1022348.1265113594
+Elapsed so far: 14709.3284438
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 1.5%Converged
+
+ Elapsed Time in bound_update 942.6654466999989
+fairness_error = 0.0332
+compute energy
+fair clustering energy = 7965809.3476694655
+clustering energy = 1021564.9554349462
+Elapsed so far: 15672.204977
+Inside k-means update
+Inside Bound Update . . .
+[>           ] 1.5%Converged
+
+ Elapsed Time in bound_update 928.735767199998
+fairness_error = 0.0332
+compute energy
+fair clustering energy = 7965071.153766753
+clustering energy = 1020836.9349619459
+......Job  done......
+16622.718467900002
+lambda = 500000, 
+ fairness_error  0.03 and 
+ avg_balance =  0.91 
+ min_balance =  0.70
+Best fairness_error 0.0332 |Error lambda =  500000
+Best  Avg balance 0.9129 | Avg Balance lambda =  500000
+Best  Min balance 0.6998 | Min Balance lambda =  500000
+avg elapsed  16622.718467900002

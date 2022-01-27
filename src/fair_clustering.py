@@ -15,10 +15,9 @@ from numba import  jit
 import numexpr as ne
 from functools import partial
 
-
 # ----------------------------------------------
 # Additional loading for Kernel based Clustering
-from kernel import polynomial_kernel, radial_kernel, tanh_kernel, a, kernel_dist_calc
+from kernel import kernel_clustering_update, kernel_d, kernel_dist_calc
 # from kernel import a
 # ----------------------------------------------
 
@@ -222,7 +221,7 @@ def restore_nonempty_cluster (X,K,oldl,oldC,oldS,ts):
         return l,C,S,trivial_status
 
 def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness = False, method = 'kmeans', C_init = "kmeans_plus",
-                    l_init = None, A = None, kernel_type = polynomial_kernel, kernel_args = [], plot_bound_update=False):
+                    l_init = None, A = None, kernel_type = 'poly', kernel_args = [], plot_bound_update=False):
 
     """
 
@@ -254,11 +253,12 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness = False, method = 'kme
         oldl = l.copy()
         oldS = S.copy()
 
-        kernel_dist = []
         if i == 0:
             if method == 'kmeans':
                 sqdist = ecdist(X,C,squared=True)
                 a_p = sqdist.copy()
+
+                
 
             if method == 'kmedian':
                 sqdist = ecdist(X,C)
@@ -274,12 +274,7 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness = False, method = 'kme
                 """
                 Reproducibility
                 """
-                S = get_S_discrete(l, N, K)
-                # kernel_dist = []
-                # for p in tqdm(range(S.shape[0])):
-                #     kernel_dist_list = [a(X, p, k, kernel_type, kernel_args, S) for k in range(K)]
-                #     kernel_dist.append(kernel_dist_list)
-                # kernel_dist = np.squeeze(np.array(kernel_dist))
+                S = get_S_discrete(l,N,K)
                 kernel_dist = kernel_dist_calc(X, S, K, kernel_type, kernel_args)
                 a_p = kernel_dist.copy()
 
@@ -310,8 +305,9 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness = False, method = 'kme
 
         elif method == "kernel":
             print('Inside kernel update')
-            S = get_S_discrete(l, N, K)
-            kernel_dist = kernel_dist_calc(X, S, K, kernel_type, kernel_args)
+            S = get_S_discrete(l,N,K)
+            C = kernel_clustering_update(X, l, K, C)
+
             a_p = kernel_dist.copy()
 
         if fairness ==True and lmbda!=0.0:
@@ -339,6 +335,11 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness = False, method = 'kme
             if method == 'ncut':
                 l = a_p.argmin(axis=1)
                 S = get_S_discrete(l,N,K)
+
+            elif method == 'kernel':
+                S = get_S_discrete(l,N,K)
+                kernel_dist = kernel_dist_calc(X, S, K, kernel_type, kernel_args)
+                l = kernel_dist.argmin(axis=1)
 
             else:
                 S = get_S_discrete(l,N,K)

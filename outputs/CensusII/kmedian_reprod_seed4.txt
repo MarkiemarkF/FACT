@@ -1,0 +1,80 @@
+Seed: 4
+Cluster number for dataset CensusII is 20
+Balance of the dataset 0.9407247585033047
+Number of points in the dataset 2458285
+Demographic-probabilites: [0.48472858110430644, 0.5152714188956935]
+Demographic-numbers per group: [1191601, 1266684]
+Lipschitz constant: 2.0
+Generating initial seeds
+Inside Lambda  500000
+Inside Bound Update . . .
+[>           ] 0.1%Converged
+
+ Elapsed Time in bound_update 97.1248377
+fairness_error = nan
+compute energy
+fair clustering energy = nan
+clustering energy = 3431611.164334416
+try with new seeds
+Elapsed so far: 600.3779006
+Inside k-median update
+Inside Bound Update . . .
+[>           ] 0.2%Converged
+
+ Elapsed Time in bound_update 164.23017019999998
+fairness_error = nan
+compute energy
+fair clustering energy = nan
+clustering energy = 3410200.7308414774
+try with new seeds
+Elapsed so far: 1360.9539362
+Inside k-median update
+Inside Bound Update . . .
+[>           ] 1.7%Converged
+
+ Elapsed Time in bound_update 1437.7126335000003
+fairness_error = 0.0268
+compute energy
+fair clustering energy = 8691205.906882316
+clustering energy = 1750076.6934677693
+Elapsed so far: 2834.226016
+Inside k-median update
+Inside Bound Update . . .
+[>           ] 1.8%Converged
+
+ Elapsed Time in bound_update 1443.0707900000002
+fairness_error = 0.0250
+compute energy
+fair clustering energy = 8674949.311616799
+clustering energy = 1734758.7205273672
+Elapsed so far: 4313.219783699999
+Inside k-median update
+Inside Bound Update . . .
+[>           ] 0.2%Converged
+
+ Elapsed Time in bound_update 202.6331153000001
+fairness_error = nan
+compute energy
+fair clustering energy = nan
+clustering energy = 3395435.9923428176
+try with new seeds
+Elapsed so far: 5084.881802
+Inside k-median update
+Inside Bound Update . . .
+[>           ] 0.2%Converged
+
+ Elapsed Time in bound_update 151.56075779999992
+fairness_error = nan
+compute energy
+fair clustering energy = nan
+clustering energy = 3299007.991668673
+not having some labels
+5275.5548954999995
+lambda = 500000, 
+ fairness_error  92.12 and 
+ avg_balance =  0.48 
+ min_balance =  0.00
+Best fairness_error 92.1234 |Error lambda =  500000
+Best  Avg balance 0.4759 | Avg Balance lambda =  500000
+Best  Min balance 0.0000 | Min Balance lambda =  500000
+avg elapsed  5275.5548954999995
