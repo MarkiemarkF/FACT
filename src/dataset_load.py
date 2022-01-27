@@ -8,7 +8,7 @@ import pandas
 __datasets = ['Adult', 'Bank', 'Synthetic', 'Synthetic-unequal', 'CensusII']
 
 # Own datasets
-__datasets += ['Student', 'Drugnet', 'German_Credit', 'Bank_Red', 'bank_2500', 'bank_5000', 'bank_10000']
+__datasets += ['Student', 'Drugnet', 'German_Credit', 'Bank_Red', 'bank_2500', 'bank_5000', 'bank_10000', 'bank_15000']
 
 def dataset_names():
 
@@ -304,7 +304,7 @@ def read_dataset(name, data_dir):
 
         data = np.array(df, dtype=float)
 
-    elif name == 'bank_2500' or name == 'bank_5000' or name == 'bank_10000':
+    elif name == 'bank_2500' or name == 'bank_5000' or name == 'bank_10000' or 'bank_15000':
         _path = name + '.csv'
         data_path = os.path.join(os.getcwd(), 'data', 'Bank', _path)
 
