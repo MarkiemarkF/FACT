@@ -111,7 +111,6 @@ def KernelBound_k(A, d, S_k, N):
 
 @jit
 def km_le(X,M):
-
     """
     Discretize the assignments based on center
 
@@ -133,7 +132,7 @@ def km_discrete_energy(e_dist,l,k):
     tmp = np.asarray(np.where(l== k)).squeeze()
     return np.sum(e_dist[tmp,k])
 
-def compute_energy_fair_clustering(X, C, l, S, u_V, V_list, bound_lambda, A = None, method_cl='kmeans', kernel_dist = []):
+def compute_energy_fair_clustering(X, C, l, S, u_V, V_list, bound_lambda, A=None, method_cl='kmeans', kernel_dist=[]):
     """
     compute fair clustering energy
 
@@ -220,8 +219,8 @@ def restore_nonempty_cluster (X,K,oldl,oldC,oldS,ts):
 
         return l,C,S,trivial_status
 
-def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness = False, method = 'kmeans', C_init = "kmeans_plus",
-                    l_init = None, A = None, kernel_type = 'poly', kernel_args = [], plot_bound_update=False):
+def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans', C_init="kmeans_plus",
+                    l_init=None, A=None, kernel_type='poly', kernel_args=[], plot_bound_update=False):
 
     """
 
@@ -345,7 +344,10 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness = False, method = 'kme
                 S = get_S_discrete(l,N,K)
                 l = km_le(X,C)
 
-        currentE, clusterE, fairE, clusterE_discrete = compute_energy_fair_clustering(X, C, l, S, u_V, V_list,lmbda, A = A, method_cl=method, kernel_dist = kernel_dist)
+        if method == "kernel":
+            currentE, clusterE, fairE, clusterE_discrete = compute_energy_fair_clustering(X, C, l, S, u_V, V_list,lmbda, A=A, method_cl=method, kernel_dist=kernel_dist)
+        else:
+            currentE, clusterE, fairE, clusterE_discrete = compute_energy_fair_clustering(X, C, l, S, u_V, V_list,lmbda, A=A, method_cl=method)
         E_org.append(currentE)
         E_cluster.append(clusterE)
         E_fair.append(fairE)
