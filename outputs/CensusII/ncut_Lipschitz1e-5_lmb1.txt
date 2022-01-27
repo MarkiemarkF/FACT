@@ -1,0 +1,777 @@
+Seed: 1
+Cluster number for dataset CensusII is 20
+Balance of the dataset 0.9407247585033047
+Number of points in the dataset 2458285
+Demographic-probabilites: [0.48472858110430644, 0.5152714188956935]
+Demographic-numbers per group: [1191601, 1266684]
+Lipschitz constant: 1e-05
+Generating initial seeds
+Inside Lambda  1
+Inside Bound Update . . .
+[>           ] 8.0%Converged
+
+ Elapsed Time in bound_update 4616.4392914
+fairness_error = 1.4512
+compute energy
+fair clustering energy = 18.763413741921113
+clustering energy = 3.473707717064908
+Elapsed so far: 4690.6948707
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 5.1%Converged
+
+ Elapsed Time in bound_update 2870.0354917000004
+fairness_error = 0.9049
+compute energy
+fair clustering energy = 17.946730731587536
+clustering energy = 3.1876175359812535
+Elapsed so far: 7632.439661599999
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 4.4%Converged
+
+ Elapsed Time in bound_update 2452.4159308
+fairness_error = 0.6524
+compute energy
+fair clustering energy = 17.46058000386563
+clustering energy = 2.9544933054240907
+Elapsed so far: 10157.5377327
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 4.0%Converged
+
+ Elapsed Time in bound_update 2241.291164
+fairness_error = 0.5115
+compute energy
+fair clustering energy = 17.13484951423827
+clustering energy = 2.769487695985937
+Elapsed so far: 12471.6303304
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.8%Converged
+
+ Elapsed Time in bound_update 2098.8642115000002
+fairness_error = 0.4160
+compute energy
+fair clustering energy = 16.908607678465813
+clustering energy = 2.638853897619775
+Elapsed so far: 14642.7749193
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.6%Converged
+
+ Elapsed Time in bound_update 2015.3159520999998
+fairness_error = 0.3516
+compute energy
+fair clustering energy = 16.738060531277657
+clustering energy = 2.532780035849175
+Elapsed so far: 16729.7078532
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.5%Converged
+
+ Elapsed Time in bound_update 1934.3584730000002
+fairness_error = 0.3041
+compute energy
+fair clustering energy = 16.60553130599888
+clustering energy = 2.4477028497110886
+Elapsed so far: 18735.5587939
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.4%Converged
+
+ Elapsed Time in bound_update 1872.9010325000017
+fairness_error = 0.2698
+compute energy
+fair clustering energy = 16.499577501217274
+clustering energy = 2.376185757370937
+Elapsed so far: 20679.789220600003
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.3%Converged
+
+ Elapsed Time in bound_update 1826.302793699997
+fairness_error = 0.2424
+compute energy
+fair clustering energy = 16.412060523637667
+clustering energy = 2.315968803876107
+Elapsed so far: 22574.1001303
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.2%Converged
+
+ Elapsed Time in bound_update 1738.7846185000017
+fairness_error = 0.2208
+compute energy
+fair clustering energy = 16.340154050441786
+clustering energy = 2.2656104873076686
+Elapsed so far: 24378.239986800003
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.2%Converged
+
+ Elapsed Time in bound_update 1723.6799825000016
+fairness_error = 0.2034
+compute energy
+fair clustering energy = 16.27791484091403
+clustering energy = 2.2208146230557695
+Elapsed so far: 26167.149653
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.1%Converged
+
+ Elapsed Time in bound_update 1693.5205090000018
+fairness_error = 0.1883
+compute energy
+fair clustering energy = 16.224468969874085
+clustering energy = 2.182517053923423
+Elapsed so far: 27926.168438800003
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.1%Converged
+
+ Elapsed Time in bound_update 1667.4622464000022
+fairness_error = 0.1761
+compute energy
+fair clustering energy = 16.178619316318706
+clustering energy = 2.1488764375968756
+Elapsed so far: 29659.366128
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.1%Converged
+
+ Elapsed Time in bound_update 1651.8840318000002
+fairness_error = 0.1655
+compute energy
+fair clustering energy = 16.139634675988198
+clustering energy = 2.120445401766851
+Elapsed so far: 31376.715888900002
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.0%Converged
+
+ Elapsed Time in bound_update 1623.6106903
+fairness_error = 0.1573
+compute energy
+fair clustering energy = 16.106933049399892
+clustering energy = 2.095881871109242
+Elapsed so far: 33065.4332874
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.0%Converged
+
+ Elapsed Time in bound_update 1624.0282597999976
+fairness_error = 0.1503
+compute energy
+fair clustering energy = 16.07813511605046
+clustering energy = 2.0741988622196175
+Elapsed so far: 34754.884216700004
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.0%Converged
+
+ Elapsed Time in bound_update 1636.7971591999958
+fairness_error = 0.1444
+compute energy
+fair clustering energy = 16.05274272889212
+clustering energy = 2.0546301409465784
+Elapsed so far: 36458.9584904
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.0%Converged
+
+ Elapsed Time in bound_update 1658.9962218
+fairness_error = 0.1392
+compute energy
+fair clustering energy = 16.029402319472837
+clustering energy = 2.036528998642492
+Elapsed so far: 38188.1040703
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.0%Converged
+
+ Elapsed Time in bound_update 1646.2333709000013
+fairness_error = 0.1345
+compute energy
+fair clustering energy = 16.008167132157894
+clustering energy = 2.0199991073402686
+Elapsed so far: 39905.3360744
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 3.0%Converged
+
+ Elapsed Time in bound_update 1625.7947205000019
+fairness_error = 0.1307
+compute energy
+fair clustering energy = 15.989401742508194
+clustering energy = 2.0050060116981285
+Elapsed so far: 41601.4062361
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.9%Converged
+
+ Elapsed Time in bound_update 1617.3184234
+fairness_error = 0.1275
+compute energy
+fair clustering energy = 15.971907926674358
+clustering energy = 1.9906765791099588
+Elapsed so far: 43289.399112600004
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.9%Converged
+
+ Elapsed Time in bound_update 1602.9156010000006
+fairness_error = 0.1246
+compute energy
+fair clustering energy = 15.955360639066143
+clustering energy = 1.9769945780420315
+Elapsed so far: 44963.163590000004
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.9%Converged
+
+ Elapsed Time in bound_update 1592.1110958999998
+fairness_error = 0.1222
+compute energy
+fair clustering energy = 15.940275995533428
+clustering energy = 1.9643290863875507
+Elapsed so far: 46626.163041
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.9%Converged
+
+ Elapsed Time in bound_update 1568.4972583999988
+fairness_error = 0.1203
+compute energy
+fair clustering energy = 15.927173671936094
+clustering energy = 1.9531084521886832
+Elapsed so far: 48265.5542062
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.9%Converged
+
+ Elapsed Time in bound_update 1494.547711500003
+fairness_error = 0.1183
+compute energy
+fair clustering energy = 15.91443400307759
+clustering energy = 1.9423546530192155
+Elapsed so far: 49830.8670042
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.9%Converged
+
+ Elapsed Time in bound_update 1491.9498050999973
+fairness_error = 0.1167
+compute energy
+fair clustering energy = 15.902171878437237
+clustering energy = 1.9317929372891918
+Elapsed so far: 51394.0513639
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.9%Converged
+
+ Elapsed Time in bound_update 1484.809511200001
+fairness_error = 0.1150
+compute energy
+fair clustering energy = 15.890153174606185
+clustering energy = 1.9214260594092814
+Elapsed so far: 52949.880521
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.9%Converged
+
+ Elapsed Time in bound_update 1484.8564738999994
+fairness_error = 0.1136
+compute energy
+fair clustering energy = 15.878848210057916
+clustering energy = 1.9115401755040402
+Elapsed so far: 54505.3005005
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1476.3365393999993
+fairness_error = 0.1121
+compute energy
+fair clustering energy = 15.86857080395119
+clustering energy = 1.9027120559429278
+Elapsed so far: 56052.675562000004
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1470.3842948999954
+fairness_error = 0.1107
+compute energy
+fair clustering energy = 15.85979185166286
+clustering energy = 1.8953519462427941
+Elapsed so far: 57593.6390932
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1462.401724299998
+fairness_error = 0.1095
+compute energy
+fair clustering energy = 15.851436734458044
+clustering energy = 1.8882649473329778
+Elapsed so far: 59127.0371305
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1465.3298671000011
+fairness_error = 0.1085
+compute energy
+fair clustering energy = 15.843497969355703
+clustering energy = 1.8813039231421236
+Elapsed so far: 60663.1212082
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1469.382609500004
+fairness_error = 0.1076
+compute energy
+fair clustering energy = 15.83571819120173
+clustering energy = 1.8744170605980344
+Elapsed so far: 62203.5459594
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1464.9599306999953
+fairness_error = 0.1067
+compute energy
+fair clustering energy = 15.828498701147966
+clustering energy = 1.868130569826743
+Elapsed so far: 63739.306764500005
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1463.7396596000035
+fairness_error = 0.1059
+compute energy
+fair clustering energy = 15.82120296020086
+clustering energy = 1.861657910873717
+Elapsed so far: 65273.936050000004
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1461.6759179
+fairness_error = 0.1052
+compute energy
+fair clustering energy = 15.814563687078625
+clustering energy = 1.8556707691921588
+Elapsed so far: 66806.1736974
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1455.7354025999957
+fairness_error = 0.1046
+compute energy
+fair clustering energy = 15.808772483636016
+clustering energy = 1.8504963083194106
+Elapsed so far: 68332.9385963
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1494.675560100004
+fairness_error = 0.1041
+compute energy
+fair clustering energy = 15.803677382695897
+clustering energy = 1.8458868559535553
+Elapsed so far: 69912.41787219999
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 2352.7096002000035
+fairness_error = 0.1036
+compute energy
+fair clustering energy = 15.799052729857769
+clustering energy = 1.841722391061996
+Elapsed so far: 72378.23256559999
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 2338.7122080000117
+fairness_error = 0.1032
+compute energy
+fair clustering energy = 15.794162395308042
+clustering energy = 1.8373015156700774
+Elapsed so far: 74834.1706761
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1992.6085109000123
+fairness_error = 0.1027
+compute energy
+fair clustering energy = 15.789352456812361
+clustering energy = 1.8329796290239386
+Elapsed so far: 76943.01615509999
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1746.5678808999946
+fairness_error = 0.1022
+compute energy
+fair clustering energy = 15.784872004298329
+clustering energy = 1.829031339084331
+Elapsed so far: 78773.0593307
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1746.1647280999896
+fairness_error = 0.1016
+compute energy
+fair clustering energy = 15.780680131069666
+clustering energy = 1.8253325809926686
+Elapsed so far: 80602.4653217
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1736.3188177999982
+fairness_error = 0.1011
+compute energy
+fair clustering energy = 15.776766766570226
+clustering energy = 1.8219667738665812
+Elapsed so far: 82421.62892989999
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1752.7977675000002
+fairness_error = 0.1006
+compute energy
+fair clustering energy = 15.772984509016094
+clustering energy = 1.8187168189116356
+Elapsed so far: 84258.5253269
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1764.557835300002
+fairness_error = 0.1000
+compute energy
+fair clustering energy = 15.769182666679303
+clustering energy = 1.8155395989903766
+Elapsed so far: 86107.7491395
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1599.7565463000064
+fairness_error = 0.0995
+compute energy
+fair clustering energy = 15.764867158072606
+clustering energy = 1.811751509134993
+Elapsed so far: 87784.52790019999
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1651.602239800006
+fairness_error = 0.0989
+compute energy
+fair clustering energy = 15.760543302246319
+clustering energy = 1.8079626623247336
+Elapsed so far: 89505.31243759999
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1632.4617658999923
+fairness_error = 0.0984
+compute energy
+fair clustering energy = 15.756773130048947
+clustering energy = 1.8046869292839745
+Elapsed so far: 91205.290432
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1632.9185360999982
+fairness_error = 0.0979
+compute energy
+fair clustering energy = 15.752832669393909
+clustering energy = 1.8012631937816863
+Elapsed so far: 92905.3813293
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1633.7729720999923
+fairness_error = 0.0974
+compute energy
+fair clustering energy = 15.749163203799748
+clustering energy = 1.7981081693235659
+Elapsed so far: 94605.8106901
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1630.7350867999921
+fairness_error = 0.0968
+compute energy
+fair clustering energy = 15.745697072175052
+clustering energy = 1.7951780769138317
+Elapsed so far: 96303.2548154
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1624.8779474999901
+fairness_error = 0.0962
+compute energy
+fair clustering energy = 15.742455291776391
+clustering energy = 1.7925417693335532
+Elapsed so far: 97994.49113279999
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1621.596775500002
+fairness_error = 0.0957
+compute energy
+fair clustering energy = 15.73903017905642
+clustering energy = 1.789618108917427
+Elapsed so far: 99683.01964239999
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1616.185437299995
+fairness_error = 0.0953
+compute energy
+fair clustering energy = 15.735927917692084
+clustering energy = 1.7869432705903066
+Elapsed so far: 101365.15657929999
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1618.2650351000048
+fairness_error = 0.0949
+compute energy
+fair clustering energy = 15.732852879947723
+clustering energy = 1.7842663429930994
+Elapsed so far: 103049.5011525
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1610.3053190000064
+fairness_error = 0.0946
+compute energy
+fair clustering energy = 15.730152465542297
+clustering energy = 1.781917449003867
+Elapsed so far: 104725.612056
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1607.1174672999914
+fairness_error = 0.0942
+compute energy
+fair clustering energy = 15.727576929450747
+clustering energy = 1.7797347541019057
+Elapsed so far: 106398.80466869999
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1609.004244900003
+fairness_error = 0.0938
+compute energy
+fair clustering energy = 15.725000496785986
+clustering energy = 1.7775272994997238
+Elapsed so far: 108074.05937999999
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1609.9643907999998
+fairness_error = 0.0935
+compute energy
+fair clustering energy = 15.722268682037095
+clustering energy = 1.7750966842144997
+Elapsed so far: 109750.2446635
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1605.6879650000046
+fairness_error = 0.0931
+compute energy
+fair clustering energy = 15.719590971166204
+clustering energy = 1.7728231106670016
+Elapsed so far: 111421.8364575
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1605.7979097999923
+fairness_error = 0.0927
+compute energy
+fair clustering energy = 15.717319000705857
+clustering energy = 1.7708997340917527
+Elapsed so far: 113093.60596629999
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1605.8657827999996
+fairness_error = 0.0924
+compute energy
+fair clustering energy = 15.715026342010123
+clustering energy = 1.7689635912043897
+Elapsed so far: 114765.75231269999
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1604.1112924000045
+fairness_error = 0.0921
+compute energy
+fair clustering energy = 15.71267721103284
+clustering energy = 1.7669477881032662
+Elapsed so far: 116435.5244295
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1598.627249600002
+fairness_error = 0.0918
+compute energy
+fair clustering energy = 15.710396599751807
+clustering energy = 1.7649122713613465
+Elapsed so far: 118099.9545812
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1598.410548999993
+fairness_error = 0.0915
+compute energy
+fair clustering energy = 15.707857199794338
+clustering energy = 1.7626435324014622
+Elapsed so far: 119764.1847552
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1599.5684183999983
+fairness_error = 0.0913
+compute energy
+fair clustering energy = 15.705121642257234
+clustering energy = 1.7602044268635808
+Elapsed so far: 121429.2999077
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1602.8858121999947
+fairness_error = 0.0910
+compute energy
+fair clustering energy = 15.702194566541934
+clustering energy = 1.7575223481737936
+Elapsed so far: 123097.98641
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1598.7120099000022
+fairness_error = 0.0907
+compute energy
+fair clustering energy = 15.699338993015736
+clustering energy = 1.7549738295941708
+Elapsed so far: 124762.7874181
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1593.5959651000012
+fairness_error = 0.0905
+compute energy
+fair clustering energy = 15.696497007469771
+clustering energy = 1.752376314384744
+Elapsed so far: 126422.43179399999
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1603.0049774000072
+fairness_error = 0.0902
+compute energy
+fair clustering energy = 15.693668598348761
+clustering energy = 1.749758602787324
+Elapsed so far: 128096.502291
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.8%Converged
+
+ Elapsed Time in bound_update 1609.616818200011
+fairness_error = 0.0901
+compute energy
+fair clustering energy = 15.691233407571264
+clustering energy = 1.7475122722012095
+Elapsed so far: 129776.2483885
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.7%Converged
+
+ Elapsed Time in bound_update 1585.9389154999808
+fairness_error = 0.0899
+compute energy
+fair clustering energy = 15.689053854470743
+clustering energy = 1.7455321377415203
+Elapsed so far: 131428.03935
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.7%Converged
+
+ Elapsed Time in bound_update 1588.1638205999916
+fairness_error = 0.0897
+compute energy
+fair clustering energy = 15.68688909773618
+clustering energy = 1.7435633778267707
+Elapsed so far: 133082.14691900002
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.7%Converged
+
+ Elapsed Time in bound_update 1584.3890286000096
+fairness_error = 0.0894
+compute energy
+fair clustering energy = 15.684942928403574
+clustering energy = 1.7418386407014879
+Elapsed so far: 134732.4452552
+Inside ncut update
+Inside Bound Update . . .
+[>           ] 2.7%Converged
+
+ Elapsed Time in bound_update 1582.383067000017
+fairness_error = 0.0893
+compute energy
+fair clustering energy = 15.683440198312097
+clustering energy = 1.740462537427998
+......Job  done......
+136381.0577385
+lambda = 1, 
+ fairness_error  0.09 and 
+ avg_balance =  0.86 
+ min_balance =  0.70
+Best fairness_error 0.0893 |Error lambda =  1
+Best  Avg balance 0.8571 | Avg Balance lambda =  1
+Best  Min balance 0.6952 | Min Balance lambda =  1
+avg elapsed  136381.0577385
