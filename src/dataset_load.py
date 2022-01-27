@@ -8,7 +8,7 @@ import pandas
 __datasets = ['Adult', 'Bank', 'Synthetic', 'Synthetic-unequal', 'CensusII']
 
 # Own datasets
-__datasets += ['Student', 'Drugnet', 'German_Credit', 'Bank_Red']
+__datasets += ['Student', 'Drugnet', 'German_Credit', 'Bank_Red', 'bank_2500', 'bank_5000', 'bank_10000']
 
 def dataset_names():
 
@@ -268,23 +268,13 @@ def read_dataset(name, data_dir):
         K = 2
         _path = 'bank_red.csv'
         data_path = os.path.join(data_dir,_path)
-        if (not os.path.exists(data_path)):
 
-            print('Bank dataset does not exist in current folder --- Have to download it')
-            r = requests.get('https://archive.ics.uci.edu/ml/machine-learning-databases/00222/bank-additional.zip', allow_redirects=True)
-            # r = requests.get('https://archive.ics.uci.edu/ml/machine-learning-databases/00222/bank.zip', allow_redirects=True)
-            if r.status_code == requests.codes.ok:
-                print('Download successful')
-            else:
-                print('Could not download - please download')
-                sys.exit()
+        if not os.path.exists(data_path):
+            print(data_path)
+            print('Data does not exist. Quitting.')
+            sys.exit()
 
-            z = zipfile.ZipFile(io.BytesIO(r.content))
-            # z.extract('bank-additional/bank-additional-full.csv','./data')
-            open(data_path, 'wb').write(z.read('bank-additional/bank-additional-full.csv'))
-            # open(data_path, 'wb').write(z.read('bank.csv'))
-
-        df = pandas.read_csv(data_path,sep=';', header=0)
+        df = pandas.read_csv(data_path, sep=';', header=0)
         print(df.columns)
 #        shape = df.shape
 
@@ -313,6 +303,47 @@ def read_dataset(name, data_dir):
         sex_num[sex == sens_attributes[2]] = 2
 
         data = np.array(df, dtype=float)
+
+    elif data == 'bank_2500' or data == 'bank_5000' or data == 'bank_10000':
+        _path = data + '.csv'
+        data_path = os.path.join(data_dir, _path)
+
+        if not os.path.exists(data_path):
+            print(data_path)
+            print('Data does not exist. Quitting.')
+            sys.exit()
+
+        df = pandas.read_csv(data_path, sep=';')
+        n = df.shape[0]
+
+        # Sensitive attribute is marital here for testing
+        marital = df['marital'].astype(str).values
+        sens_attributes = list(set(marital))
+
+        if 'unknown' in sens_attributes:
+            sens_attributes.remove('unknown')
+
+        df1 = df.loc[df['marital'] == sens_attributes[0]]
+        df2 = df.loc[df['marital'] == sens_attributes[1]]
+        df3 = df.loc[df['marital'] == sens_attributes[2]]
+
+        df = [df1, df2, df3]
+        df = pandas.concat(df)
+
+        marital = df['marital'].astype(str).values
+
+        df = df[['age', 'duration', 'euribor3m', 'nr.employed', 'cons.price.idx', 'campaign']].values
+        # df = df[['age','duration','balance']].values
+
+        sens_attributes = list(set(marital))
+        sex_num = np.zeros(df.shape[0], dtype=int)
+        sex_num[marital == sens_attributes[1]] = 1
+        sex_num[marital == sens_attributes[2]] = 2
+
+        data = np.array(df, dtype=float)
+
+        # TODO: Ook maar random K=10 gedaan lol
+        K = 2
 
     else:
         pass
