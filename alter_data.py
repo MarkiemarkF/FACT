@@ -58,7 +58,7 @@ def convert_data_columns(load_path, store_path, col_num, convs):
     writer.writerows(lines)
     print('Job done, wrote data to:', store_path)
 
-    sys.exit(0)
+    return
 
 
 def create_subset(data_path, store_name, n, sep=','):
@@ -84,7 +84,8 @@ def create_subset(data_path, store_name, n, sep=','):
     df_sub.to_csv(store_path, sep=sep)
 
     print('Job done, wrote data to:', store_path)
-    sys.exit(0)
+
+    return
 
 
 def remove_first_column(load_path, store_path):
@@ -106,7 +107,7 @@ def remove_first_column(load_path, store_path):
     writer.writerows(new_lines)
     print('Job done, wrote data to:', store_path)
 
-    sys.exit(0)
+    return
 
 
 if __name__ == '__main__':
