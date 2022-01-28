@@ -1,6 +1,14 @@
 import os
-
 import pandas as pd
+
+"""
+THIS FILE IS NOT IN USE!
+USE THE convert_data_columns function in 'alter_data.py'!
+"""
+
+"""
+Create a subset of 
+"""
 
 n = 10000
 
