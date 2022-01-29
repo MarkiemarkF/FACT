@@ -2,6 +2,7 @@ import os
 import sys
 import csv
 
+import numpy as np
 import pandas as pd
 
 
@@ -110,6 +111,17 @@ def remove_first_column(load_path, store_path):
     return
 
 
+def npz_to_csv(load_path, store_path):
+    """
+    Converts .npz file from load_path to .csv at store_path
+
+    :param load_path: path to npz file to convert
+    :param store_path: path to store the data
+    """
+    data = np.load(load_path)
+    pd.DataFrame(data).to_csv(store_path)    
+
+
 if __name__ == '__main__':
     # Comment out unwanted functions
     convert_data_columns(os.path.join('Student', 'student_mat_Cortez.csv'), 'Student/student_mat_Cortez_sexmod.csv', 1,
@@ -119,3 +131,6 @@ if __name__ == '__main__':
 
     remove_first_column(os.path.join(os.getcwd(), 'data', 'German_Credit', 'german_credit_data.csv'),
                         os.path.join(os.getcwd(), 'data', 'German_Credit', 'german_credit_mod2.csv'))
+
+    npz_to_csv('data/Synthetic/Synthetic.npz',
+               "data/Synthetic/synthetic.csv")
