@@ -30,12 +30,12 @@ def plot_clusters_vs_lambda(X_org,l,filename,dataset, lmbda, fairness_error):
         plt.show()
         plt.close('all')
 
-def plot_fairness_vs_clusterE(cluster_option, savefile, filename, lmbdas, fairness_error_set, min_balance_set, avg_balance_set, E_cluster_set, save = True):
+def plot_fairness_vs_clusterE(cluster_option, savefile, filename, lmbdas, fairness_error_set, min_balance_set, avg_balance_set, E_cluster_set, save = True, figsize=(5,4), save_without_title=False):
 
         if not osp.exists(savefile) or save == True:
             np.savez(savefile, lmbdas = lmbdas, min_balance_set = min_balance_set, avg_balance_set = avg_balance_set, fairness_error = fairness_error_set, E_cluster = E_cluster_set)
         else:
-            data = np.load(savefile)
+            data = np.load(savefile, allow_pickle=True)
             lmbdas = data['lmbdas']
             fairness_error_set = data['fairness_error']
             E_cluster_set = data['E_cluster']
@@ -58,7 +58,7 @@ def plot_fairness_vs_clusterE(cluster_option, savefile, filename, lmbdas, fairne
         length = len(lmbdas)
         plt.ion()
         plt.rcParams.update({'font.size': 13})
-        fig, ax1 = plt.subplots(dpi=80)
+        fig, ax1 = plt.subplots(dpi=80, figsize=figsize)
         # ax1.set_xlim ([0,length])
         ax2 = ax1.twinx()
         # ax1.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
@@ -73,8 +73,12 @@ def plot_fairness_vs_clusterE(cluster_option, savefile, filename, lmbdas, fairne
         ax1.legend(loc = 'upper right', bbox_to_anchor=(1, 0.6))
         ax2.legend(loc = 'upper right', bbox_to_anchor=(1, 0.7))
 
-        fig.suptitle(title, fontsize=16)
-        fig.savefig(filename, format='png', dpi = 800, bbox_inches='tight')
+        if save_without_title:
+            fig.savefig(filename, format='png', dpi = 800, bbox_inches='tight')
+            fig.suptitle(title, fontsize=16)
+        else:
+            fig.suptitle(title, fontsize=16)
+            fig.savefig(filename, format='png', dpi = 800, bbox_inches='tight')
         plt.show()
         plt.close('all')
 

@@ -120,14 +120,12 @@ def main(args, logging=True, seedable=False):
         print('Lambda tune is true')
         if args.cluster_option == "ncut":
             lmbdas = np.arange(0, 10.5, 1).tolist()
+            if args.L == 2.0:
+                lmbdas = np.arange(0, 401, 50).tolist()
+                if args.dataset == "Adult":
+                    lmbdas = np.arange(0, 501, 100).tolist()
         else:
-            lmbdas = np.arange(100, 251, 50).tolist()
-
-    # if args.lmbda_tune:
-    #     print('Lambda tune is true')
-    #     lmbdas = np.arange(0, 10000, 100).tolist()
-    # else:
-    #     lmbdas = [args.lmbda]
+            lmbdas = np.arange(0, 10001, 500).tolist()
 
     length_lmbdas = len(lmbdas)
 
@@ -257,13 +255,14 @@ def main(args, logging=True, seedable=False):
 
     
     if plot_option_fairness_vs_clusterE == True and length_lmbdas > 1:
-        savefile = osp.join(data_dir, 'Fair_{}_fairness_vs_clusterEdiscrete_{}.npz'.format(cluster_option, dataset))
-        filename = osp.join(output_path, 'Fair_{}_fairness_vs_clusterEdiscrete_{}.png'.format(cluster_option, dataset))
+        name = f'Fair_{cluster_option}_fairness_vs_clusterEdiscrete_Lip{args.L}_{dataset}'
+        savefile = osp.join(output_path,       name+'.npz')
+        filename = osp.join(output_path,    name+'.png')
         plot_fairness_vs_clusterE(cluster_option, savefile, filename, lmbdas, fairness_error_set, min_balance_set,
                                   avg_balance_set, E_cluster_discrete_set)
 
     if plot_option_balance_vs_clusterE == True and length_lmbdas > 1:
-        savefile = osp.join(data_dir, 'Fair_{}_balance_vs_clusterEdiscrete_{}.npz'.format(cluster_option, dataset))
+        savefile = osp.join(output_path, 'Fair_{}_balance_vs_clusterEdiscrete_{}.npz'.format(cluster_option, dataset))
         filename = osp.join(output_path, 'Fair_{}_balance_vs_clusterEdiscrete_{}.png'.format(cluster_option, dataset))
 
         plot_balance_vs_clusterE(cluster_option, savefile, filename, lmbdas, fairness_error_set, min_balance_set,
@@ -274,7 +273,7 @@ def main(args, logging=True, seedable=False):
         "clustering energy (Objective)": round(E_cluster_discrete_set[-1], 2),
         "fairness error": round(bestacc, 3),
         "balance": round(best_min_balance, 2),
-        "time": round(avgelapsed, 1),
+        "time": round(sum(elapsetimes), 1),
         "N": N,
         "J": J,
         "K": K,
