@@ -1,5 +1,10 @@
 import csv
 
+"""
+THIS FILE IS NOT IN USE!
+USE THE REMOVE_FIRST_COLUMN function in 'alter_data.py'!
+"""
+
 file = csv.reader(open('data/German_Credit/german_credit_data.csv'))
 lines = list(file)
 # new_lines = [['A', 'B']]
@@ -17,5 +22,5 @@ for line in lines[1:]:
     new_lines.append(line[1:])
 
 print(new_lines)
-writer = csv.writer(open('data/German_Credit/german_Credit_mod.csv', 'w', newline=''))
+writer = csv.writer(open('data/German_Credit/german_credit_mod.csv', 'w', newline=''))
 writer.writerows(new_lines)
