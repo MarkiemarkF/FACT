@@ -299,7 +299,7 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
         elif method == "kernel":
             print('Inside kernel update')
             S = get_S_discrete(l,N,K)
-            C = kernel_clustering_update(X, l, K, C)
+            C = kernel_clustering_update(X, l, K)
             sqdist = kernel_dist_calc(X, S, K, kernel_type, kernel_args) 
             a_p = sqdist.copy()
 
