@@ -16,7 +16,7 @@ __datasets += ['Student', 'Drugnet', 'German_Credit', 'bank_red', 'bank_2500', '
 
 def check_and_read(data_path, sep=',', header='infer'):
     """
-    Check if a dataset exists and read if so.
+    Check if a dataset exists and reads if so.
 
     :param data_path: path to dataset (csv_file)
     :param sep: seperator in datafile (e.g. ',', ';', ' ')
