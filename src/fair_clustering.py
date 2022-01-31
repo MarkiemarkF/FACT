@@ -33,6 +33,7 @@ from kernel import kernel_clustering_update, kernel_dist_calc
 #___________________________________________
 #
 
+
 # import pdb
 def kmeans_update(tmp, X):
     """
@@ -169,12 +170,16 @@ def compute_energy_fair_clustering(X, C, l, S, u_V, V_list, bound_lambda, A=None
         clustering_E_discrete = [km_discrete_energy(e_dist,l,k) for k in range(K)]
         clustering_E_discrete = sum(clustering_E_discrete)
 
+
+    #___________________________________________
+    # ADDED: fair clustering for kernel approach 
     elif method_cl == 'kernel':
         kernel_dist = kernel_dist
         clustering_E = ne.evaluate('S*kernel_dist').sum()
         clustering_E_discrete = [km_discrete_energy(kernel_dist,l,k) for k in range(K)]
         clustering_E_discrete = sum(clustering_E_discrete)
-
+    #___________________________________________
+    #
 
     # Fairness term
     fairness_E = [fairness_term_V_j(u_V[j],S,V_list[j]) for j in range(J)]
@@ -285,11 +290,14 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
                 sqdist = np.asarray(np.vstack(sqdist_list).T)
                 a_p = sqdist.copy()
 
+            #___________________________________________
+            # ADDED: kernel approach intialisation
             if method == 'kernel':
                 S = get_S_discrete(l,N,K)
                 sqdist = kernel_dist_calc(X, S, K, kernel_type, kernel_args)
                 a_p = sqdist.copy()
-
+            #___________________________________________
+            #
         elif method == 'kmeans':
 
             print ('Inside k-means update')
@@ -315,12 +323,16 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
             sqdist = np.asarray(np.vstack(sqdist_list).T)
             a_p = sqdist.copy()
 
+        #___________________________________________
+        # ADDED: calculate kernel distances for kernel approach
         elif method == "kernel":
             print('Inside kernel update')
             S = get_S_discrete(l,N,K)
             C = kernel_clustering_update(X, l, K)
             sqdist = kernel_dist_calc(X, S, K, kernel_type, kernel_args) 
             a_p = sqdist.copy()
+        #___________________________________________
+        #
 
         if fairness ==True and lmbda!=0.0:
 
@@ -348,18 +360,25 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
             if method == 'ncut':
                 l = a_p.argmin(axis=1)
                 S = get_S_discrete(l,N,K)
-
+            
+            #___________________________________________
+            # ADDED: kernel-based label predictions
             elif method == 'kernel':
                 S = get_S_discrete(l,N,K)
                 sqdist = kernel_dist_calc(X, S, K, kernel_type, kernel_args)
                 l = sqdist.argmin(axis=1)
-
+            #___________________________________________
+            #
             else:
                 S = get_S_discrete(l,N,K)
                 l = km_le(X,C)
 
+        #___________________________________________
+        # ADDED: compute fair clustering kernel approach
         if method == "kernel":
             currentE, clusterE, fairE, clusterE_discrete = compute_energy_fair_clustering(X, C, l, S, u_V, V_list,lmbda, A=A, method_cl=method, kernel_dist=sqdist)
+        #___________________________________________
+        #        
         else:
             currentE, clusterE, fairE, clusterE_discrete = compute_energy_fair_clustering(X, C, l, S, u_V, V_list,lmbda, A=A, method_cl=method)
         E_org.append(currentE)
