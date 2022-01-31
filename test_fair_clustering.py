@@ -14,24 +14,27 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
-import argparse
 import os
 import sys
+import argparse
+import random
+import json
+
 import os.path as osp
 import numpy as np
-from sklearn.preprocessing import scale
-from src.fair_clustering import fair_clustering, km_init
 import src.utils as utils
+
+from sklearn import metrics
+from sklearn.preprocessing import scale
+
+from src.fair_clustering import fair_clustering, km_init
 from src.dataset_load import read_dataset, dataset_names
 from src.utils import get_fair_accuracy, get_fair_accuracy_proportional, normalizefea, Logger, str2bool
 from data_visualization import plot_clusters_vs_lambda, plot_fairness_vs_clusterE, plot_convergence, \
     plot_balance_vs_clusterE
-import random
-import json
-import pandas
-from sklearn import metrics
 
-
+from Bera.get_results import convert_bera
+from Bera.fair_clustering import fair_clustering
 
 
 def main(args, logging=True, seedable=False):
@@ -194,13 +197,19 @@ def main(args, logging=True, seedable=False):
         print('Inside Lambda ', lmbda)
 
         #________________________________________________________________________
-        # ADDED: For loading the Bera et al. results and just calculating metrics
+        # ADDED: For running, converting & loading the Bera et al. results and just calculating metrics
         if args.Bera:
+            # TODO: Run Bera!
+            #fair_clustering()
+
+            # Convert all bera results
+            convert_bera()
+
+            # TODO: Moet dit zo gehardcoded blijven?
             with open('bera_res/bank_red.json', 'r') as f:
                 res = json.load(f)
 
             l = res['l']
-
             l = np.array(l).astype(int)
 
             E = {}
