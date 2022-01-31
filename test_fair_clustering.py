@@ -197,16 +197,12 @@ def main(args, logging=True, seedable=False):
         print('Inside Lambda ', lmbda)
 
         #________________________________________________________________________
-        # ADDED: For running, converting & loading the Bera et al. results and just calculating metrics
+        # ADDED: For converting & loading the Bera et al. results and just calculating metrics
         if args.Bera:
-            # TODO: Run Bera!
-            #fair_clustering()
-
             # Convert all bera results
             convert_bera()
 
-            # TODO: Moet dit zo gehardcoded blijven?
-            with open('bera_res/bank_red.json', 'r') as f:
+            with open(os.path.join('bera_res', args.dataset.tolower() + '.json', 'r')) as f:
                 res = json.load(f)
 
             l = res['l']
