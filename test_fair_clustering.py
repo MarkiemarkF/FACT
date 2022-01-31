@@ -34,7 +34,6 @@ from data_visualization import plot_clusters_vs_lambda, plot_fairness_vs_cluster
     plot_balance_vs_clusterE
 
 from bera.get_results import convert_bera
-from bera.fair_clustering import fair_clustering
 
 
 def main(args, logging=True, seedable=False):
