@@ -837,3 +837,7 @@ Bank,1,ncut,2.0,10000,-1.4433868530923395,484.07426209999903,3,Bank\Lipschitz_en
 Bank,1,ncut,2.0,10000,-1.5855499092959051,498.10981730000094,4,Bank\Lipschitz_energy_list_logs\ncut__L=2.0__lmb=1__seed=4.txt
 Bank,1,ncut,2.0,10000,-1.509277803112857,491.95695349999914,5,Bank\Lipschitz_energy_list_logs\ncut__L=2.0__lmb=1__seed=5.txt
 Bank,1,ncut,2.0,10000,-1.3124942903666503,500.22170240000014,6,Bank\Lipschitz_energy_list_logs\ncut__L=2.0__lmb=1__seed=6.txt
+Bank,1,ncut,2.0,10000,-1.6022942351062808,476.1778010000003,7,Bank\Lipschitz_energy_list_logs\ncut__L=2.0__lmb=1__seed=7.txt
+Bank,1,ncut,2.0,10000,-1.5901343240953094,479.9010980000003,8,Bank\Lipschitz_energy_list_logs\ncut__L=2.0__lmb=1__seed=8.txt
+Bank,1,ncut,2.0,10000,-1.4824459792726439,473.2694773000003,9,Bank\Lipschitz_energy_list_logs\ncut__L=2.0__lmb=1__seed=9.txt
+Bank,1,ncut,2.0,10000,-2.2612515940504547,10561.5404481,10,Bank\Lipschitz_energy_list_logs\ncut__L=2.0__lmb=1__seed=10.txt
