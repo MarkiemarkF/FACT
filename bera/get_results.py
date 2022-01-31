@@ -29,7 +29,12 @@ def get_res(path=os.path.join('output', '2022-01-19-11:01:40')):
     return E, labels
 
 
-if __name__ == '__main__':
+def convert_bera():
+    """
+    Converts results of Bera et al. baseline to Ziko et al.
+
+    :return: saves converted results as .json
+    """
     # Get results from all files
     for dataset in ['student', 'german_credit', 'bank_red']:
         path = os.path.join('..', 'bera_res', dataset + '.json')
@@ -42,3 +47,7 @@ if __name__ == '__main__':
 
             with open(path, 'w') as f:
                 json.dump(res_dict, f)
+
+
+if __name__ == '__main__':
+    convert_bera()
