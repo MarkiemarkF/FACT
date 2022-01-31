@@ -1,3 +1,15 @@
+"""
+Original code by Ziko et al.
+Besides code encapsulated in:
+
+#___________________
+# CHANGED:
+    <code>
+#___________________
+#
+
+"""
+
 import matplotlib
 matplotlib.use('Agg')
 import numpy as np
@@ -73,12 +85,16 @@ def plot_fairness_vs_clusterE(cluster_option, savefile, filename, lmbdas, fairne
         ax1.legend(loc = 'upper right', bbox_to_anchor=(1, 0.6))
         ax2.legend(loc = 'upper right', bbox_to_anchor=(1, 0.7))
 
+        #__________________________________________________________________________________
+        # CHANGED: Always plt.show() with title, but allow for saving without for the paper
         if save_without_title:
             fig.savefig(filename, format='png', dpi = 800, bbox_inches='tight')
             fig.suptitle(title, fontsize=16)
         else:
             fig.suptitle(title, fontsize=16)
             fig.savefig(filename, format='png', dpi = 800, bbox_inches='tight')
+        #__________________________________________________________________________________
+        #
         plt.show()
         plt.close('all')
 

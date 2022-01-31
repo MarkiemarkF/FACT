@@ -1,3 +1,8 @@
+"""
+Original code by Ziko et al.
+besides line 78, 107 and 120
+"""
+
 # -*- coding: utf-8 -*-
 
 import numpy as np
@@ -5,7 +10,6 @@ import timeit
 from src.progressBar import printProgressBar
 from numba import  jit
 import numexpr as ne
-from .utils import get_fair_accuracy_proportional
 
 def normalize(S_in):
 
@@ -71,7 +75,7 @@ def bound_update(a_p, u_V, V_list, bound_lambda, L, bound_iteration = 200, debug
     S = np.exp((-a_p))
     S = normalize_2(S)
 
-    bound_energy_list = []
+    bound_energy_list = [] # Added for tracking energy convergence
 
     for i in range(bound_iteration):
         printProgressBar(i + 1, bound_iteration,length=12)
@@ -100,10 +104,7 @@ def bound_update(a_p, u_V, V_list, bound_lambda, L, bound_iteration = 200, debug
 
         E = bound_energy(S, S_in, a_p, b_term, L, bound_lambda)
         # print('Bound Energy {} at iteration {} '.format(E,i))
-        bound_energy_list.append(E)
-
-        # l = np.argmax(S,axis=1)
-        # F = get_fair_accuracy_proportional(u_V,V_list,l,N,K)
+        bound_energy_list.append(E) # Added for tracking energy convergence
         
         if (i>1 and (abs(E-oldE)<= 1e-5*abs(oldE))):
             print('Converged')
@@ -111,12 +112,10 @@ def bound_update(a_p, u_V, V_list, bound_lambda, L, bound_iteration = 200, debug
 
         else:
             oldE = E; report_E = E
-            # print(E)
-            # print(F)
 
     elapsed = timeit.default_timer() - start_time
     print('\n Elapsed Time in bound_update', elapsed)
     l = np.argmax(S,axis=1)
     
-    return l,S,bound_energy_list
+    return l,S,bound_energy_list # Adjusted for tracking energy convergence
 

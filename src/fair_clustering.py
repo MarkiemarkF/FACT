@@ -1,3 +1,15 @@
+"""
+Original code by Ziko et al.
+Besides code encapsulated in:
+
+#___________________
+# ADDED: / CHANGED:
+    <code>
+#___________________
+#
+
+"""
+
 from random import random
 import numpy as np
 from scipy import sparse
@@ -14,11 +26,12 @@ import multiprocessing
 from numba import  jit
 import numexpr as ne
 from functools import partial
-# ----------------------------------------------
-# Additional loading for Kernel based Clustering
+
+#___________________________________________
+# ADDED: loading for Kernel based Clustering
 from kernel import kernel_clustering_update, kernel_dist_calc
-# from kernel import a
-# ----------------------------------------------
+#___________________________________________
+#
 
 # import pdb
 def kmeans_update(tmp, X):
@@ -240,7 +253,13 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
     oldE = 1e100
 
     maxiter = 100
-    maxtime = 3600*100 # Number of hours
+
+    #_____________________________________
+    # ADDED: timeout after number of hours
+    maxtime = 3600*100
+    #_____________________________________
+    #
+
     utils.init(X_s =X)
     pool = multiprocessing.Pool(processes=20)
     if A is not None:

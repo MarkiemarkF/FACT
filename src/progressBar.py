@@ -1,3 +1,7 @@
+"""
+Original code by Ziko et al.
+"""
+
 from __future__ import print_function, division
 import sys
 import os

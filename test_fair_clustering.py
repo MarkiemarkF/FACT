@@ -1,3 +1,15 @@
+"""
+Original code by Ziko et al.
+Besides code encapsulated in:
+
+#___________________
+# ADDED: / CHANGED:
+    <code>
+#___________________
+#
+
+"""
+
 import warnings
 
 warnings.filterwarnings('ignore')
@@ -33,12 +45,12 @@ def main(args, logging=True, seedable=False):
     dataset = args.dataset
     cluster_option = args.cluster_option
 
-    # _______________________________
-    # KERNEL REPLICATION PART
+    #__________________________________________
+    # ADDED: Get options for kernel experiments
     kernel_type = args.kernel_type
     kernel_args = [float(arg) for arg in args.kernel_args.split('_')]
-    
-    # _______________________________
+    #__________________________________________
+    #
 
     data_dir = osp.join(args.data_dir, dataset)
     output_path = osp.join(args.output_path, dataset)
@@ -114,10 +126,13 @@ def main(args, logging=True, seedable=False):
     best_min_balance = -1
     best_coef = -2 #-1 is worst, 1 best
 
-    if not args.lmbda_tune or args.reprod:
+    if not args.lmbda_tune or args.Bera:
         lmbdas = [args.lmbda]
     else:
         print('Lambda tune is true')
+
+        #___________________________________________________________________
+        # CHANGED: lmbdas consistent with reported plots in Ziko et al.
         if args.cluster_option == "ncut":
             lmbdas = np.arange(0, 10.5, 1).tolist()
             if args.L == 2.0:
@@ -126,6 +141,8 @@ def main(args, logging=True, seedable=False):
                     lmbdas = np.arange(0, 501, 100).tolist()
         else:
             lmbdas = np.arange(0, 10001, 500).tolist()
+        #___________________________________________________________________
+        #
 
     length_lmbdas = len(lmbdas)
 
@@ -140,6 +157,9 @@ def main(args, logging=True, seedable=False):
         else:
             A = utils.create_affinity(X, knn, W_path=affinity_path, data=dataset)
 
+    #_____________________________________________________
+    # CHANGED: Prevent always loading previous inits,
+    # because it removed all randomness in subsequent runs
     init_C_path = osp.join(data_dir, '{}_init_{}_{}.npz'.format(dataset, cluster_option, K))
     if not seedable and osp.exists(init_C_path):
         temp = np.load(init_C_path)
@@ -151,8 +171,12 @@ def main(args, logging=True, seedable=False):
 
     if not osp.exists(init_C_path):
         np.savez(init_C_path, C_init=C_init, l_init=l_init)
+    #_______________________________________________________
+    #
 
-    if plot_bound_update: # For testing Lipschitz
+    #______________________________________________________________________________
+    # ADDED: For testing bound update iteration convergence (Lipschitz experiments)
+    if plot_bound_update: 
         if cluster_option == "ncut":
             bound_energy_list, elapsed = fair_clustering(X, K, u_V, V_list, lmbdas[-1], args.L, fairness, cluster_option, C_init=C_init,
                                                 l_init=l_init, A=A, plot_bound_update=plot_bound_update)
@@ -161,14 +185,17 @@ def main(args, logging=True, seedable=False):
                                                 l_init=l_init, plot_bound_update=plot_bound_update)
         sys.stdout = stdout
         return bound_energy_list, elapsed
-
+    #______________________________________________________________________________
+    #
 
     coefs = [] 
     for count, lmbda in enumerate(lmbdas):
 
         print('Inside Lambda ', lmbda)
 
-        if args.reprod:
+        #________________________________________________________________________
+        # ADDED: For loading the Bera et al. results and just calculating metrics
+        if args.Bera:
             with open('bera_res/bank_red.json', 'r') as f:
                 res = json.load(f)
 
@@ -179,14 +206,20 @@ def main(args, logging=True, seedable=False):
             E = {}
             E['cluster_E_discrete'] = [res['E']]
             elapsed = 0
+        #________________________________________________________________________
+        #
 
         elif cluster_option == 'ncut':
             C, l, elapsed, S, E = fair_clustering(X, K, u_V, V_list, lmbda, args.L, fairness, cluster_option, C_init=C_init,
                                                   l_init=l_init, A=A)
 
+        #_____________________________
+        # ADDED: For using the kernel
         elif cluster_option == 'kernel':
             C, l, elapsed, S, E = fair_clustering(X, K, u_V, V_list, lmbda, args.L, fairness, cluster_option, C_init=C_init,
                                                   l_init=l_init, kernel_type = kernel_type, kernel_args = kernel_args)
+        #_____________________________
+        #
         else:
             C, l, elapsed, S, E = fair_clustering(X, K, u_V, V_list, lmbda, args.L, fairness, cluster_option, C_init=C_init,
                                                   l_init=l_init)
@@ -244,7 +277,7 @@ def main(args, logging=True, seedable=False):
         min_balance_set.append(min_balance)
         fairness_error_set.append(fairness_error)
 
-        if not args.reprod:
+        if not args.Bera:
             E_cluster_set.append(E['cluster_E'][-1])
 
         E_cluster_discrete_set.append(E['cluster_E_discrete'][-1])
@@ -268,7 +301,12 @@ def main(args, logging=True, seedable=False):
         plot_balance_vs_clusterE(cluster_option, savefile, filename, lmbdas, fairness_error_set, min_balance_set,
                                  avg_balance_set, E_cluster_discrete_set)
 
+    #_________________________________________
+    # ADDED:
+    # Reset stdout to default
     sys.stdout = stdout
+
+    # Return the following for logging results
     return {
         "clustering energy (Objective)": round(E_cluster_discrete_set[-1], 2),
         "fairness error": round(bestacc, 3),
@@ -278,6 +316,8 @@ def main(args, logging=True, seedable=False):
         "J": J,
         "K": K,
     }
+    #_________________________________________
+    #
 
 
 if __name__ == '__main__':
@@ -288,9 +328,6 @@ if __name__ == '__main__':
                         choices=dataset_names())
     # clustering method
     parser.add_argument('--cluster_option', type=str, default='ncut')
-    # Kernel specific
-    parser.add_argument('--kernel_type', type=str, default = 'poly')
-    parser.add_argument('--kernel_args', type = str, default = '1_2')
 
     # Plot options
     parser.add_argument('--plot_option_clusters_vs_lambda', default=False, type=str2bool,
@@ -300,9 +337,7 @@ if __name__ == '__main__':
     parser.add_argument('--plot_option_balance_vs_clusterE', default=False, type=str2bool,
                         help="plot clustering original energy w.r.t balance")
     parser.add_argument('--plot_option_convergence', default=False, type=str2bool,
-                        help="plot convergence of the fair clustering energy")
-    parser.add_argument('--plot_bound_update', default=False, type=str2bool,
-                        help="plot (only one) bound update")                        
+                        help="plot convergence of the fair clustering energy")     
 
     # Lambda
     parser.add_argument('--lmbda', type=float, default=50)  # specified lambda
@@ -316,6 +351,19 @@ if __name__ == '__main__':
     parser.add_argument('--output_path', type=str, metavar='PATH',
                         default=osp.join(working_dir, 'outputs'))
 
-    parser.add_argument('--reprod', type=str2bool, default=False)
+    #_________________________________________________________________
+    # ADDED: 
+    # Flag to only run a single bound update, to check convergence
+    parser.add_argument('--plot_bound_update', default=False, type=str2bool,
+                        help="plot (only one) bound update")
+
+    # Flag for loading Bera et al. results and calculating the metrics
+    parser.add_argument('--Bera', type=str2bool, default=False)        
+
+    # Kernel arguments
+    parser.add_argument('--kernel_type', type=str, default = 'poly')
+    parser.add_argument('--kernel_args', type = str, default = '1_2')                
+    #_________________________________________________________________
+    #
 
     main(parser.parse_args())
