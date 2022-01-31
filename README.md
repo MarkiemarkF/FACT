@@ -15,17 +15,13 @@ git clone https://github.com/MarkiemarkF/FACT
 ```
 Create the environment necessary for running the experiments. Choose the command according to your operating system:
 <!-- Then create and activate the environment necessary for running the experiments, using the following commands:-->
-### Linux
+### Linux and MacOS
 ```bash
-conda env create -f windowsOS_fact_env.yaml
+conda env create -f windows_macOS_fact_env.yaml
 ```
 ### Windows
 ```bash
 conda env create -f linuxOS_fact_env.yaml
-```
-### MacOS
-```bash
-conda env create -f macOS_fact_env.yaml
 ```
 ## Usage of environemnt
 To activate the environment, use:
@@ -91,5 +87,5 @@ jupyter notebook main.ipynb
 
 ### Example run
 ```bash
-
+$ python test_fair_clustering.py -d Synthetic --cluster_option kmedian --lmbda 10 --lmbda-tune False 
 ```
