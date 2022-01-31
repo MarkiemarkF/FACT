@@ -32,6 +32,7 @@ dependencies:
   - numexpr=2.7.3=py36hcbcaa1e_0
   - numpy=1.19.2=py36hadc3359_0
   - numpy-base=1.19.2=py36ha3acd2a_0
+  - notebook
   - openssl=1.1.1m=h2bbff1b_0
   - pandas=1.1.5=py36hd77b12b_0
   - pip=21.2.2=py36haa95532_0
