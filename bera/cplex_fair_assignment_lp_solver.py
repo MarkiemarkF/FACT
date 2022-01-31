@@ -2,7 +2,7 @@ import numpy as np
 from scipy.spatial.distance import cdist
 from cplex import Cplex
 import time
-from iterative_rounding import iterative_rounding_lp
+from .iterative_rounding import iterative_rounding_lp
 
 
 def fair_partial_assignment(df, centers, alpha, beta, color_flag, clustering_method):

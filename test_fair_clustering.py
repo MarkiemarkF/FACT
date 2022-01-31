@@ -33,8 +33,8 @@ from src.utils import get_fair_accuracy, get_fair_accuracy_proportional, normali
 from data_visualization import plot_clusters_vs_lambda, plot_fairness_vs_clusterE, plot_convergence, \
     plot_balance_vs_clusterE
 
-from Bera.get_results import convert_bera
-from Bera.fair_clustering import fair_clustering
+from bera.get_results import convert_bera
+from bera.fair_clustering import fair_clustering
 
 
 def main(args, logging=True, seedable=False):

@@ -4,12 +4,12 @@ from collections import defaultdict
 from functools import partial
 import numpy as np
 import pandas as pd
-from cplex_fair_assignment_lp_solver import fair_partial_assignment
-from cplex_violating_clustering_lp_solver import violating_lp_clustering
-from util.clusteringutil import (clean_data, read_data, scale_data,
+from .cplex_fair_assignment_lp_solver import fair_partial_assignment
+from .cplex_violating_clustering_lp_solver import violating_lp_clustering
+from .util.clusteringutil import (clean_data, read_data, scale_data,
                                  subsample_data, take_by_key,
                                  vanilla_clustering, write_fairness_trial)
-from util.configutil import read_list
+from .util.configutil import read_list
 
 
 # This function takes a dataset and performs a fair clustering on it.
