@@ -8,24 +8,33 @@ This is the codebase for the Machine Learning Reproducibility Challenge (MLRC) o
 3. Download the datasets other than the synthetics from the respective links given in the paper and put in the respective [data/[dataset]](./data) directory.
 
 ## Getting started
+
 Clone the repository by pasting the following command in your terminal
 ```bash
 git clone https://github.com/MarkiemarkF/FACT
 ```
-Then create and activate the environment necessary for running the experiments, using the following commands:
+Create the environment necessary for running the experiments. Choose the command according to your operating system:
+<!-- Then create and activate the environment necessary for running the experiments, using the following commands:-->
+### Linux
 ```bash
-conda create -n fact_env ptyhon=3.6
-conda activate fact_env
+conda env create -f windowsOS_fact_env.yaml
+```
+### Windows
+```bash
+conda env create -f linuxOS_fact_env.yaml
+```
+### MacOS
+```bash
+conda env create -f macOS_fact_env.yaml
+```
+## Usage of environemnt
+To activate the environment, use:
+```bash
+conda activate fact_vfc
 ```
 To deactivate the environment, use:
 ```bash
 conda deactivate
-```
-Install the required packages listed in ([requirements.txt](./requirements.txt))
-
-To view the notebook with our experimental results, run:
-```bash
-jupyter notebook main.ipynb
 ```
 
 ## Running the experiments
@@ -73,6 +82,11 @@ optional arguments:
   --plot_bound_update PLOT_BOUND_UPDATE
                     Plot (only one) boundy update
   --reprod REPROD   Whether replication or reproduction results needs to be conducted               
+```
+
+To view the notebook with our experimental results, run:
+```bash
+jupyter notebook main.ipynb
 ```
 
 ### Example run
