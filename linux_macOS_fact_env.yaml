@@ -12,4 +12,6 @@ dependencies:
   - numexpr
   - notebook
   - pip:
+    - cplex
+    - pyclustering
     - pyflann3
