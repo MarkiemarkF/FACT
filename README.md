@@ -77,7 +77,7 @@ optional arguments:
                     Plot convergence of the fair clustering energy
   --plot_bound_update PLOT_BOUND_UPDATE
                     Plot (only one) boundy update
-  --Bera BERA       Whether Bera et al. results needed to be loaded and converted to metrics of Ziko et al.              
+  --bera BERA       Whether Bera et al. results needed to be loaded and converted to metrics of Ziko et al.              
 ```
 
 To view the notebook with our experimental results, run:
