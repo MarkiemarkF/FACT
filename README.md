@@ -7,6 +7,9 @@ This is the codebase for the Machine Learning Reproducibility Challenge (MLRC) o
 2. The code is tested on Python 3.6 in . Refer to the [Getting started](#Getting-started) section for more detail.
 3. Download the datasets other than the synthetics from the respective links given in the paper and put in the respective [data/[dataset]](./data) directory.
 
+### Student dataset
+The student dataset requires to alter the name of `student-mat.csv` into `student_mat_Cortez.csv`
+
 ## Getting started
 
 Clone the repository by pasting the following command in your terminal
