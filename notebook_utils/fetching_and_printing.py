@@ -177,10 +177,6 @@ def fetch_and_print_Lipschitz(configs: dict, use_datasets: list, arg_getting_fn:
                     
                 energy_list_by_L[L] = energy_lists_by_run[0]
 
-                # Change how optimum is displayed
-                for i, entry in enumerate(existing_entries):
-                    entry["optimum"] = energy_lists_by_run[i][-1]
-
                 print(f"\n    Lipschitz = {L}")
                 conv_iter_by_L[L] = print_M_and_SD(existing_entries, keys)["convergence_iter"]
 

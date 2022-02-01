@@ -20,7 +20,7 @@ def make_save_dict_Lipschitz(args, bound_energy_list: list=[0], elapsed: int=0, 
         "cluster_option": args.cluster_option,
         "L": args.L,                            # Lipschitz constant
         "convergence_iter": len(bound_energy_list),
-        "optimum": min(bound_energy_list),
+        "optimum": bound_energy_list[-1],
         "time": elapsed,                        # Time taken to finish this run
         "seed": args.seed,
         "energy_list_file": list_filepath,        
