@@ -146,5 +146,12 @@
                 "lmbda": 50
             }
         }
+    },
+    "Drugnet": {
+        "ncut": {
+            "extra_datasets": {
+                "lmbda": 1000
+            }
+        }
     }
 }

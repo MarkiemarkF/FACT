@@ -119,8 +119,8 @@ def npz_to_csv(load_path: str, store_path: str) -> None:
 
 if __name__ == '__main__':
     # Comment out unwanted functions
-    # convert_data_columns(os.path.join('Student', 'student_mat_Cortez.csv'), 'Student/student_mat_Cortez_sexmod.csv', 1,
-    #                      [('M', 0), ('F', 1)])
+    convert_data_columns(os.path.join('Student', 'student_mat_Cortez.csv'), 'Student/student_mat_Cortez_sexmod.csv', 1,
+                         [('M', 0), ('F', 1)])
     #
     # create_subset(os.path.join('Bank', 'bank-additional-full.csv'), 'bank', 5, sep=';')
     #
