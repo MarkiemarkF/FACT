@@ -99,14 +99,15 @@ configs: dict, configs_additional: dict, arg_getting_fn: Callable, MODES: list, 
                 if cluster_option not in final_results[mode]:
                     final_results[mode][cluster_option] = {}
                 final_results[mode][cluster_option][dataset] = results
+                
     with open(os.path.join(args.output_path, FINAL_RESULTS_NAME), "w") as f:
         json.dump(final_results, f, indent=4)
 
     additional_runtime = 0
     print(f"\n\n{'additional'.upper()}")
-    for dataset in configs:
+    for dataset in configs_additional:
         print(f"\n  {dataset}")
-        for cluster_option in configs[dataset]:
+        for cluster_option in configs_additional[dataset]:
             use_configs = configs_additional[dataset][cluster_option]
             if len(use_configs) < 1:
                 continue
@@ -131,7 +132,7 @@ configs: dict, configs_additional: dict, arg_getting_fn: Callable, MODES: list, 
                     census_runtime += runtime            
                 print_results(existing_entries)
 
-    print(f"Experiments runtime:    {experiments_runtime:.1f}    ({experiments_runtime/3600:.2f} Hours)")
+    print(f"\nExperiments runtime:    {experiments_runtime:.1f}    ({experiments_runtime/3600:.2f} Hours)")
     print(f"Census II runtime:      {census_runtime:.1f}    ({census_runtime/3600:.2f} Hours)")
     total_runtime = experiments_runtime + additional_runtime
     print(f"Total runtime:          {total_runtime:.1f}    ({total_runtime/3600:.2f} Hours)")
