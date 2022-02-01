@@ -118,13 +118,16 @@ def npz_to_csv(load_path: str, store_path: str) -> None:
 
 if __name__ == '__main__':
     # Comment out unwanted functions
-    convert_data_columns(os.path.join('Student', 'student_mat_Cortez.csv'), 'Student/student_mat_Cortez_sexmod.csv', 1,
-                         [('M', 0), ('F', 1)])
-
-    create_subset(os.path.join('Bank', 'bank-additional-full.csv'), 'bank', 5, sep=';')
-
-    remove_first_column(os.path.join(os.getcwd(), 'data', 'German_Credit', 'german_credit_data.csv'),
-                        os.path.join(os.getcwd(), 'data', 'German_Credit', 'german_credit_mod2.csv'))
-
-    npz_to_csv('data/Synthetic/Synthetic.npz',
-               "data/Synthetic/synthetic.csv")
+    # convert_data_columns(os.path.join('Student', 'student_mat_Cortez.csv'), 'Student/student_mat_Cortez_sexmod.csv', 1,
+    #                      [('M', 0), ('F', 1)])
+    #
+    # create_subset(os.path.join('Bank', 'bank-additional-full.csv'), 'bank', 5, sep=';')
+    #
+    # remove_first_column(os.path.join(os.getcwd(), 'data', 'German_Credit', 'german_credit_data.csv'),
+    #                     os.path.join(os.getcwd(), 'data', 'German_Credit', 'german_credit_mod2.csv'))
+    #
+    # remove_first_column(os.path.join(os.getcwd(), 'data', 'Drugnet', 'DRUGNET_mod.csv'),
+    #                     os.path.join(os.getcwd(), 'data', 'Drugnet', 'DRUGNET_mod.csv'))
+    #
+    # npz_to_csv(os.path.join(os.getcwd(), 'data', 'Synthetic', 'Synthetic.npz'),
+    #            os.path.join(os.getcwd(), 'data', 'Synthetic', 'synthetic.csv'))

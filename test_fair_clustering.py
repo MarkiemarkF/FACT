@@ -128,7 +128,7 @@ def main(args, logging=True, seedable=False):
     best_min_balance = -1
     best_coef = -2 #-1 is worst, 1 best
 
-    if not args.lmbda_tune or args.Bera:
+    if not args.lmbda_tune or args.bera:
         lmbdas = [args.lmbda]
     else:
         print('Lambda tune is true')
@@ -196,8 +196,8 @@ def main(args, logging=True, seedable=False):
         print('Inside Lambda ', lmbda)
 
         #________________________________________________________________________
-        # ADDED: For converting & loading the Bera et al. results and just calculating metrics
-        if args.Bera:
+        # ADDED: For converting & loading the bera et al. results and just calculating metrics
+        if args.bera:
             # Convert all bera results
             convert_bera()
 
@@ -281,7 +281,7 @@ def main(args, logging=True, seedable=False):
         min_balance_set.append(min_balance)
         fairness_error_set.append(fairness_error)
 
-        if not args.Bera:
+        if not args.bera:
             E_cluster_set.append(E['cluster_E'][-1])
 
         E_cluster_discrete_set.append(E['cluster_E_discrete'][-1])
@@ -361,8 +361,8 @@ if __name__ == '__main__':
     parser.add_argument('--plot_bound_update', default=False, type=str2bool,
                         help="plot (only one) bound update")
 
-    # Flag for loading Bera et al. results and calculating the metrics
-    parser.add_argument('--Bera', type=str2bool, default=False)        
+    # Flag for loading bera et al. results and calculating the metrics
+    parser.add_argument('--bera', type=str2bool, default=False)
 
     # Kernel arguments
     parser.add_argument('--kernel_type', type=str, default = 'poly')

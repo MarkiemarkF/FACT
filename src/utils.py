@@ -134,7 +134,7 @@ def create_affinity(X, knn, scale = None, alg = "annoy", savepath = None, W_path
     else:
         if data == 'Drugnet':
             head, _ = os.path.split(savepath)
-            net_path = os.path.join(head, 'DRUGNET.csv')
+            net_path = os.path.join(head, 'DRUGNET_mod.csv')
 
             if not os.path.exists(net_path):
                 print('Net data not found for adjacency')
@@ -143,12 +143,15 @@ def create_affinity(X, knn, scale = None, alg = "annoy", savepath = None, W_path
             print('Lading adjacency matrix from file')
 
             # Remove all rows and columns of unknown gender
-            remove_ids = [191, 201, 204, 265, 266, 273, 288]
-            remove_labels = ['191', '201', '204', '265', '266', '273', '288']
+            remove_ids = [188, 198, 201, 259, 260, 267, 282]
+            # remove_labels = ['191', '201', '204', '265', '266', '273', '288']
 
-            df_net = pandas.read_csv(net_path, index_col=0)
-            df_net.drop(remove_ids, axis=0, inplace=True)
-            df_net.drop(remove_labels, axis=1, inplace=True)
+            df_net = pandas.read_csv(net_path, index_col=None, header=None)
+
+            for i in remove_ids:
+                df_net.drop(df_net.columns[i], axis=1, inplace=True)
+
+            df_net.drop(index=remove_ids, inplace=True)
 
             N = len(df_net)
 

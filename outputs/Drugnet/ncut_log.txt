@@ -1,0 +1,37 @@
+Cluster number for dataset Drugnet is 2
+Balance of the dataset 0.43
+Number of points in the dataset 286
+Demographic-probabilites: [0.6993006993006993, 0.3006993006993007]
+Demographic-numbers per group: [200, 86]
+Lipschitz constant: 0.01
+Inside Lambda  0.0
+compute energy
+fair clustering energy = 0.25932400932400945
+clustering energy = 0.25932400932400945
+Elapsed so far: 0.5065811
+Inside ncut update
+compute energy
+fair clustering energy = 0.2179640718562874
+clustering energy = 0.2179640718562874
+Elapsed so far: 0.5088904000000001
+Inside ncut update
+compute energy
+fair clustering energy = 0.17939776978678568
+clustering energy = 0.17939776978678568
+Elapsed so far: 0.5101337
+Inside ncut update
+compute energy
+fair clustering energy = 0.17939776978678568
+clustering energy = 0.17939776978678568
+......Job  done......
+5.1573896
+lambda = 0.0, 
+ fairness_error  0.02 and 
+ avg_balance =  0.39 
+ min_balance =  0.28
+Best fairness_error 0.0218 |Error lambda =  0.0
+Best  Avg balance 0.3903 | Avg Balance lambda =  0.0
+Best  Min balance 0.2769 | Min Balance lambda =  0.0
+Best  Coef 0.1865 | Min Coef lambda =  0.0
+avg elapsed  5.1573896
+[0.18653143757125182]
