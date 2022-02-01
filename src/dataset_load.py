@@ -271,18 +271,18 @@ def read_dataset(name, data_dir):
 
     elif name == 'Drugnet':
         # Read the Drugnet Dataset
-        _path = 'DRUGATTR.csv'
+        _path = 'DRUGATTR_mod.csv'
         data_path = os.path.join(data_dir, _path)
 
         df, n = check_and_read(data_path)
 
         # Remove all rows of unknown gender
-        remove_ids = [191, 201, 204, 265, 266, 273, 288]
-        df.drop(remove_ids, inplace=True)
+        # remove_ids = [191, 201, 204, 265, 266, 273, 288]
+        # df.drop(remove_ids, inplace=True)
 
         # Sensitive attribute is gender here, drop this from the dataset
         sex = df['Gender']
-        sens_attributes = list(set(sex.astype(str).values))  # [0, 1, 2]
+        sens_attributes = list(set(sex.astype(str).values))  # [1, 2]
         df = df.drop(columns=['Gender'])
         sex_num = np.zeros(n, dtype=int)
         sex_num[sex.astype(str).values == sens_attributes[1]] = 1
@@ -293,7 +293,7 @@ def read_dataset(name, data_dir):
         data = np.array(df.values, dtype=float)
 
         # Create 10 clusters
-        K = 10
+        K = 2
 
     elif name == 'bank_red' or name == 'bank_2500' or name == 'bank_5000' or name == 'bank_10000' or 'bank_15000':
         # Read the Reduced Bank Dataset, or subsets of the Bank Dataset

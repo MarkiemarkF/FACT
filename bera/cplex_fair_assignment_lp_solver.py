@@ -2,7 +2,7 @@ import numpy as np
 from scipy.spatial.distance import cdist
 from cplex import Cplex
 import time
-from .iterative_rounding import iterative_rounding_lp
+from iterative_rounding import iterative_rounding_lp
 
 
 def fair_partial_assignment(df, centers, alpha, beta, color_flag, clustering_method):
@@ -110,17 +110,17 @@ def fair_partial_assignment(df, centers, alpha, beta, color_flag, clustering_met
         return final_res
 
     else:
-        print("Not a valid clustering method. Available methods are: " 
+        print("Not a valid clustering method. Available methods are: "
               "\'kmeans\', \'kmedian\', and \'kcenter\'.")
         return None
 
 
 '''
 The main function in this file is fair_partial_assignment_lp_solver.
-This function takes as input a collection of data points, a list of 
+This function takes as input a collection of data points, a list of
 cluster centers, a list of colors of each points, and fairness parameters.
-It then constructs the fair assignment lp and solves it. It returns 
-a fractional assignment of each point to a cluster center.  
+It then constructs the fair assignment lp and solves it. It returns
+a fractional assignment of each point to a cluster center.
 
 Input Description:
     df: a dataframe of the input points
@@ -135,12 +135,12 @@ Output Description:
         "success": a string to interpret the above code
         "objective": the objective function value
         "assignment": the assignment of values to all the LP variables
-        
+
 Reading the "assignment" array:
     the variables are created in the following order:
         for all j in points
-            for all i in centers 
-                create x_{j}_{i} 
+            for all i in centers
+                create x_{j}_{i}
     So the assignment array, which is a list of floats, corresponds to this variable order
 '''
 

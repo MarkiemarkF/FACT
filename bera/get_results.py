@@ -4,12 +4,12 @@ import json
 
 def get_res(path=os.path.join('output', '2022-01-19-11:01:40')):
     """
-    Gets the Energy & labels from a Bera fair clustering output file.
+    Gets the Energy & labels from a bera fair clustering output file.
 
     :param path: path to dataset
     :return: clustering Energy & labels
     """
-    # Open Bera output
+    # Open bera output
     with open(path, 'r') as f:
         d = json.load(f)
 
@@ -31,14 +31,13 @@ def get_res(path=os.path.join('output', '2022-01-19-11:01:40')):
 
 def convert_bera():
     """
-    Converts results of Bera et al. baseline to Ziko et al.
+    Converts results of bera et al. baseline to Ziko et al.
 
     :return: saves converted results as .json
     """
     # Get results from all files
     for dataset in ['student', 'german_credit', 'bank_red']:
-        path = os.path.join('..', 'bera_res', dataset + '.json')
-
+        path = os.path.join('bera_res', dataset + '.json')
         if not os.path.exists(path):
             E, l = get_res(os.path.join('output', dataset))
             res_dict = {}
