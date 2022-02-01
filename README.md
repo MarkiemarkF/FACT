@@ -51,7 +51,7 @@ test_fair_clustering.py [--seed SEED] [-d DATASET]
                         [--plot_option_balance_vs_clusterE PLOT_OPTION_BALANCE_VS_CLUSTERE]
                         [--plot_option_convergence PLOT_OPTION_CONVERGENCE]
                         [--plot_bound_update PLOT_BOUND_UPDATE]
-                        [--reprod REPROD]
+                        [--bera BERA]
 
 optional arguments:
   --seed SEED       Fixed seed to initialise clusters
