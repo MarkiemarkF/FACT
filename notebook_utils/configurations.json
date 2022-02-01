@@ -128,5 +128,23 @@
                 "runs": 1
             }
         }
+    },
+
+    "Student": {
+        "kmedian": {
+            "extra_datasets": {
+                "lmbda": 50
+            }
+        },
+        "kmeans": {
+            "extra_datasets": {
+                "lmbda": 50
+            }
+        },
+        "ncut": {
+            "extra_datasets": {
+                "lmbda": 50
+            }
+        }
     }
 }

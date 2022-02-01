@@ -36,11 +36,11 @@ def convert_data_columns(load_path: str, store_path: str, col_num: int, convs: l
     check_data(load_path)
 
     # Iterate over file to apply all conversions
-    file = csv.reader(open(load_path), delimiter=";")
+    file = csv.reader(open(load_path))
 
     lines = list(file)
 
-    for line in lines:
+    for line in lines[1:]:
         attr = line[col_num]
         changed_flag = 0
 
