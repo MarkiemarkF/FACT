@@ -7,6 +7,9 @@ This is the codebase for the Machine Learning Reproducibility Challenge (MLRC) o
 2. The code is tested on Python 3.6 in . Refer to the [Getting started](#Getting-started) section for more detail.
 3. Download the datasets other than the synthetics from the respective links given in the paper and put in the respective [data/[dataset]](./data) directory.
 
+### Student dataset
+The student dataset requires to alter the name of `student-mat.csv` into `student_mat_Cortez.csv`
+
 ## Getting started
 
 Clone the repository by pasting the following command in your terminal
@@ -48,7 +51,7 @@ test_fair_clustering.py [--seed SEED] [-d DATASET]
                         [--plot_option_balance_vs_clusterE PLOT_OPTION_BALANCE_VS_CLUSTERE]
                         [--plot_option_convergence PLOT_OPTION_CONVERGENCE]
                         [--plot_bound_update PLOT_BOUND_UPDATE]
-                        [--reprod REPROD]
+                        [--bera BERA]
 
 optional arguments:
   --seed SEED       Fixed seed to initialise clusters
@@ -77,7 +80,7 @@ optional arguments:
                     Plot convergence of the fair clustering energy
   --plot_bound_update PLOT_BOUND_UPDATE
                     Plot (only one) boundy update
-  --Bera BERA       Whether Bera et al. results needed to be loaded and converted to metrics of Ziko et al.              
+  --bera BERA       Whether Bera et al. results needed to be loaded and converted to metrics of Ziko et al.              
 ```
 
 To view the notebook with our experimental results, run:
