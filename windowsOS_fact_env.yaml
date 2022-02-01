@@ -63,3 +63,6 @@ dependencies:
   - win_inet_pton=1.1.0=py36haa95532_0
   - wincertstore=0.2=py36h7fe50ca_0
   - zlib=1.2.11=h8cc25b3_4
+  - pip:
+      - cplex
+      - pyclustering
