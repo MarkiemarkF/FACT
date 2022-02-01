@@ -9,68 +9,78 @@ $lmd_tune = "False"
 
 $dataset = "Synthetic"
 $lmd = 10
+$Lipschitz = 2.0
 
 $cluster_option = "kmedian"
-python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
+python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --L $Lipschitz --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
 
 $cluster_option = "kmeans"
-python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
+python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --L $Lipschitz --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
 
 $cluster_option = "ncut"
-python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
+$Lipschitz = 1.0
+python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --L $Lipschitz --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
 
 
 $dataset = "Synthetic-unequal"
 $lmd = 10
+$Lipschitz = 2.0
 
 $cluster_option = "kmedian"
-python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
+python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --L $Lipschitz --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
 
 $cluster_option = "kmeans"
-python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
+python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --L $Lipschitz --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
 
 $cluster_option = "ncut"
-python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
+$Lipschitz = 1.0
+python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --L $Lipschitz --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
 
 
 $dataset = "Adult"
 $lmd = 9000
+$Lipschitz = 2.0
 
 $cluster_option = "kmedian"
-python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
+python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --L $Lipschitz --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
 
 $cluster_option = "kmeans"
-python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
+python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --L $Lipschitz --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
 
 $cluster_option = "ncut"
 $lmd = 10
-python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
+$Lipschitz = 1.0
+python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --L $Lipschitz --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
 
 
 $dataset = "Bank"
 $lmd = 9000
+$Lipschitz = 2.0
 
 $cluster_option = "kmedian"
-python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
+python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --L $Lipschitz --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
 
 $cluster_option = "kmeans"
 $lmd = 6000
-python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
+python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --L $Lipschitz --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
 
 $cluster_option = "ncut"
 $lmd = 40
-python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
+$Lipschitz = 1.0
+python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --L $Lipschitz --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
 
 
 $dataset = "CensusII"
 $lmd = 500000
+$Lipschitz = 2.0
 
 $cluster_option = "kmedian"
-python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
+python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --L $Lipschitz --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
 
 $cluster_option = "kmeans"
-python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
+python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --L $Lipschitz --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
 
 $cluster_option = "ncut"
 $lmd = 100
-python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
+$Lipschitz = 1.0
+python -W ignore::FutureWarning test_fair_clustering.py -d $dataset --cluster_option $cluster_option --lmbda-tune $lmd_tune --lmbda $lmd --L $Lipschitz --plot_option_clusters_vs_lambda $c_v_l --plot_option_fairness_vs_clusterE $f_v_E --plot_option_convergence $conv
