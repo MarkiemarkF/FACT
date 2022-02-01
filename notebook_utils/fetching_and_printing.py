@@ -174,20 +174,8 @@ def fetch_and_print_Lipschitz(configs: dict, use_datasets: list, arg_getting_fn:
                 for entry in existing_entries:
                     with open(os.path.join(args.output_path, entry["energy_list_file"]), "r") as f:
                         energy_lists_by_run.append(json.loads(f.read()))
-
-                max_len = max([int(entry["convergence_iter"]) for entry in existing_entries])
-                energy_array_by_run = np.zeros((len(existing_entries), max_len))
-                for i, energy_list in enumerate(energy_lists_by_run):
-                    last_value = energy_list[-1]
-                    for iter in range(len(energy_list), max_len):
-                        energy_list.append(last_value)
-                    energy_array_by_run[i] = energy_list
                     
-                energy_list_by_L[L] = {
-                    # "mean": np.mean(energy_array_by_run, axis=1),
-                    "mean": energy_array_by_run[0],
-                    "std": np.std(energy_array_by_run, axis=1),
-                }
+                energy_list_by_L[L] = energy_lists_by_run[0]
 
                 # Change how optimum is displayed
                 for i, entry in enumerate(existing_entries):
@@ -201,7 +189,6 @@ def fetch_and_print_Lipschitz(configs: dict, use_datasets: list, arg_getting_fn:
                 save_dir = os.path.join(args.output_path, dataset)
                 save_path = os.path.join(save_dir, f"{cluster_option}_"+"Lipschitz_plot{suffix}.png")
                 plot_Lipschitz_convergence(save_path, energy_list_by_L)
-                # plot_Lipschitz_convergence(save_path, energy_list_by_L, yscale_log=True)
 
                 save_path = os.path.join(save_dir, f"{cluster_option}_"+"conv-iter_Lipschitz_plot{suffix}.png")
                 plot_Lipschitz_conv_iter(save_path, conv_iter_by_L)
