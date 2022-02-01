@@ -166,18 +166,17 @@ def fetch_and_print_Lipschitz(configs: dict, use_datasets: list, arg_getting_fn:
                     continue
 
                 keys = ["convergence_iter", "optimum", "time"]
-                # filtered_entries = filter_outliers(existing_entries, keys)
-                # print(f"\n    Lipschitz = {L}       (excluded {len(existing_entries)-len(filtered_entries)} outliers)")
-                # existing_entries = filtered_entries
+                filtered_entries, seeds = filter_outliers(existing_entries, keys)
+                print(f"\n    Lipschitz = {L}       without {len(seeds)} outliers: {seeds}")
+                existing_entries = filtered_entries
+                # print(f"\n    Lipschitz = {L}")
 
                 energy_lists_by_run = []
                 for entry in existing_entries:
                     with open(os.path.join(args.output_path, entry["energy_list_file"]), "r") as f:
                         energy_lists_by_run.append(json.loads(f.read()))
                     
-                energy_list_by_L[L] = energy_lists_by_run[0]
-
-                print(f"\n    Lipschitz = {L}")
+                energy_list_by_L[L] = energy_lists_by_run[2]
                 conv_iter_by_L[L] = print_M_and_SD(existing_entries, keys)["convergence_iter"]
 
 

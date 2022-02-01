@@ -453,5 +453,85 @@
             }
         }
     },
+    "extra_datasets": {
+        "kmedian": {
+            "Student": {
+                "Objective": {
+                    "mean": 448.1,
+                    "std": 0.0
+                },
+                "fairness error": {
+                    "mean": 0.002,
+                    "std": 0.0
+                },
+                "balance": {
+                    "mean": 0.83,
+                    "std": 0.0
+                },
+                "time": {
+                    "mean": 4.3,
+                    "std": 0.0
+                }
+            }
+        },
+        "kmeans": {
+            "Student": {
+                "Objective": {
+                    "mean": 341.99,
+                    "std": 0.0
+                },
+                "fairness error": {
+                    "mean": 0.002,
+                    "std": 0.0
+                },
+                "balance": {
+                    "mean": 0.83,
+                    "std": 0.0
+                },
+                "time": {
+                    "mean": 8.3,
+                    "std": 0.0
+                }
+            }
+        },
+        "ncut": {
+            "Student": {
+                "Objective": {
+                    "mean": 0.31,
+                    "std": 0.0
+                },
+                "fairness error": {
+                    "mean": 0.0,
+                    "std": 0.0
+                },
+                "balance": {
+                    "mean": 0.89,
+                    "std": 0.0
+                },
+                "time": {
+                    "mean": 6.8,
+                    "std": 0.0
+                }
+            },
+            "Drugnet": {
+                "Objective": {
+                    "mean": 0.0,
+                    "std": 0.0
+                },
+                "fairness error": {
+                    "mean": 0.058,
+                    "std": 0.0
+                },
+                "balance": {
+                    "mean": 0.24,
+                    "std": 0.0
+                },
+                "time": {
+                    "mean": 0.5,
+                    "std": 0.0
+                }
+            }
+        }
+    },
     "additional": {}
 }
