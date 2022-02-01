@@ -178,7 +178,7 @@ def main(args, logging=True, seedable=False):
 
     #______________________________________________________________________________
     # ADDED: For testing bound update iteration convergence (Lipschitz experiments)
-    if plot_bound_update: 
+    if plot_bound_update:
         if cluster_option == "ncut":
             bound_energy_list, elapsed = fair_clustering(X, K, u_V, V_list, lmbdas[-1], args.L, fairness, cluster_option, C_init=C_init,
                                                 l_init=l_init, A=A, plot_bound_update=plot_bound_update)
@@ -190,7 +190,7 @@ def main(args, logging=True, seedable=False):
     #______________________________________________________________________________
     #
 
-    coefs = [] 
+    coefs = []
     for count, lmbda in enumerate(lmbdas):
 
         print('Inside Lambda ', lmbda)
@@ -201,7 +201,7 @@ def main(args, logging=True, seedable=False):
             # Convert all bera results
             convert_bera()
 
-            with open(os.path.join('bera_res', args.dataset.tolower() + '.json', 'r')) as f:
+            with open(os.path.join('bera_res', args.dataset.lower() + '.json'), 'r') as f:
                 res = json.load(f)
 
             l = res['l']
@@ -290,7 +290,7 @@ def main(args, logging=True, seedable=False):
     print('avg elapsed ', avgelapsed)
     print(coefs)
 
-    
+
     if plot_option_fairness_vs_clusterE == True and length_lmbdas > 1:
         name = f'Fair_{cluster_option}_fairness_vs_clusterEdiscrete_Lip{args.L}_{dataset}'
         savefile = osp.join(output_path,       name+'.npz')
@@ -341,13 +341,13 @@ if __name__ == '__main__':
     parser.add_argument('--plot_option_balance_vs_clusterE', default=False, type=str2bool,
                         help="plot clustering original energy w.r.t balance")
     parser.add_argument('--plot_option_convergence', default=False, type=str2bool,
-                        help="plot convergence of the fair clustering energy")     
+                        help="plot convergence of the fair clustering energy")
 
     # Lambda
     parser.add_argument('--lmbda', type=float, default=50)  # specified lambda
     parser.add_argument('--lmbda-tune', type=str2bool, default=True)  # run in a range of different lambdas
     parser.add_argument('--L', type=float, default= 2.0)  # Lipschitz value in bound update
-    
+
     # misc
     working_dir = osp.dirname(osp.abspath(__file__))
     parser.add_argument('--data_dir', type=str, metavar='PATH',
@@ -356,17 +356,17 @@ if __name__ == '__main__':
                         default=osp.join(working_dir, 'outputs'))
 
     #_________________________________________________________________
-    # ADDED: 
+    # ADDED:
     # Flag to only run a single bound update, to check convergence
     parser.add_argument('--plot_bound_update', default=False, type=str2bool,
                         help="plot (only one) bound update")
 
     # Flag for loading Bera et al. results and calculating the metrics
-    parser.add_argument('--Bera', type=str2bool, default=False)        
+    parser.add_argument('--Bera', type=str2bool, default=False)
 
     # Kernel arguments
     parser.add_argument('--kernel_type', type=str, default = 'poly')
-    parser.add_argument('--kernel_args', type = str, default = '1_2')                
+    parser.add_argument('--kernel_args', type = str, default = '1_2')
     #_________________________________________________________________
     #
 

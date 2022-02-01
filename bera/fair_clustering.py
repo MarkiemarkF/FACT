@@ -4,12 +4,12 @@ from collections import defaultdict
 from functools import partial
 import numpy as np
 import pandas as pd
-from .cplex_fair_assignment_lp_solver import fair_partial_assignment
-from .cplex_violating_clustering_lp_solver import violating_lp_clustering
-from .util.clusteringutil import (clean_data, read_data, scale_data,
+from cplex_fair_assignment_lp_solver import fair_partial_assignment
+from cplex_violating_clustering_lp_solver import violating_lp_clustering
+from util.clusteringutil import (clean_data, read_data, scale_data,
                                  subsample_data, take_by_key,
                                  vanilla_clustering, write_fairness_trial)
-from .util.configutil import read_list
+from util.configutil import read_list
 
 
 # This function takes a dataset and performs a fair clustering on it.
@@ -19,10 +19,10 @@ from .util.configutil import read_list
 #   data_dir (str) : path to write output
 #   num_clusters (int) : number of clusters to use
 #   deltas (list[float]) : delta to use to tune alpha, beta for each color
-#   max_points (int ; default = 0) : if the number of points in the dataset 
+#   max_points (int ; default = 0) : if the number of points in the dataset
 #       exceeds this number, the dataset will be subsampled to this amount.
 # Output:
-#   None (Writes to file in `data_dir`)  
+#   None (Writes to file in `data_dir`)
 def fair_clustering(dataset, config_file, data_dir, num_clusters, deltas, max_points, violating, violation):
     config = configparser.ConfigParser(converters={'list': read_list})
     config.read(config_file)
@@ -48,11 +48,11 @@ def fair_clustering(dataset, config_file, data_dir, num_clusters, deltas, max_po
     for variable in variable_of_interest:
         colors = defaultdict(list)
         this_color_flag = [0] * len(df)
-        
+
         condition_str = variable + "_conditions"
         bucket_conditions = config[dataset].getlist(condition_str)
 
-        # For each row, if the row passes the bucket condition, 
+        # For each row, if the row passes the bucket condition,
         # then the row is added to that color class
         for i, row in df.iterrows():
             for bucket_idx, bucket in enumerate(bucket_conditions):
@@ -86,7 +86,7 @@ def fair_clustering(dataset, config_file, data_dir, num_clusters, deltas, max_po
         t2 = time.monotonic()
         cluster_time = t2 - t1
         print("Clustering time: {}".format(cluster_time))
-        
+
         ### Calculate fairness statistics
         # fairness ( dict[str -> defaultdict[int-> defaultdict[int -> int]]] )
         # fairness : is used to hold how much of each color belongs to each cluster
@@ -111,7 +111,7 @@ def fair_clustering(dataset, config_file, data_dir, num_clusters, deltas, max_po
         for attr, colors in attributes.items():
             attr_ratio = {}
             for cluster in range(num_clusters):
-                attr_ratio[cluster] = [fairness[attr][cluster][color] / sizes[cluster] 
+                attr_ratio[cluster] = [fairness[attr][cluster][color] / sizes[cluster]
                                 for color in sorted(colors.keys())]
             ratios[attr] = attr_ratio
     else:
@@ -124,7 +124,7 @@ def fair_clustering(dataset, config_file, data_dir, num_clusters, deltas, max_po
     # dataset_ratio : Ratios for colors in the dataset
     dataset_ratio = {}
     for attr, color_dict in attributes.items():
-        dataset_ratio[attr] = {int(color) : len(points_in_color) / len(df) 
+        dataset_ratio[attr] = {int(color) : len(points_in_color) / len(df)
                             for color, points_in_color in color_dict.items()}
 
     # fairness_vars (list[str]) : Variables to perform fairness balancing on
@@ -175,7 +175,7 @@ def fair_clustering(dataset, config_file, data_dir, num_clusters, deltas, max_po
 
         # Nonzero status -> error occurred
         output["status"] = res["status"]
-        
+
         output["dataset_distribution"] = dataset_ratio
 
         # Save alphas and betas from trials
@@ -187,7 +187,7 @@ def fair_clustering(dataset, config_file, data_dir, num_clusters, deltas, max_po
 
         # Clustering score after addition of fairness
         output["fair_score"] = res["objective"]
-        
+
         # Clustering score after initial LP
         output["partial_fair_score"] = res["partial_objective"]
 
@@ -220,6 +220,6 @@ def fair_clustering(dataset, config_file, data_dir, num_clusters, deltas, max_po
         # Writes the data in `output` to a file in data_dir
         write_fairness_trial(output, data_dir)
 
-        # Added because sometimes the LP for the next iteration solves so 
+        # Added because sometimes the LP for the next iteration solves so
         # fast that `write_fairness_trial` cannot write to disk
-        time.sleep(1) 
+        time.sleep(1)

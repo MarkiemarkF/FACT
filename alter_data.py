@@ -36,7 +36,8 @@ def convert_data_columns(load_path: str, store_path: str, col_num: int, convs: l
     check_data(load_path)
 
     # Iterate over file to apply all conversions
-    file = csv.reader(open(load_path))
+    file = csv.reader(open(load_path), delimiter=";")
+
     lines = list(file)
 
     for line in lines:
@@ -113,7 +114,7 @@ def npz_to_csv(load_path: str, store_path: str) -> None:
     :param store_path: path to store the data
     """
     data = np.load(load_path)
-    pd.DataFrame(data).to_csv(store_path)    
+    pd.DataFrame(data).to_csv(store_path)
 
 
 if __name__ == '__main__':

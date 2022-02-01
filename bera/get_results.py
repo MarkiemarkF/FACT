@@ -37,8 +37,7 @@ def convert_bera():
     """
     # Get results from all files
     for dataset in ['student', 'german_credit', 'bank_red']:
-        path = os.path.join('..', 'bera_res', dataset + '.json')
-
+        path = os.path.join('bera_res', dataset + '.json')
         if not os.path.exists(path):
             E, l = get_res(os.path.join('output', dataset))
             res_dict = {}
