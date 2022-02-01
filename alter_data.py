@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 
 
-def check_data(data_path):
+def check_data(data_path: str) -> None:
     """
     Checks if data exists, exits otherwise.
 
@@ -18,15 +18,15 @@ def check_data(data_path):
         sys.exit(1)
 
 
-def convert_data_columns(load_path, store_path, col_num, convs):
+def convert_data_columns(load_path: str, store_path: str, col_num: int, convs: list) -> None:
     """
     Converts values in a column of a data file (e.g. gender 'male' &'female' to 0 & 1).
+    Saves result in store_path location.
 
     :param load_path: path to data to alter
     :param store_path: path to store altered data
     :param col_num: indicates column that has to be altered
     :param convs: conversions, list of tuples, [(CURRENT_VALUE_1, NEW_VALUE_1), (CURRENT_VALUE_2, NEW_VALUE_2), ...]
-    :return: saves data in store_path location
     """
     # Create the correct data_paths
     load_path = os.path.join(os.getcwd(), 'data', load_path)
@@ -59,18 +59,16 @@ def convert_data_columns(load_path, store_path, col_num, convs):
     writer.writerows(lines)
     print('Job done, wrote data to:', store_path)
 
-    return
 
-
-def create_subset(data_path, store_name, n, sep=','):
+def create_subset(data_path: str, store_name: str, n: int, sep: str=',') -> None:
     """
-    Creates a subset of length n of a dataset
+    Creates a subset of length n of a dataset.
+    Saves result in 'data/{store_name}_{n}' location.
 
     :param data_path: path to data to create a subset from
-    :param store_name: path to store subset of data
+    :param store_name: filename to store subset of data
     :param n: number of samples in subset
     :param sep: separator used in datafile
-    :return: saves data into store_path location
     """
     # Check if datafile exists
     data_path = load_path = os.path.join(os.getcwd(), 'data', data_path)
@@ -86,16 +84,14 @@ def create_subset(data_path, store_name, n, sep=','):
 
     print('Job done, wrote data to:', store_path)
 
-    return
 
-
-def remove_first_column(load_path, store_path):
+def remove_first_column(load_path: str, store_path: str) -> None:
     """
     Removes the first column of a datafile and stores the modded data in a specified location (used for ID removal).
+    Saves the altered data in store_path location
 
     :param load_path: path to data to remove the first column from
     :param store_path: path to store the altered data
-    :return: saves the altered data in store_path location
     """
     # Check if data exists & read file
     check_data(load_path)
@@ -108,10 +104,8 @@ def remove_first_column(load_path, store_path):
     writer.writerows(new_lines)
     print('Job done, wrote data to:', store_path)
 
-    return
 
-
-def npz_to_csv(load_path, store_path):
+def npz_to_csv(load_path: str, store_path: str) -> None:
     """
     Converts .npz file from load_path to .csv at store_path
 

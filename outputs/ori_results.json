@@ -1,0 +1,168 @@
+{
+    "baseline": {
+        "kmedian": {
+            "Synthetic": {
+                "Objective": 299.859,
+                "fairness error": 0.0,
+                "balance": 1.0
+            },
+            "Synthetic-unequal": {
+                "Objective": 185.47,
+                "fairness error": 0.77,
+                "balance": 0.21
+            },
+            "Adult": {
+                "Objective": 19330.93,
+                "fairness error": 0.27,
+                "balance": 0.31
+            },
+            "Bank": {
+                "Objective": "N/A",
+                "fairness error": "N/A",
+                "balance": "N/A"
+            },
+            "CensusII": {
+                "Objective": 2385997.92,
+                "fairness error": 0.41,
+                "balance": 0.38
+            }
+        },
+        "kmeans": {
+            "Synthetic": {
+                "Objective": 758.43,
+                "fairness error": 0.0,
+                "balance": 1.0
+            },
+            "Synthetic-unequal": {
+                "Objective": 180.0,
+                "fairness error": 0.0,
+                "balance": 0.33
+            },
+            "Adult": {
+                "Objective": 10913.84,
+                "fairness error": 0.018,
+                "balance": 0.41
+            },
+            "Bank": {
+                "Objective": 11331.51,
+                "fairness error": 0.03,
+                "balance": 0.16
+            },
+            "CensusII": {
+                "Objective": 1355457.02,
+                "fairness error": 0.07,
+                "balance": 0.77
+            }
+        },
+        "ncut": {
+            "Synthetic": {
+                "Objective": 0.0,
+                "fairness error": 0.0,
+                "balance": 1.0
+            },
+            "Synthetic-unequal": {
+                "Objective": 0.03,
+                "fairness error": 0.0,
+                "balance": 0.33
+            },
+            "Adult": {
+                "Objective": 0.47,
+                "fairness error": 0.06,
+                "balance": 0.32
+            },
+            "Bank": {
+                "Objective": "N/A",
+                "fairness error": "N/A",
+                "balance": "N/A"
+            },
+            "CensusII": {
+                "Objective": "N/A",
+                "fairness error": "N/A",
+                "balance": "N/A"
+            }
+        }
+    },
+    "original": {
+        "kmedian": {
+            "Synthetic": {
+                "Objective": 292.4,
+                "fairness error": 0.0,
+                "balance": 1.0
+            },
+            "Synthetic-unequal": {
+                "Objective": 174.81,
+                "fairness error": 0.0,
+                "balance": 0.33
+            },
+            "Adult": {
+                "Objective": 18467.75,
+                "fairness error": 0.01,
+                "balance": 0.43
+            },
+            "Bank": {
+                "Objective": 19527.08,
+                "fairness error": 0.02,
+                "balance": 0.18
+            },
+            "CensusII": {
+                "Objective": 1754109.46,
+                "fairness error": 0.02,
+                "balance": 0.78
+            }
+        },
+        "kmeans": {
+            "Synthetic": {
+                "Objective": 207.8,
+                "fairness error": 0.0,
+                "balance": 1.0
+            },
+            "Synthetic-unequal": {
+                "Objective": 159.75,
+                "fairness error": 0.0,
+                "balance": 0.33
+            },
+            "Adult": {
+                "Objective": 9984.01,
+                "fairness error": 0.018,
+                "balance": 0.41
+            },
+            "Bank": {
+                "Objective": 9392.2,
+                "fairness error": 0.05,
+                "balance": 0.17
+            },
+            "CensusII": {
+                "Objective": 1018996.53,
+                "fairness error": 0.02,
+                "balance": 0.78
+            }
+        },
+        "ncut": {
+            "Synthetic": {
+                "Objective": 0.0,
+                "fairness error": 0.0,
+                "balance": 1.0
+            },
+            "Synthetic-unequal": {
+                "Objective": 0.06,
+                "fairness error": 0.0,
+                "balance": 0.33
+            },
+            "Adult": {
+                "Objective": 0.74,
+                "fairness error": 0.08,
+                "balance": 0.3
+            },
+            "Bank": {
+                "Objective": 0.58,
+                "fairness error": 0.39,
+                "balance": 0.14
+            },
+            "CensusII": {
+                "Objective": 0.52,
+                "fairness error": 0.41,
+                "balance": 0.43
+            }
+        }
+    }
+}
