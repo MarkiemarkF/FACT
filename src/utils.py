@@ -124,6 +124,7 @@ def get_fair_accuracy_proportional(u_V,V_list,l,N,K):
 
 
 def create_affinity(X, knn, scale = None, alg = "annoy", savepath = None, W_path = None, data=None):
+    # TODO: Commenten!!!
     N,D = X.shape
     if W_path is not None:
         if W_path.endswith('.mat'):
