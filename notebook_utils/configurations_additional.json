@@ -1,0 +1,70 @@
+{
+    "Synthetic": {
+        "kmedian": [],
+        "kmeans": [],
+        "ncut": [
+            {
+                "lmbda": 10,
+                "Lipschitz": 2.0
+            }
+        ]
+    },
+    "Synthetic-unequal": {
+        "kmedian": [],
+        "kmeans": [],
+        "ncut": [
+            {
+                "lmbda": 10,
+                "Lipschitz": 2.0
+            }
+        ]
+    },
+    "Adult": {
+        "kmedian": [],
+        "kmeans": [],
+        "ncut": [
+            {
+                "lmbda": 10
+            },
+            {
+                "lmbda": 1.5,
+                "Lipschitz": 0.001
+            }
+        ]
+    },
+    "Bank": {
+        "kmedian": [],
+        "kmeans": [
+            {
+                "lmbda": 9000,
+                "Lipschitz": 1.0
+            }
+        ],
+        "ncut": [
+            {
+                "lmbda": 40
+            },
+            {
+                "lmbda": 1,
+                "Lipschitz": 0.001
+            }
+        ]
+    },
+    "CensusII": {
+        "kmedian": [],
+        "kmeans": [],
+        "ncut": [
+            {
+                "lmbda": 100
+            },
+            {
+                "lmbda": 2.5,
+                "Lipschitz": 0.001
+            },
+            {
+                "lmbda": 1,
+                "Lipschitz": 1e-05
+            }
+        ]
+    }
+}

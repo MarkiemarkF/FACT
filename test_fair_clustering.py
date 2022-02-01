@@ -66,7 +66,7 @@ def main(args, logging=True, seedable=False):
     plot_option_fairness_vs_clusterE = args.plot_option_fairness_vs_clusterE
     plot_option_balance_vs_clusterE = args.plot_option_balance_vs_clusterE
     plot_option_convergence = args.plot_option_convergence
-    plot_bound_update = args.plot_bound_update
+    bound_update_test = args.bound_update_test
 
     # ###  Data load
     savepath_compare = osp.join(data_dir, dataset + '.npz')
@@ -178,13 +178,13 @@ def main(args, logging=True, seedable=False):
 
     #______________________________________________________________________________
     # ADDED: For testing bound update iteration convergence (Lipschitz experiments)
-    if plot_bound_update: 
+    if bound_update_test: 
         if cluster_option == "ncut":
             bound_energy_list, elapsed = fair_clustering(X, K, u_V, V_list, lmbdas[-1], args.L, fairness, cluster_option, C_init=C_init,
-                                                l_init=l_init, A=A, plot_bound_update=plot_bound_update)
+                                                l_init=l_init, A=A, bound_update_test=bound_update_test)
         else:
             bound_energy_list, elapsed = fair_clustering(X, K, u_V, V_list, lmbdas[-1], args.L, fairness, cluster_option, C_init=C_init,
-                                                l_init=l_init, plot_bound_update=plot_bound_update)
+                                                l_init=l_init, bound_update_test=bound_update_test)
         sys.stdout = stdout
         return bound_energy_list, elapsed
     #______________________________________________________________________________
@@ -358,7 +358,7 @@ if __name__ == '__main__':
     #_________________________________________________________________
     # ADDED: 
     # Flag to only run a single bound update, to check convergence
-    parser.add_argument('--plot_bound_update', default=False, type=str2bool,
+    parser.add_argument('--bound_update_test', default=False, type=str2bool,
                         help="plot (only one) bound update")
 
     # Flag for loading Bera et al. results and calculating the metrics

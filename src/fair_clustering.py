@@ -34,6 +34,8 @@ from kernel import kernel_clustering_update, kernel_dist_calc
 #
 
 
+#__________________________________________________________________
+# CHANGED: fixed bug in pool.map() by handing X as argument
 # import pdb
 def kmeans_update(tmp, X):
     """
@@ -43,12 +45,6 @@ def kmeans_update(tmp, X):
     c1 = X_tmp.mean(axis = 0)
 
     return c1
-
-@jit
-def reduce_func(D_chunk,start):
-    J = np.mean(D_chunk,axis=1)
-    return J
-
 
 def kmedian_update(tmp, X):
     """
@@ -61,6 +57,13 @@ def kmedian_update(tmp, X):
     j = np.argmin(J)
     c1 = X_tmp[j,:]
     return c1
+#__________________________________________________________________
+#    
+
+@jit
+def reduce_func(D_chunk,start):
+    J = np.mean(D_chunk,axis=1)
+    return J
 
 def NormalizedCutEnergy(A, S, clustering):
     if isinstance(A, np.ndarray):
@@ -237,7 +240,7 @@ def restore_nonempty_cluster (X,K,oldl,oldC,oldS,ts):
         return l,C,S,trivial_status
 
 def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans', C_init="kmeans_plus",
-                    l_init=None, A=None, kernel_type='poly', kernel_args=[], plot_bound_update=False):
+                    l_init=None, A=None, kernel_type='poly', kernel_args=[], bound_update_test=False):
 
     """
 
@@ -259,10 +262,10 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
 
     maxiter = 100
 
-    #_____________________________________
+    #______________________________________
     # ADDED: timeout after number of hours
     maxtime = 3600*100
-    #_____________________________________
+    #______________________________________
     #
 
     utils.init(X_s =X)
@@ -298,6 +301,10 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
                 a_p = sqdist.copy()
             #___________________________________________
             #
+
+        #__________________________________________________________
+        # CHANGED: fixed bug in pool.map() by adding partial
+        # with X as argument
         elif method == 'kmeans':
 
             print ('Inside k-means update')
@@ -315,6 +322,8 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
             C = np.asarray(np.vstack(C_list))
             sqdist = ecdist(X,C)
             a_p = sqdist.copy()
+        #__________________________________________________________
+        #
 
         elif method == 'ncut':
             print ('Inside ncut update')
@@ -323,7 +332,7 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
             sqdist = np.asarray(np.vstack(sqdist_list).T)
             a_p = sqdist.copy()
 
-        #___________________________________________
+        #_______________________________________________________
         # ADDED: calculate kernel distances for kernel approach
         elif method == "kernel":
             print('Inside kernel update')
@@ -331,7 +340,7 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
             C = kernel_clustering_update(X, l, K)
             sqdist = kernel_dist_calc(X, S, K, kernel_type, kernel_args) 
             a_p = sqdist.copy()
-        #___________________________________________
+        #_______________________________________________________
         #
 
         if fairness ==True and lmbda!=0.0:
@@ -352,8 +361,12 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
 
             print('fairness_error = {:0.4f}'.format(fairness_error))
 
-            if plot_bound_update:
+            #________________________________________________________________
+            # ADDED: stop after one update if bound_update_test
+            if bound_update_test:
                 return bound_energy_list, timeit.default_timer() - start_time
+            #________________________________________________________________
+            #
 
         else:
 
@@ -373,11 +386,11 @@ def fair_clustering(X, K, u_V, V_list, lmbda, L, fairness=False, method='kmeans'
                 S = get_S_discrete(l,N,K)
                 l = km_le(X,C)
 
-        #___________________________________________
+        #________________________________________________
         # ADDED: compute fair clustering kernel approach
         if method == "kernel":
             currentE, clusterE, fairE, clusterE_discrete = compute_energy_fair_clustering(X, C, l, S, u_V, V_list,lmbda, A=A, method_cl=method, kernel_dist=sqdist)
-        #___________________________________________
+        #________________________________________________
         #        
         else:
             currentE, clusterE, fairE, clusterE_discrete = compute_energy_fair_clustering(X, C, l, S, u_V, V_list,lmbda, A=A, method_cl=method)

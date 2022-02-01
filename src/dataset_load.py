@@ -1,4 +1,15 @@
-### CODE OF THE ORIGINAL AUTHORS ###
+"""
+Original code by Ziko et al.
+Besides code encapsulated in:
+
+#___________________
+# ADDED: / CHANGED:
+    <code>
+#___________________
+#
+
+"""
+
 import numpy as np
 import os
 from sklearn.datasets import make_blobs
@@ -8,20 +19,21 @@ import pandas
 
 __datasets = ['Adult', 'Bank', 'Synthetic', 'Synthetic-unequal', 'CensusII']
 
-### END CODE OF THE ORIGINAL AUTHORS ###
-### OUR OWN CODE ###
+#______________________________________________________________________________
+# ADDED:
 # Own/Custom datasets
 __datasets += ['Student', 'Drugnet', 'German_Credit', 'bank_red', 'bank_2500', 'bank_5000', 'bank_10000', 'bank_15000']
 
 
-def check_and_read(data_path, sep=',', header='infer'):
+def check_and_read(data_path: str, sep: str=',', header: str='infer') -> tuple:
     """
-    Check if a dataset exists and reads if so.
+    Check if a dataset exists and read if so.
 
     :param data_path: path to dataset (csv_file)
     :param sep: seperator in datafile (e.g. ',', ';', ' ')
     :param header: row number(s) to use as column names
-    :return: Pandas DataFrame & dataset length
+
+    :return: Pandas DataFrame of dataset & dataset length
     """
     # Check if dataset exists
     if not os.path.exists(data_path):
@@ -34,10 +46,10 @@ def check_and_read(data_path, sep=',', header='infer'):
     n = df.shape[0]
 
     return df, n
-### END OF OUR OWN CODE ###
+#______________________________________________________________________________
+#
 
 
-### CODE OF THE ORIGINAL AUTHORS ###
 def dataset_names():
     return __datasets
 
@@ -111,7 +123,11 @@ def read_dataset(name, data_dir):
         sex_num[sex.astype(str).values == sens_attributes[1]] = 1
 
         # dropping non-numerical features and normalizing data
+        #_________________________________________________________________
+        # CHANGED: fixed error
         cont_types = np.where(df.dtypes == 'int64')[0]  # =[0,2,4,9,10,11]
+        #_________________________________________________________________
+        #
         df = df.iloc[:, cont_types]
         data = np.array(df.values, dtype=float)
 
@@ -206,8 +222,9 @@ def read_dataset(name, data_dir):
         # data = scale(data, axis = 0)
         K = 20
 
-    ### END CODE OF THE ORIGINAL AUTHORS ###
-    ### OUR OWN CODE ###
+
+    #__________________________________________________________________________
+    # ADDED:
     elif name == 'Student':
         # Read the Student Dataset (modded version: in sex column: 'M' = 0, 'F' = 1)
         _path = 'student_mat_Cortez_sexmod.csv'
@@ -314,8 +331,8 @@ def read_dataset(name, data_dir):
 
         # Create 2 clusters
         K = 2
-    ### END OF OUR OWN CODE ###
-    ### CODE OF THE ORIGINAL AUTHORS ###
+    #__________________________________________________________________________
+    #
     else:
         pass
 

@@ -1,0 +1,132 @@
+{
+    "Synthetic": {
+        "kmedian": {
+            "reprod": {
+                "lmbda": 10
+            },
+            "lmbda_reprod": {
+                "lmbda": 600
+            }
+        },
+        "kmeans": {
+            "reprod": {
+                "lmbda": 10
+            },
+            "lmbda_reprod": {
+                "lmbda": 100
+            }
+        },
+        "ncut": {
+            "reprod": {
+                "lmbda": 10,
+                "Lipschitz": 1.0
+            }
+        }
+    },
+    "Synthetic-unequal": {
+        "kmedian": {
+            "reprod": {
+                "lmbda": 10
+            }
+        },
+        "kmeans": {
+            "reprod": {
+                "lmbda": 10
+            }
+        },
+        "ncut": {
+            "reprod": {
+                "lmbda": 10,
+                "Lipschitz": 1.0
+            }
+        }
+    },
+    "Adult": {
+        "kmedian": {
+            "reprod": {
+                "lmbda": 9000
+            },
+            "Lipz_replic": {
+                "lmbda": 6500,
+                "Lipschitz": 0.5
+            }
+        },
+        "kmeans": {
+            "reprod": {
+                "lmbda": 9000
+            },
+            "Lipz_replic": {
+                "lmbda": 9500,
+                "Lipschitz": 1.0
+            }
+        },
+        "ncut": {
+            "reprod": {
+                "lmbda": 10,
+                "Lipschitz": 1.0,
+                "runs": 5
+            },
+            "Lipz_replic": {
+                "lmbda": 2,
+                "Lipschitz": 1e-05
+            }
+        }
+    },
+    "Bank": {
+        "kmedian": {
+            "reprod": {
+                "lmbda": 9000
+            },
+            "Lipz_replic": {
+                "lmbda": 9000,
+                "Lipschitz": 1.0
+            }
+        },
+        "kmeans": {
+            "reprod": {
+                "lmbda": 6000
+            },
+            "Lipz_replic": {
+                "lmbda": 9500,
+                "Lipschitz": 1.0
+            }
+        },
+        "ncut": {
+            "reprod": {
+                "lmbda": 40,
+                "Lipschitz": 1.0,
+                "runs": 5
+            },
+            "Lipz_replic": {
+                "lmbda": 1.2,
+                "Lipschitz": 0.0001
+            }
+        }
+    },
+    "CensusII": {
+        "kmedian": {
+            "reprod": {
+                "lmbda": 500000,
+                "runs": 5
+            }
+        },
+        "kmeans": {
+            "reprod": {
+                "lmbda": 500000,
+                "runs": 5
+            }
+        },
+        "ncut": {
+            "reprod": {
+                "lmbda": 100,
+                "Lipschitz": 1.0,
+                "runs": 5
+            },
+            "Lipz_replic": {
+                "lmbda": 0.5,
+                "Lipschitz": 1e-05,
+                "runs": 1
+            }
+        }
+    }
+}
