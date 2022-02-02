@@ -116,7 +116,7 @@ def take_by_key(dic, seq):
 #   output (dict) : Data to write
 #   data_dir (str) : Where to write the data
 def write_fairness_trial(output, data_dir, post_fix = ''):
-    g_date_format = "%Y-%m-%d-%H:%M:%S" # format of output
+    g_date_format = "%Y-%m-%d_%H-%M-%S" # format of output
     now = datetime.datetime.now().strftime(g_date_format)
     data_file = data_dir + post_fix + now
 
@@ -130,7 +130,6 @@ def write_fairness_trial(output, data_dir, post_fix = ''):
 
 
     with open(data_file, "w") as dataf:
-        
         json.dump(output, dataf)
 
 # Returns centers in a sorted format so that they will be more consistent

@@ -4,12 +4,16 @@ from collections import defaultdict
 from functools import partial
 import numpy as np
 import pandas as pd
-from cplex_fair_assignment_lp_solver import fair_partial_assignment
-from cplex_violating_clustering_lp_solver import violating_lp_clustering
-from util.clusteringutil import (clean_data, read_data, scale_data,
+from .cplex_fair_assignment_lp_solver import fair_partial_assignment
+from .cplex_violating_clustering_lp_solver import violating_lp_clustering
+from .util.clusteringutil import (clean_data, read_data, scale_data,
                                  subsample_data, take_by_key,
                                  vanilla_clustering, write_fairness_trial)
-from util.configutil import read_list
+from .util.configutil import read_list
+
+
+import json
+import os
 
 
 # This function takes a dataset and performs a fair clustering on it.
@@ -218,7 +222,14 @@ def fair_clustering(dataset, config_file, data_dir, num_clusters, deltas, max_po
         output["violation"] = violation
 
         # Writes the data in `output` to a file in data_dir
-        write_fairness_trial(output, data_dir)
+        #__________________________________________
+        # CHANGED: saving to different filename
+        # write_fairness_trial(output, data_dir)
+
+        with open(os.path.join(data_dir, dataset), "w") as f:
+            json.dump(output, f)
+        #__________________________________________
+        #
 
         # Added because sometimes the LP for the next iteration solves so
         # fast that `write_fairness_trial` cannot write to disk

@@ -36,16 +36,26 @@ def convert_bera():
     :return: saves converted results as .json
     """
     # Get results from all files
-    for dataset in ['student', 'german_credit', 'bank_red']:
-        path = os.path.join('bera_res', dataset + '.json')
-        if not os.path.exists(path):
-            E, l = get_res(os.path.join('output', dataset))
-            res_dict = {}
-            res_dict['E'] = E
-            res_dict['l'] = l
+    source_path = os.path.join("bera", "output")
 
-            with open(path, 'w') as f:
-                json.dump(res_dict, f)
+    source_filepaths = [os.path.join(source_path, filename) for filename in os.listdir(source_path)]
+
+    output_datasets = []
+    for filepath in source_filepaths:
+        dataset = os.path.basename(filepath)
+        output_path = os.path.join('bera_res', dataset + '.json')
+
+        E, l = get_res(filepath)
+        res_dict = {}
+        res_dict['dataset'] = dataset
+        res_dict['E'] = E
+        res_dict['l'] = l
+
+        with open(output_path, 'w') as f:
+            json.dump(res_dict, f, indent=4)
+
+        output_datasets.append(dataset)
+    return output_datasets
 
 
 if __name__ == '__main__':

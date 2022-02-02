@@ -21,6 +21,11 @@
                 "lmbda": 10,
                 "Lipschitz": 1.0
             }
+        },
+        "kernel": {
+            "kernel": {
+                "lmbda": 50
+            }
         }
     },
     "Synthetic-unequal": {
