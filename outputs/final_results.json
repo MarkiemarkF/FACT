@@ -532,5 +532,27 @@
                 }
             }
         }
+    },
+    "kernel": {
+        "kernel": {
+            "Synthetic": {
+                "Objective": {
+                    "mean": 615.43,
+                    "std": 0.0
+                },
+                "fairness error": {
+                    "mean": 0.0,
+                    "std": 0.0
+                },
+                "balance": {
+                    "mean": 1.0,
+                    "std": 0.0
+                },
+                "time": {
+                    "mean": 4.8,
+                    "std": 0.0
+                }
+            }
+        }
     }
 }
