@@ -175,10 +175,11 @@ def fetch_and_print_Lipschitz(use_datasets: list, use_cluster_options: list, arg
 
                 energy_lists_by_run = []
                 for entry in existing_entries:
-                    with open(os.path.join(args.output_path, entry["energy_list_file"]), "r") as f:
+                    loaded_filepath = os.path.join(*json.loads(entry["energy_list_file"]))
+                    with open(os.path.join(args.output_path, loaded_filepath), "r") as f:
                         energy_lists_by_run.append(json.loads(f.read()))
                     
-                energy_list_by_L[L] = energy_lists_by_run[2]
+                energy_list_by_L[L] = energy_lists_by_run[0]
                 conv_iter_by_L[L] = print_M_and_SD(existing_entries, keys)["convergence_iter"]
 
 
