@@ -274,11 +274,14 @@ def read_dataset(name, data_dir):
         _path = 'DRUGATTR_mod.csv'
         data_path = os.path.join(data_dir, _path)
 
-        df, n = check_and_read(data_path)
+        df, _ = check_and_read(data_path)
 
         # Remove all rows of unknown gender
         # remove_ids = [191, 201, 204, 265, 266, 273, 288]
-        # df.drop(remove_ids, inplace=True)
+        remove_ids = [188, 198, 201, 259, 260, 267, 282]
+        df.drop(remove_ids, inplace=True)
+
+        n = df.shape[0]
 
         # Sensitive attribute is gender here, drop this from the dataset
         sex = df['Gender']
