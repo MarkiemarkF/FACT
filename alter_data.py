@@ -36,7 +36,7 @@ def convert_data_columns(load_path: str, store_path: str, col_num: int, convs: l
     check_data(load_path)
 
     # Iterate over file to apply all conversions
-    file = csv.reader(open(load_path))
+    file = csv.reader(open(load_path), delimiter=";")
 
     lines = list(file)
 
@@ -86,13 +86,14 @@ def create_subset(data_path: str, store_name: str, n: int, sep: str=',') -> None
     print('Job done, wrote data to:', store_path)
 
 
-def remove_first_column(load_path: str, store_path: str) -> None:
+def remove_first_column(load_path: str, store_path: str, starting_row: int=0) -> None:
     """
     Removes the first column of a datafile and stores the modded data in a specified location (used for ID removal).
     Saves the altered data in store_path location
 
     :param load_path: path to data to remove the first column from
     :param store_path: path to store the altered data
+    :param starting_row: skips rows before this
     """
     # Check if data exists & read file
     check_data(load_path)
@@ -102,7 +103,7 @@ def remove_first_column(load_path: str, store_path: str) -> None:
     # Write file to store_path without the first column
     new_lines = [line[1:] for line in lines]
     writer = csv.writer(open(store_path, 'w', newline=''))
-    writer.writerows(new_lines)
+    writer.writerows(new_lines[starting_row:])
     print('Job done, wrote data to:', store_path)
 
 

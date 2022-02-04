@@ -138,7 +138,7 @@ def create_affinity(X, knn, scale = None, alg = "annoy", savepath = None, W_path
 
             if not os.path.exists(net_path):
                 print('Net data not found for adjacency')
-                quit()
+                exit()
 
             print('Lading adjacency matrix from file')
 
