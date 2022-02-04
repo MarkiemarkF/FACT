@@ -454,90 +454,110 @@
         }
     },
     "extra_datasets": {
-        "kmedian": {
-            "Student": {
-                "Objective": {
-                    "mean": 448.1,
-                    "std": 0.0
-                },
-                "fairness error": {
-                    "mean": 0.002,
-                    "std": 0.0
-                },
-                "balance": {
-                    "mean": 0.83,
-                    "std": 0.0
-                },
-                "time": {
-                    "mean": 4.3,
-                    "std": 0.0
-                }
-            }
-        },
         "kmeans": {
             "Student": {
                 "Objective": {
-                    "mean": 341.99,
-                    "std": 0.0
+                    "mean": 341.75900000000007,
+                    "std": 0.21270245257949952
                 },
                 "fairness error": {
-                    "mean": 0.002,
-                    "std": 0.0
+                    "mean": 0.0014666666666666671,
+                    "std": 0.0012840906856172146
                 },
                 "balance": {
-                    "mean": 0.83,
-                    "std": 0.0
+                    "mean": 0.8423333333333333,
+                    "std": 0.028128672599719705
                 },
                 "time": {
-                    "mean": 8.3,
-                    "std": 0.0
+                    "mean": 8.676666666666666,
+                    "std": 1.9481073436087197
                 }
             }
         },
         "ncut": {
-            "Student": {
-                "Objective": {
-                    "mean": 0.31,
-                    "std": 0.0
-                },
-                "fairness error": {
-                    "mean": 0.0,
-                    "std": 0.0
-                },
-                "balance": {
-                    "mean": 0.89,
-                    "std": 0.0
-                },
-                "time": {
-                    "mean": 6.8,
-                    "std": 0.0
-                }
-            },
             "Drugnet": {
                 "Objective": {
                     "mean": 0.0,
                     "std": 0.0
                 },
                 "fairness error": {
-                    "mean": 0.058,
+                    "mean": 0.05800000000000002,
+                    "std": 1.3877787807814457e-17
+                },
+                "balance": {
+                    "mean": 0.24000000000000005,
+                    "std": 5.551115123125783e-17
+                },
+                "time": {
+                    "mean": 0.3100000000000001,
+                    "std": 0.039581140290126396
+                }
+            }
+        }
+    },
+    "kernel_baseline": {
+        "kmeans": {
+            "Synthetic": {
+                "Objective": {
+                    "mean": 207.80000000000007,
+                    "std": 5.684341886080802e-14
+                },
+                "fairness error": {
+                    "mean": 0.0,
                     "std": 0.0
                 },
                 "balance": {
-                    "mean": 0.24,
+                    "mean": 1.0,
                     "std": 0.0
                 },
                 "time": {
-                    "mean": 0.5,
+                    "mean": 4.903333333333332,
+                    "std": 1.8868816131973467
+                }
+            },
+            "Synthetic-unequal": {
+                "Objective": {
+                    "mean": 159.75,
+                    "std": 0.0
+                },
+                "fairness error": {
+                    "mean": 0.0,
+                    "std": 0.0
+                },
+                "balance": {
+                    "mean": 0.33,
+                    "std": 0.0
+                },
+                "time": {
+                    "mean": 4.8,
+                    "std": 0.0
+                }
+            },
+            "bank_2500": {
+                "Objective": {
+                    "mean": 1395.68,
+                    "std": 0.0
+                },
+                "fairness error": {
+                    "mean": 0.023,
+                    "std": 0.0
+                },
+                "balance": {
+                    "mean": 0.17,
+                    "std": 0.0
+                },
+                "time": {
+                    "mean": 6.6,
                     "std": 0.0
                 }
             }
         }
     },
-    "kernel": {
+    "kernel_poly": {
         "kernel": {
             "Synthetic": {
                 "Objective": {
-                    "mean": 615.43,
+                    "mean": 1031.04,
                     "std": 0.0
                 },
                 "fairness error": {
@@ -549,7 +569,159 @@
                     "std": 0.0
                 },
                 "time": {
-                    "mean": 4.8,
+                    "mean": 4.45,
+                    "std": 0.04999999999999982
+                }
+            },
+            "Synthetic-unequal": {
+                "Objective": {
+                    "mean": 794.21,
+                    "std": 0.0
+                },
+                "fairness error": {
+                    "mean": 0.0,
+                    "std": 0.0
+                },
+                "balance": {
+                    "mean": 0.33,
+                    "std": 0.0
+                },
+                "time": {
+                    "mean": 4.4,
+                    "std": 0.0
+                }
+            },
+            "bank_2500": {
+                "Objective": {
+                    "mean": 7245.09,
+                    "std": 0.0
+                },
+                "fairness error": {
+                    "mean": 0.023,
+                    "std": 0.0
+                },
+                "balance": {
+                    "mean": 0.17,
+                    "std": 0.0
+                },
+                "time": {
+                    "mean": 132.8,
+                    "std": 0.0
+                }
+            }
+        }
+    },
+    "kernel_tanh": {
+        "kernel": {
+            "Synthetic": {
+                "Objective": {
+                    "mean": 1031.04,
+                    "std": 0.0
+                },
+                "fairness error": {
+                    "mean": 0.0,
+                    "std": 0.0
+                },
+                "balance": {
+                    "mean": 1.0,
+                    "std": 0.0
+                },
+                "time": {
+                    "mean": 4.45,
+                    "std": 0.04999999999999982
+                }
+            },
+            "Synthetic-unequal": {
+                "Objective": {
+                    "mean": 794.21,
+                    "std": 0.0
+                },
+                "fairness error": {
+                    "mean": 0.0,
+                    "std": 0.0
+                },
+                "balance": {
+                    "mean": 0.33,
+                    "std": 0.0
+                },
+                "time": {
+                    "mean": 4.4,
+                    "std": 0.0
+                }
+            },
+            "bank_2500": {
+                "Objective": {
+                    "mean": 7245.09,
+                    "std": 0.0
+                },
+                "fairness error": {
+                    "mean": 0.023,
+                    "std": 0.0
+                },
+                "balance": {
+                    "mean": 0.17,
+                    "std": 0.0
+                },
+                "time": {
+                    "mean": 132.8,
+                    "std": 0.0
+                }
+            }
+        }
+    },
+    "kernel_radial": {
+        "kernel": {
+            "Synthetic": {
+                "Objective": {
+                    "mean": 1031.04,
+                    "std": 0.0
+                },
+                "fairness error": {
+                    "mean": 0.0,
+                    "std": 0.0
+                },
+                "balance": {
+                    "mean": 1.0,
+                    "std": 0.0
+                },
+                "time": {
+                    "mean": 4.45,
+                    "std": 0.04999999999999982
+                }
+            },
+            "Synthetic-unequal": {
+                "Objective": {
+                    "mean": 794.21,
+                    "std": 0.0
+                },
+                "fairness error": {
+                    "mean": 0.0,
+                    "std": 0.0
+                },
+                "balance": {
+                    "mean": 0.33,
+                    "std": 0.0
+                },
+                "time": {
+                    "mean": 4.4,
+                    "std": 0.0
+                }
+            },
+            "bank_2500": {
+                "Objective": {
+                    "mean": 7245.09,
+                    "std": 0.0
+                },
+                "fairness error": {
+                    "mean": 0.023,
+                    "std": 0.0
+                },
+                "balance": {
+                    "mean": 0.17,
+                    "std": 0.0
+                },
+                "time": {
+                    "mean": 132.8,
                     "std": 0.0
                 }
             }

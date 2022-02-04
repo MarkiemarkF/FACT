@@ -1,5 +1,17 @@
 import os
 import csv
+import argparse
+from copy import copy
+
+
+def convert_args_for_kernel_save(args: argparse.Namespace) -> argparse.Namespace:
+    """
+    Adds details to cluster_option in args when using kernel. Purely for saving.
+    """
+    check_args = copy(args)
+    if args.cluster_option == "kernel":
+        check_args.cluster_option += f"_{args.kernel_type}_{args.kernel_args}"
+    return check_args
 
 
 def make_save_dict_Lipschitz(args, bound_energy_list: list=[0], elapsed: int=0, list_filepath: str="outputs/") -> dict:

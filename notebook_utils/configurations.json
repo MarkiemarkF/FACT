@@ -14,6 +14,9 @@
             },
             "lmbda_reprod": {
                 "lmbda": 100
+            },
+            "kernel_baseline": {
+                "lmbda": 100
             }
         },
         "ncut": {
@@ -23,8 +26,14 @@
             }
         },
         "kernel": {
-            "kernel": {
-                "lmbda": 50
+            "kernel_poly": {
+                "lmbda": 100
+            },
+            "kernel_tanh": {
+                "lmbda": 100
+            },
+            "kernel_radial": {
+                "lmbda": 100
             }
         }
     },
@@ -37,12 +46,26 @@
         "kmeans": {
             "reprod": {
                 "lmbda": 10
+            },
+            "kernel_baseline": {
+                "lmbda": 100
             }
         },
         "ncut": {
             "reprod": {
                 "lmbda": 10,
                 "Lipschitz": 1.0
+            }
+        },
+        "kernel": {
+            "kernel_poly": {
+                "lmbda": 100
+            },
+            "kernel_tanh": {
+                "lmbda": 100
+            },
+            "kernel_radial": {
+                "lmbda": 100
             }
         }
     },
@@ -135,18 +158,27 @@
         }
     },
 
-    "Student": {
-        "kmedian": {
-            "extra_datasets": {
-                "lmbda": 50
-            }
-        },
+    "bank_2500": {
         "kmeans": {
-            "extra_datasets": {
-                "lmbda": 50
+            "kernel_baseline": {
+                "lmbda": 100
             }
         },
-        "ncut": {
+        "kernel": {
+            "kernel_poly": {
+                "lmbda": 100
+            },
+            "kernel_tanh": {
+                "lmbda": 100
+            },
+            "kernel_radial": {
+                "lmbda": 100
+            }
+        }
+    },
+
+    "Student": {
+        "kmeans": {
             "extra_datasets": {
                 "lmbda": 50
             }

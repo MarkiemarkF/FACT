@@ -4,6 +4,7 @@ import json
 import os
 from .filtering import filter_outliers, find_same_options
 from .visualization import plot_Lipschitz_convergence, plot_Lipschitz_conv_iter
+from .saving import convert_args_for_kernel_save
 
 
 def print_M_and_SD(entries: list, keys: list=["Objective", "fairness error", "balance", "time"], printing: bool=True):
@@ -84,7 +85,7 @@ configs: dict, configs_additional: dict, arg_getting_fn: Callable, MODES: list, 
                     L = configs[dataset][cluster_option][mode]["Lipschitz"]
 
                 args = arg_getting_fn(dataset=dataset, cluster_option=cluster_option, lmbda=lmbda, Lipschitz=L)
-                existing_entries = find_same_options(CSV_NAME, args)
+                existing_entries = find_same_options(CSV_NAME, convert_args_for_kernel_save(args))
                 
                 if len(existing_entries) < 1:
                     print("no data yet")
@@ -138,12 +139,12 @@ configs: dict, configs_additional: dict, arg_getting_fn: Callable, MODES: list, 
     print(f"Total runtime:          {total_runtime:.1f}    ({total_runtime/3600:.2f} Hours)")
 
 
-def fetch_and_print_Lipschitz(configs: dict, use_datasets: list, arg_getting_fn: Callable, LIPSCHITZ_CONSTANTS: list, CSV_NAME_LIPSCHITZ: str) -> None:
+def fetch_and_print_Lipschitz(use_datasets: list, use_cluster_options: list, arg_getting_fn: Callable, LIPSCHITZ_CONSTANTS: list, CSV_NAME_LIPSCHITZ: str) -> None:
     """
     Fetch results from the results csv, calculate means and stds, and neatly print them.
 
-    :param configs: configurations to report, as defined in main.ipynb
     :param use_datasets: list of datasets to use
+    :param use_cluster_options: list of cluster_options to use, eg ["kmeans", "ncut"]
     :param arg_getting_fn: function that gets the arguments for main() in test_fair_clustering.py, as defined in main.ipynb
     :param LIPSCHITZ_CONSTANTS: list of Lipschitz constants to report results for
     :param CSV_NAME_LIPSCHITZ: the filename of the csv to read results from, eg "results_Lipschitz.csv"
@@ -152,7 +153,7 @@ def fetch_and_print_Lipschitz(configs: dict, use_datasets: list, arg_getting_fn:
         if dataset == "CensusII":
             continue
         print("\n\n")
-        for cluster_option in configs[dataset]:
+        for cluster_option in use_cluster_options:
             print(dataset+"\n  "+cluster_option.upper())
             energy_list_by_L = {}
             conv_iter_by_L = {}
