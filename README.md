@@ -9,10 +9,8 @@ This is the codebase for the Machine Learning Reproducibility Challenge (MLRC) o
 
 ## Getting started
 
-Clone the repository by pasting the following command in your terminal
-```bash
-git clone https://github.com/MarkiemarkF/FACT
-```
+Clone the repository
+
 Create the environment necessary for running the experiments. Choose the command according to your operating system:
 <!-- Then create and activate the environment necessary for running the experiments, using the following commands:-->
 ### Linux and MacOS
@@ -34,7 +32,9 @@ conda deactivate
 ```
 
 ## Running the experiments
-New experiments can be conducted using the [test_fair_clustering.py](./test_fair_clustering.py) file. The usage of the file is specified as follows:
+Our results can be displayed in main.ipynb by running the entire notebook without changing anything. To reproduce our results you can simply change the name of the "outputs" directory. This way a new directory by the name "outputs" will be created and filled with our results by running the entire notebook.
+
+New experiments can also be conducted using the [test_fair_clustering.py](./test_fair_clustering.py) file. The usage of the file is specified as follows:
 ```bash
 test_fair_clustering.py [--seed SEED] [-d DATASET]
                         [--cluster_option CLUSTER_OPTION]
