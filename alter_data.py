@@ -61,7 +61,7 @@ def convert_data_columns(load_path: str, store_path: str, col_num: int, convs: l
     print('Job done, wrote data to:', store_path)
 
 
-def create_subset(data_path: str, store_name: str, n: int, sep: str=',') -> None:
+def create_subset(data_path: str, store_name: str, n: int, sep: str=',', seed: int=1) -> None:
     """
     Creates a subset of length n of a dataset.
     Saves result in 'data/{store_name}_{n}' location.
@@ -70,6 +70,7 @@ def create_subset(data_path: str, store_name: str, n: int, sep: str=',') -> None
     :param store_name: filename to store subset of data
     :param n: number of samples in subset
     :param sep: separator used in datafile
+    :param seed: random state for sampling
     """
     # Check if datafile exists
     data_path = load_path = os.path.join(os.getcwd(), 'data', data_path)
@@ -77,7 +78,7 @@ def create_subset(data_path: str, store_name: str, n: int, sep: str=',') -> None
 
     # Create subset of data
     df = pd.read_csv(data_path, sep=sep)
-    df_sub = df.sample(n)
+    df_sub = df.sample(n, random_state=seed)
 
     # Store data subset
     store_path = os.path.join(os.getcwd(), 'data', store_name.title(), store_name + '_' + str(n) + '.csv')

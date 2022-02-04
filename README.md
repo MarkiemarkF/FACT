@@ -7,9 +7,6 @@ This is the codebase for the Machine Learning Reproducibility Challenge (MLRC) o
 2. The code is tested on Python 3.6 in . Refer to the [Getting started](#Getting-started) section for more detail.
 3. Download the datasets [Bank](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing), [Adult](https://archive.ics.uci.edu/ml/datasets/adult), [Census II](https://archive.ics.uci.edu/ml/datasets/US+Census+Data+(1990)), [Student](https://archive.ics.uci.edu/ml/datasets/student+performance), and [Drugnet](https://sites.google.com/site/ucinetsoftware/datasets/covert-networks/drugnet), put the files in a directory with the name of the dataset with a capital in the [data/[dataset]](./data) directory.
 
-### Student dataset
-The student dataset requires to alter the name of `student-mat.csv` into `student_mat_Cortez.csv`
-
 ## Getting started
 
 Clone the repository by pasting the following command in your terminal
