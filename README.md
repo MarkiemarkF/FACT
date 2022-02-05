@@ -15,11 +15,11 @@ Create the environment necessary for running the experiments. Choose the command
 <!-- Then create and activate the environment necessary for running the experiments, using the following commands:-->
 ### Linux and MacOS
 ```bash
-conda env create -f windows_macOS_fact_env.yaml
+conda env create -f linux_macOS_fact_env.yaml
 ```
 ### Windows
 ```bash
-conda env create -f linuxOS_fact_env.yaml
+conda env create -f windowsOS_fact_env.yaml
 ```
 ## Usage of environemnt
 To activate the environment, use:
